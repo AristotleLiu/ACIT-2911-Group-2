@@ -2,3 +2,4 @@
 
 Group Members:
 - Aristotle Liu
+- Timur Reziapov
