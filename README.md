@@ -3,3 +3,6 @@
 Group Members:
 - Aristotle Liu
 - Timur Reziapov
+- Riona Wong
+- Pei-Lun Huang
+- Timur Reziapov
