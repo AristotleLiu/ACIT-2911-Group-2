@@ -5,6 +5,3 @@ Group Members:
 - Timur Reziapov
 - Riona Wong
 - Pei-Lun Huang
-- Timur Reziapov
-
-hello
