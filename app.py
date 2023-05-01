@@ -12,7 +12,7 @@ db.init_app(app)
 @app.route("/")
 def home():
     data = Animal.query.all()
-    return data, 200
+    return jsonify(data), 200
 
 
 if __name__ == "__main__":
