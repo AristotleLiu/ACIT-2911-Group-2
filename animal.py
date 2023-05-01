@@ -1,5 +1,6 @@
 from database import db
 import json
+import datetime
 
 class Animal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,3 +26,24 @@ class Animal(db.Model):
 
     def get_diet(self):
         return json.loads(self.diet)
+    
+    def to_dict(self):
+        animal_dict = {"id" : self.id,
+            "name" : self.name,
+            "age" : self.age,
+            "gender" : self.gender,
+            "species" : self.species,
+            "price" : self.price,
+
+            "weight" : self.weight,
+            "height" : self.height,
+            "health" : self.health,
+            "color" : self.color,
+            "purchase_date" : self.purchase_date,
+            "sold_date" : self.sold_date,
+            "supplier" : self.supplier,
+            "purchase_price" : self.purchase_price,
+            "diet" : self.get_diet(),
+            "notes" : self.notes
+        }
+        return animal_dict
