@@ -1,0 +1,29 @@
+/* ----------------------Index.Html CSS----------------------- */
+/* Navigation Bar */
+
+#index-navbar-title {
+    color: red;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+ #index-filter-button {
+    height: 38.1px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  #index-search-button{
+    height: 38.1px;
+  }
+  
+/* Table CSS */
+
+  #index-action-button{
+    padding:0px;
+    height: 28px;
+    width: 28px;
+  }
+
+  /* --------------------------------------------------------------------------------------------------- */
