@@ -1,6 +1,6 @@
 from app import app, db
 from animal import Animal
-import datetime
+from dates import string_to_date
 
 with app.app_context():
     obj = Animal(
@@ -15,8 +15,8 @@ with app.app_context():
         height = 1,
         health = "good",
         color = "white",
-        purchase_date = datetime.date(2020, 5, 17),
-        sold_date = datetime.date(2020, 5, 17),
+        purchase_date = string_to_date("2020-5-17"),
+        sold_date = string_to_date("2020-5-17"),
         supplier = "tim@gmail.com",
         purchase_price = 50.0,
         diet = '{"type":"Herbivore", "foods":["Grass", "Hay"]}',
