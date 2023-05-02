@@ -20,9 +20,8 @@ db.init_app(app)
 
 @app.route("/")
 def home():
-    data = Animal.query.all()[0]
-    print(data)
-    return jsonify(data.to_dict()), 200
+    data = Animal.query.all()
+    return render_template("index.html", animals=data)
 
 @app.route("/animal", methods=["POST"])
 def add_animal():
