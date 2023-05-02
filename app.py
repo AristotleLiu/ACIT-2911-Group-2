@@ -29,8 +29,7 @@ def add_animal():
     data = request.json
     
     # Test to see the animal has all the required properties
-    for key in ["id", 
-                "name", 
+    for key in ["name", 
                 "age", 
                 "gender", 
                 "species", 
@@ -48,7 +47,13 @@ def add_animal():
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
-    new_animal = Animal(id=data["id"], 
+    highest_id = db.session.query(db.func.max(Animal.id)).scalar()
+    if highest_id:
+        new_id = highest_id + 1
+    else:
+        new_id = 1
+
+    new_animal = Animal(id=new_id, 
                     name=data["name"],
                     age=data["age"], 
                     gender=data["gender"], 
