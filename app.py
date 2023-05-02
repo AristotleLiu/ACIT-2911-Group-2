@@ -72,7 +72,7 @@ def add_animal():
     
     db.session.add(new_animal)
     db.session.commit()
-    return jsonify(new_animal.to_dict())
+    return "Item added to the database"
 
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):
@@ -89,6 +89,12 @@ def get_animal(animal_id):
     animal_json = animal.to_dict()
     return jsonify(animal_json)
 
+@app.route("/animal/<int:animal_id>", methods=["DELETE"])
+def delete_animal(animal_id):
+    animal = db.session.get(Animal, animal_id)
+    db.session.delete(animal)
+    db.session.commit()
+    return "Item deleted from the database"
 
 if __name__ == "__main__":
     app.run(debug=True)
