@@ -23,6 +23,8 @@ with app.app_context():
         notes = "Has a chipped tooth!"
     )
     print("Object made")
+
     db.session.add(obj)
     print("Object added")
+    
     db.session.commit()

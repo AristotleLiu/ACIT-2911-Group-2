@@ -9,8 +9,8 @@
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request
-
 from animal import Animal
+from dates import string_to_date
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///store.db"
@@ -22,6 +22,52 @@ def home():
     data = Animal.query.all()[0]
     print(data)
     return jsonify(data.to_dict()), 200
+
+@app.route("/animal", methods=["POST"])
+def add_animal():
+    data = request.json
+    
+    # Test to see the animal has all the required properties
+    for key in ["id", 
+                "name", 
+                "age", 
+                "gender", 
+                "species", 
+                "price", 
+                "weight", 
+                "height", 
+                "health", 
+                "color", 
+                "purchase_date", 
+                "sold_date", 
+                "supplier", 
+                "purchase_price", 
+                "diet", 
+                "notes"]:
+        if key not in data:
+            return f"The JSON provided is invalid (missing: {key})", 400
+
+    new_animal = Animal(id=data["id"], 
+                    name=data["name"],
+                    age=data["age"], 
+                    gender=data["gender"], 
+                    species=data["species"],
+                    price=data["price"], 
+                    weight=data["weight"], 
+                    height=data["height"], 
+                    health=data["health"],
+                    color=data["color"], 
+                    purchase_date=string_to_date(data["purchase_date"]),
+                    sold_date=string_to_date(data["sold_date"]),
+                    supplier=data["supplier"],
+                    purchase_price=data["purchase_price"],
+                    diet=data["diet"],
+                    notes=data["notes"])
+    
+    db.session.add(new_animal)
+    db.session.commit()
+    return "Item added to the database"
+
 
 
 if __name__ == "__main__":
