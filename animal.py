@@ -1,6 +1,5 @@
 from database import db
 import json
-import datetime
 
 class Animal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
