@@ -1,0 +1,50 @@
+body {
+    background-color: lightblue !important;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: red !important;
+    margin: 20px 0 30px 20px;
+}
+  
+
+  
+form {
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    margin: 20px 0 0 20px;
+}
+  
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+  
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+  
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+  
