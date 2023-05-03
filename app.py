@@ -23,9 +23,9 @@ def home():
     data = Animal.query.all()
     return render_template("index.html", animals=data)
 
-@app.route("/animal", methods=["POST"])
+@app.route("/", methods=["POST"])
 def add_animal():
-    data = request.json
+    data = request.form
     
     # Test to see the animal has all the required properties
     for key in ["name", 
