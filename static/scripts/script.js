@@ -6,8 +6,4 @@ const deleteItem = (element) => {
     fetch(`http://127.0.0.1:5000/animal/${animalId}`, {
         method: 'DELETE'
     }).then(response => console.log(response))
-
-    fetch(`http://127.0.0.1:5000/`, {
-        method: 'GET'
-    }).then(response => console.log(response))
 }
