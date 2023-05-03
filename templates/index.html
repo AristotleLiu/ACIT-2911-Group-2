@@ -62,7 +62,7 @@
           {% for animal in animals %}
           <tr>
 
-              <th scope="row">{{ animal.id }}</th>
+              <th class="animalID" scope="row">{{ animal.id }}</th>
               <td>{{ animal.name }}</td>
               <td>{{ animal.age }}</td>
               <td>{{ animal.gender }}</td>
@@ -71,7 +71,7 @@
               <td>
                 <a href="http://127.0.0.1:5000/animal/{{ animal.id }}" class="btn btn-primary" id="index-action-button"><i class="far fa-eye"></i></a>
                 <button type="button" class="btn btn-success" id="index-action-button"><i class="fas fa-edit"></i></button>
-                <button type="button" class="delete btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
+                <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
               </td>
           </tr>
           {% endfor %}

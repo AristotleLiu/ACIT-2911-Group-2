@@ -1,11 +1,13 @@
-const https = require("https");
 
+const deleteItem = (element) => {
+    const thread = element.parentNode.parentNode
+    animalId = thread.querySelector(".animalID").innerText
+    
+    fetch(`http://127.0.0.1:5000/animal/${animalId}`, {
+        method: 'DELETE'
+    }).then(response => console.log(response))
 
-const deleteButton = document.querySelector(".delete");
-deleteButton.addEventListener("click",clickOnDeleteButton);
-
-function clickOnDeleteButton(ev) {
-    if (ev.target.tagName === "BUTTON") {
-        alert("you clicked!")
-    }
+    fetch(`http://127.0.0.1:5000/`, {
+        method: 'GET'
+    }).then(response => console.log(response))
 }
