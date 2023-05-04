@@ -28,34 +28,35 @@
 
   /* --------------------------------------------------------------------------------------------------- */
   /* Animal page start */
-  header{
+  .header_animal_page{
     background-color:lightblue;
     font-family: Arial, Helvetica, sans-serif;
   }
-  ul{
+  .ul_animal_page{
     list-style-type: none;
     padding-inline-start: 0px;
   }
-  p{
+  .p_animal_page{
     border: 2px solid gray;
     border-radius: 8px;
     min-height: 180px;
     padding: 10px;
   }
+
   footer{
     padding: 10px;
-    font-size: 3px;
+    font-size: 0.5em;
   }
   @media screen and (Min-width:400px){
-    header h1, h2{
+    .header_animal_page h1, h2{
       padding: 10px 0px 10px 16px;
     }
-    main{
+    .main_animal_page{
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows:  1fr 1fr;
     }
-    article{
+    .article_animal_page{
       grid-column: 1/3;
     }
   }
