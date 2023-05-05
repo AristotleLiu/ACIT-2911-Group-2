@@ -84,7 +84,7 @@ def get_animal(animal_id):
         )
 
     animal = db.session.get(Animal, animal_id)
-    return animal
+    return jsonify(animal.to_dict())
 
 @app.route("/animal/<int:animal_id>", methods=["DELETE"])
 def delete_animal(animal_id):

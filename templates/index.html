@@ -70,8 +70,8 @@
               <td>{{ animal.species }}</td>
               <td>{{ animal.price }}</td>
               <td>
-                <button type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
-                <button type="button" class="btn btn-success" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
                 <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
               </td>
           </tr>
@@ -250,19 +250,19 @@
                             </div>
                             <div class="col-sm-6" id="animal-detail"> 
                               <ul id="ul_animal_page">
-                                <li><b>ID: </b>[data holder]</li>
-                                <li><b>Age: </b>[data holder]</li>
-                                <li><b>Gender: </b>[data holder]</li>
-                                <li><b>Price($): </b>[data holder]</li>
-                                <li><b>Weight(g): </b>[data holder]</li>
-                                <li><b>Height(cm): </b>[data holder]</li>
-                                <li><b>Health </b>[data holder]</li>
-                                <li><b>Color: </b>[data holder]</li>
-                                <li><b>Diet: </b>[data holder]</li>
-                                <li><b>Purchase Date: </b></li>
-                                <li><b>Purchase Price($): </b>[data holder]</li>
-                                <li><b>Sold Date (YYYY-MM_DD): </b>[data holder]</li>
-                                <li><b>Supplier: </b>[data holder]</li>
+                                <li id="ul_animal_page_id"><b>ID: </b>[data holder]</li>
+                                <li id="ul_animal_page_age"><b>Age: </b>[data holder]</li>
+                                <li id="ul_animal_page_gender"><b>Gender: </b>[data holder]</li>
+                                <li id="ul_animal_page_price"><b>Price($): </b>[data holder]</li>
+                                <li id="ul_animal_page_weight"><b>Weight(g): </b>[data holder]</li>
+                                <li id="ul_animal_page_height"><b>Height(cm): </b>[data holder]</li>
+                                <li id="ul_animal_page_health"><b>Health </b>[data holder]</li>
+                                <li id="ul_animal_page_color"><b>Color: </b>[data holder]</li>
+                                <li id="ul_animal_page_diet"><b>Diet: </b>[data holder]</li>
+                                <li id="ul_animal_page_purchase_date"><b>Purchase Date: </b></li>
+                                <li id="ul_animal_page_purchase_price"><b>Purchase Price($): </b>[data holder]</li>
+                                <li id="ul_animal_page_sold_date"><b>Sold Date (YYYY-MM_DD): </b>[data holder]</li>
+                                <li id="ul_animal_page_supplier"><b>Supplier: </b>[data holder]</li>
                               </ul>
                             </div> 
         
