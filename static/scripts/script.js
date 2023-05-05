@@ -42,7 +42,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #health').value = animalData.health;
             document.querySelector(modalTarget + ' #color').value = animalData.color;
             document.querySelector(modalTarget + ' #supplier').value = animalData.supplier;
-            document.querySelector(modalTarget + ' #diet').value = animalData.diet;
+            document.querySelector(modalTarget + ' #diet').value = JSON.stringify(animalData.diet);
             document.querySelector(modalTarget + ' #notes').value = animalData.notes;
         }
         else if (modalTarget == "#view-animal-modal") {
@@ -55,7 +55,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #ul_animal_page_height').innerHTML = "<b>Height(cm): </b> " + animalData.height;
             document.querySelector(modalTarget + ' #ul_animal_page_health').innerHTML = "<b>Health: </b> " + animalData.health;
             document.querySelector(modalTarget + ' #ul_animal_page_color').innerHTML = "<b>Color: </b> " + animalData.color;
-            document.querySelector(modalTarget + ' #ul_animal_page_diet').innerHTML = "<b>Diet: </b> " + animalData.diet;
+            document.querySelector(modalTarget + ' #ul_animal_page_diet').innerHTML = "<b>Diet: </b> " + JSON.stringify(animalData.diet);
             document.querySelector(modalTarget + ' #ul_animal_page_purchase_date').innerHTML = "<b>Purchase Date: </b> " + animalData.purchase_date;
             document.querySelector(modalTarget + ' #ul_animal_page_purchase_price').innerHTML = "<b>Purchase Price($): </b> " + animalData.purchase_price;
             document.querySelector(modalTarget + ' #ul_animal_page_sold_date').innerHTML = "<b>Sold Date (YYYY-MM_DD): </b> " + animalData.sold_date;
