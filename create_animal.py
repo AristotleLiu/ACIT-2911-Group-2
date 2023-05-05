@@ -299,7 +299,7 @@ with app.app_context():
         species = "Snail",
         price = 20,
         weight = 0.01,
-        height = 0.001,
+        height = 0.01,
         health = "good",
         color = "brown",
         purchase_date = string_to_date("2023-01-01"),
