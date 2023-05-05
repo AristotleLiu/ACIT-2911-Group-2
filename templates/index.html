@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <!-- <link rel="stylesheet" href="../static/css/stylesheet.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script defer src="{{ url_for('static', filename='scripts/script.js') }}"></script>
     <title>Index</title>
@@ -69,7 +70,7 @@
               <td>{{ animal.species }}</td>
               <td>{{ animal.price }}</td>
               <td>
-                <a href="http://127.0.0.1:5000/animal/{{ animal.id }}" class="btn btn-primary" id="index-action-button" target="_blank"><i class="far fa-eye"></i></a>
+                <a href="http://127.0.0.1:5000/animal/{{ animal.id }}" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></a>
                 <button type="button" class="btn btn-success" id="index-action-button"><i class="fas fa-edit"></i></button>
                 <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
               </td>
@@ -227,6 +228,59 @@
           </div>
     
 
+
+          <!-- View Animal Modal -->
+
+          <div class="modal fade" id="view-animal-modal" tabindex="-1" role="dialog" aria-labelledby="view-animal-modal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> [Animal Name] </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <body>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-sm-6">
+                               <img src="./pics/Timothy.png" alt="" width=100% id="animal-page-img">
+                            </div>
+                            <div class="col-sm-6" id="animal-detail"> 
+                              <ul id="ul_animal_page">
+                                <li><b>ID: </b>[data holder]</li>
+                                <li><b>Age: </b>[data holder]</li>
+                                <li><b>Gender: </b>[data holder]</li>
+                                <li><b>Price($): </b>[data holder]</li>
+                                <li><b>Weight(g): </b>[data holder]</li>
+                                <li><b>Height(cm): </b>[data holder]</li>
+                                <li><b>Health </b>[data holder]</li>
+                                <li><b>Color: </b>[data holder]</li>
+                                <li><b>Diet: </b>[data holder]</li>
+                                <li><b>Purchase Date: </b></li>
+                                <li><b>Purchase Price($): </b>[data holder]</li>
+                                <li><b>Sold Date (YYYY-MM_DD): </b>[data holder]</li>
+                                <li><b>Supplier: </b>[data holder]</li>
+                              </ul>
+                            </div> 
+        
+                          </div>  
+                        </div>
+                        <br>
+                      <div class="form-group shadow-textarea">
+                        <label for="Animal-Notes"><b>Notes:</b></label>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="" readonly>[data holder]</textarea>
+                      </div>
+                      <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Edit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                      </div>    -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
