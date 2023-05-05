@@ -69,39 +69,24 @@ input[type="submit"] {
 
   /* --------------------------------------------------------------------------------------------------- */
   /* Animal page start */
-  .header_animal_page{
-    background-color:lightblue;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .ul_animal_page{
-    list-style-type: none;
-    padding-inline-start: 0px;
-  }
-  .p_animal_page{
-    border: 2px solid gray;
-    border-radius: 8px;
-    min-height: 180px;
-    padding: 10px;
-  }
 
-  footer{
-    padding: 10px;
-    font-size: 0.5em;
-  }
-  @media screen and (Min-width:400px){
-    .header_animal_page h1, h2{
-      padding: 10px 0px 10px 16px;
-    }
-    .main_animal_page{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows:  1fr 1fr;
-    }
-    .article_animal_page{
-      grid-column: 1/3;
-    }
+  #animal_page_edit{
+    margin-left: 50px;
+
   }
   
+#animal-text-box{
+  background-color: whitesmoke;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+/* List Container */
+#animal-detail{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 20px;
+}
 
+#ul_animal_page{
+  list-style-type: none;
+}
   /* Animal page end */
