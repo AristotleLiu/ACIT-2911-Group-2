@@ -4,39 +4,38 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/stylesheet.css" />
-    <title>Animal page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}" />
+    <title>{{ animal.id }} | {{ animal.name }} | {{ animal.species }}</title>
   </head>
   <body>
     <header class="header_animal_page">
-      <h1>Timothy</h1>
-      <h2>Goat</h2>
+      <h1>{{ animal.name }}</h1>
+      <h2>{{ animal.species }}</h2>
     </header>
     <main class="main_animal_page">
       <aside>
-        <img class="img_animal_page" src="./pics/Timothy.png" alt="" />
+        <img class="img_animal_page" src="images/Timothy.png" alt="" />
       </aside>
 
       <ul class="ul_animal_page">
-        <li>ID:</li>
-        <li>Age:</li>
-        <li>Gender:</li>
-        <li>Price($)</li>
-        <li>Weight(G):</li>
-        <li>Height(CM):</li>
-        <li>Health:</li>
-        <li>Color:</li>
-        <li>Diet:</li>
-        <li>Purchase Date:</li>
-        <li>Purchase Price($):</li>
-        <li>Sold Date(YYYY-MM-DD):</li>
-        <li>Supplier:</li>
+        <li>ID: {{ animal.id }}</li>
+        <li>Age: {{ animal.age }}</li>
+        <li>Gender: {{ animal.gender }}</li>
+        <li>Price($): {{ animal.price }}</li>
+        <li>Weight(G): {{ animal.weight }}</li>
+        <li>Height(CM): {{ animal.height }}</li>
+        <li>Health: {{ animal.health }}</li>
+        <li>Color: {{ animal.color }}</li>
+        <li>Diet: {{ animal.diet }}</li>
+        <li>Purchase Date: {{ animal.purchase_date }}</li>
+        <li>Purchase Price($): {{ animal.purchase_price }}</li>
+        <li>Sold Date(YYYY-MM-DD): {{ animal.sold_date }}</li>
+        <li>Supplier: {{ animal.supplier }}</li>
       </ul>
       <article class="article_animal_page">
         <h4>Note:</h4>
         <p class="p_animal_page">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
-          accusantium delectus dolore.
+          {{ animal.notes }}
         </p>
         <button>Edit</button>
         <button>Delete</button>
