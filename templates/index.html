@@ -135,7 +135,8 @@
                 
                     <br>
       
-                    <input type="submit" value="Submit">
+                    <button type type="submit" class="btn btn-success">Submit</button>
+
                   </form>
             </div>
           </div>
@@ -156,7 +157,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post" action="/" target="ifrm1">
+                    <form id="modal-form" method="post">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" required><br>
                   
@@ -219,9 +220,9 @@
                       <input type="file" id="image" name="image"><br>
                       <br>
                   
-                      <input type="submit" value="Submit">
+                      <button type type="submit" class="btn btn-success">Submit</button>
                     </form>
-                    <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe>
+                    <!-- <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe> -->
                 </div>
               </div>
             </div>
@@ -245,7 +246,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-6">
-                               <img src="./pics/Timothy.png" alt="" width=100% id="animal-page-img">
+                               <img src="../static/images/Timothy.png" alt="" width=100% id="animal-page-img">
                             </div>
                             <div class="col-sm-6" id="animal-detail"> 
                               <ul id="ul_animal_page">
@@ -281,58 +282,6 @@
             </div>
           </div>
       
-        
-          <!-- Edit Animal Modal -->
-
-          <div class="modal fade" id="view-animal-modal" tabindex="-1" role="dialog" aria-labelledby="view-animal-modal" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> [Animal Name] </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <body>
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-sm-6">
-                               <img src="./images/Timothy.png" alt="" width=100% id="animal-page-img">
-                            </div>
-                            <div class="col-sm-6" id="animal-detail"> 
-                              <ul id="ul_animal_page">
-                                <li><b>ID: </b>[data holder]</li>
-                                <li><b>Age: </b>[data holder]</li>
-                                <li><b>Gender: </b>[data holder]</li>
-                                <li><b>Price($): </b>[data holder]</li>
-                                <li><b>Weight(g): </b>[data holder]</li>
-                                <li><b>Height(cm): </b>[data holder]</li>
-                                <li><b>Health </b>[data holder]</li>
-                                <li><b>Color: </b>[data holder]</li>
-                                <li><b>Diet: </b>[data holder]</li>
-                                <li><b>Purchase Date: </b></li>
-                                <li><b>Purchase Price($): </b>[data holder]</li>
-                                <li><b>Sold Date (YYYY-MM_DD): </b>[data holder]</li>
-                                <li><b>Supplier: </b>[data holder]</li>
-                              </ul>
-                            </div> 
-        
-                          </div>  
-                        </div>
-                        <br>
-                      <div class="form-group shadow-textarea">
-                        <label for="Animal-Notes"><b>Notes:</b></label>
-                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="" readonly>[data holder]</textarea>
-                      </div>
-                      <!-- <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Edit</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                      </div>    -->
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- Edit Animal Page -->
 
@@ -347,7 +296,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post" action="/" target="ifrm1">
+                    <form id="modal-form" method="post">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
                   
@@ -410,9 +359,9 @@
                       <input type="file" id="image" name="image"><br>
                       <br>
                   
-                      <input type="submit" value="Submit">
+                      <button type type="submit" class="btn btn-success">Submit</button>
                     </form>
-                    <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe>
+        
                 </div>
               </div>
             </div>
