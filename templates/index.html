@@ -71,7 +71,7 @@
               <td>{{ animal.price }}</td>
               <td>
                 <button type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
-                <button type="button" class="btn btn-success" id="index-action-button"><i class="fas fa-edit"></i></button>
+                <button type="button" class="btn btn-success" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
                 <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
               </td>
           </tr>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post" action="/" target="ifrm1" onsubmit="addItem(this)">
+                    <form id="modal-form" method="post" action="/" target="ifrm1">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" required><br>
                   
@@ -245,7 +245,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-6">
-                               <img src="{{url_for('static', filename='images/Timothy.png')}}" alt="" width=100% id="animal-page-img">
+                               <img src="./pics/Timothy.png" alt="" width=100% id="animal-page-img">
                             </div>
                             <div class="col-sm-6" id="animal-detail"> 
                               <ul id="ul_animal_page">
@@ -264,7 +264,7 @@
                                 <li><b>Supplier: </b>[data holder]</li>
                               </ul>
                             </div> 
-                            
+        
                           </div>  
                         </div>
                         <br>
@@ -281,6 +281,142 @@
             </div>
           </div>
       
+        
+          <!-- Edit Animal Modal -->
+
+          <div class="modal fade" id="view-animal-modal" tabindex="-1" role="dialog" aria-labelledby="view-animal-modal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> [Animal Name] </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <body>
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-sm-6">
+                               <img src="./images/Timothy.png" alt="" width=100% id="animal-page-img">
+                            </div>
+                            <div class="col-sm-6" id="animal-detail"> 
+                              <ul id="ul_animal_page">
+                                <li><b>ID: </b>[data holder]</li>
+                                <li><b>Age: </b>[data holder]</li>
+                                <li><b>Gender: </b>[data holder]</li>
+                                <li><b>Price($): </b>[data holder]</li>
+                                <li><b>Weight(g): </b>[data holder]</li>
+                                <li><b>Height(cm): </b>[data holder]</li>
+                                <li><b>Health </b>[data holder]</li>
+                                <li><b>Color: </b>[data holder]</li>
+                                <li><b>Diet: </b>[data holder]</li>
+                                <li><b>Purchase Date: </b></li>
+                                <li><b>Purchase Price($): </b>[data holder]</li>
+                                <li><b>Sold Date (YYYY-MM_DD): </b>[data holder]</li>
+                                <li><b>Supplier: </b>[data holder]</li>
+                              </ul>
+                            </div> 
+        
+                          </div>  
+                        </div>
+                        <br>
+                      <div class="form-group shadow-textarea">
+                        <label for="Animal-Notes"><b>Notes:</b></label>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="" readonly>[data holder]</textarea>
+                      </div>
+                      <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Edit</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
+                      </div>    -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Edit Animal Page -->
+
+          <div class="modal fade" id="edit-animal-modal" tabindex="-1" role="dialog" aria-labelledby="edit-animal-modal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Edit Animal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <body>
+                    <form id="modal-form" method="post" action="/" target="ifrm1">
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="name" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
+                  
+                      <label for="age">Age:</label>
+                      <input type="text" id="age" name="age" value = " {{ ADD YOUR VARIABLE HERE }}" required ><br>
+                  
+                      <label for="gender">Gender:</label>
+                      <select id="gender" name="gender" required>
+                        <option value="">--Select--</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="hermaphrodite">Hermaphrodite</option>
+                        <option value="other">Other</option>
+                      </select><br>
+                  
+                      <label for="species">Species:</label>
+                      <input type="text" id="species" name="species" value = " {{ ADD YOUR VARIABLE HERE }}" ><br>
+              
+                      <label for="price">Price:</label>
+                      <input type="number" id="price" name="price" value = " {{ ADD YOUR VARIABLE HERE }}">
+
+                      <label for="purchase_price">Purchase Price:</label>
+                      <input type="number" id="purchase_price" name="purchase_price" value = " {{ ADD YOUR VARIABLE HERE }}">
+
+                      <label for="purchase_date">Purchase Date:</label>
+                      <input type="date" id="purchase_date" name="purchase_date" value = " {{ ADD YOUR VARIABLE HERE }}">
+
+                      <label for="sold_date">Sold Date:</label>
+                      <input type="date" id="sold_date" name="sold_date" value = " {{ ADD YOUR VARIABLE HERE }}">
+                  
+                      <label for="weight">Weight:</label>
+                      <input type="number" id="weight" name="weight" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
+                  
+                      <label for="height">Height:</label>
+                      <input type="number" id="height" name="height" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
+                  
+                      <label for="health">Health:</label>
+                      <select id="health" name="health" required>
+                        <option value="">--Select--</option>
+                        <option value="healthy">excellent</option>
+                        <option value="good">good</option>
+                        <option value="fair">fair</option>
+                        <option value="poor">poor</option>
+                        <option value="critical">critical</option>
+                      </select><br>
+                  
+                      <label for="color">Color:</label>
+                      <input type="text" id="color" name="color" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
+                  
+                      <label for="supplier">Supplier:</label>
+                      <input type="email" id="supplier" name="supplier" value = " {{ ADD YOUR VARIABLE HERE }}" required ><br>
+                  
+                      <label for="diet">Diet:</label>
+                      <input type="text" id="diet" name="diet" value = " {{ ADD YOUR VARIABLE HERE }}" required><br>
+                  
+                      <label for="notes">Additional Notes:</label>
+                      <textarea id="notes" name="notes"></textarea><br>
+              
+                      <label for="image">Image:</label>
+                      <input type="file" id="image" name="image"><br>
+                      <br>
+                  
+                      <input type="submit" value="Submit">
+                    </form>
+                    <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
