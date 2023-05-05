@@ -156,7 +156,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post" action="/" target="ifrm1">
+                    <form id="modal-form" method="post" action="/" target="ifrm1" onsubmit="addItem(this)">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" required><br>
                   
@@ -245,7 +245,7 @@
                         <div class="container">
                           <div class="row">
                             <div class="col-sm-6">
-                               <img src="./pics/Timothy.png" alt="" width=100% id="animal-page-img">
+                               <img src="{{url_for('static', filename='images/Timothy.png')}}" alt="" width=100% id="animal-page-img">
                             </div>
                             <div class="col-sm-6" id="animal-detail"> 
                               <ul id="ul_animal_page">
@@ -264,7 +264,7 @@
                                 <li><b>Supplier: </b>[data holder]</li>
                               </ul>
                             </div> 
-        
+                            
                           </div>  
                         </div>
                         <br>
