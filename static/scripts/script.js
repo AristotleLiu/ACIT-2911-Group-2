@@ -8,3 +8,7 @@ const deleteItem = (element) => {
 
     thread.remove()
 }
+
+const addItem = (element) => {
+    setTimeout(() => location.reload(), 100)
+}
