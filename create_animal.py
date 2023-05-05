@@ -7,7 +7,7 @@ with app.app_context():
         id = 1,
         name = "Timothy",
         age = 1,
-        gender = "Female",
+        gender = "female",
         species = "Goat",
         price = 250,
         weight = 5,
@@ -25,7 +25,7 @@ with app.app_context():
         Animal(
         name = "Buddy",
         age = 3,
-        gender = "Male",
+        gender = "male",
         species = "Dog",
         price = 500,
         weight = 20,
@@ -43,7 +43,7 @@ with app.app_context():
         Animal(
         name = "Whiskers",
         age = 2,
-        gender = "Female",
+        gender = "female",
         species = "Cat",
         price = 300,
         weight = 10,
@@ -61,7 +61,7 @@ with app.app_context():
         Animal(
         name = "Hank",
         age = 5,
-        gender = "Male",
+        gender = "male",
         species = "Horse",
         price = 1500,
         weight = 800,
@@ -79,7 +79,7 @@ with app.app_context():
         Animal(
         name = "Samantha",
         age = 4,
-        gender = "Female",
+        gender = "female",
         species = "Rabbit",
         price = 100,
         weight = 3,
@@ -97,7 +97,7 @@ with app.app_context():
         Animal(
         name = "Max",
         age = 6,
-        gender = "Male",
+        gender = "male",
         species = "Parrot",
         price = 200,
         weight = 1,
@@ -115,7 +115,7 @@ with app.app_context():
         Animal(
         name = "Rocky",
         age = 2,
-        gender = "Male",
+        gender = "male",
         species = "Hamster",
         price = 50,
         weight = 0.2,
@@ -133,7 +133,7 @@ with app.app_context():
         Animal(
         name = "Leo",
         age = 1,
-        gender = "Male",
+        gender = "male",
         species = "Guinea Pig",
         price = 70,
         weight = 1,
@@ -151,7 +151,7 @@ with app.app_context():
         Animal(
         name = "Milo",
         age = 4,
-        gender = "Male",
+        gender = "male",
         species = "Snake",
         price = 200,
         weight = 1,
@@ -169,7 +169,7 @@ with app.app_context():
         Animal(
         name = "Lola",
         age = 3,
-        gender = "Female",
+        gender = "female",
         species = "Ferret",
         price = 100,
         weight = 0.5,
@@ -187,7 +187,7 @@ with app.app_context():
         Animal(
         name = "Viktor",
         age = 3,
-        gender = "Female",
+        gender = "female",
         species = "Bobcat",
         price = 100,
         weight = 0.5,
@@ -205,7 +205,7 @@ with app.app_context():
         Animal(
         name = "Fluffy",
         age = 2,
-        gender = "Female",
+        gender = "female",
         species = "Rabbit",
         price = 100,
         weight = 2.5,
@@ -223,7 +223,7 @@ with app.app_context():
         Animal(
         name = "Simba",
         age = 3,
-        gender = "Male",
+        gender = "male",
         species = "Lion",
         price = 5000,
         weight = 200,
@@ -241,7 +241,7 @@ with app.app_context():
         Animal(
         name = "Coco",
         age = 1,
-        gender = "Female",
+        gender = "female",
         species = "Polar Bear",
         price = 10000,
         weight = 900,
@@ -259,7 +259,7 @@ with app.app_context():
         Animal(
         name = "Zeus",
         age = 5,
-        gender = "Male",
+        gender = "male",
         species = "Horse",
         price = 8000,
         weight = 600,
@@ -277,7 +277,7 @@ with app.app_context():
         Animal(
         name = "Kiki",
         age = 1,
-        gender = "Female",
+        gender = "female",
         species = "Dodo Bird",
         price = 25000,
         weight = 4,
@@ -295,7 +295,7 @@ with app.app_context():
         Animal(
         name = "Ziggy",
         age = 2,
-        gender = "Hermaphrodite",
+        gender = "hermaphrodite",
         species = "Snail",
         price = 20,
         weight = 0.01,
@@ -313,7 +313,7 @@ with app.app_context():
         Animal(
         name = "Kiki",
         age = 2,
-        gender = "Female",
+        gender = "female",
         species = "Parrot",
         price = 500,
         weight = 0.5,
@@ -331,7 +331,7 @@ with app.app_context():
         Animal(
         name = "Ziggy",
         age = 5,
-        gender = "Male",
+        gender = "male",
         species = "Chameleon",
         price = 350,
         weight = 0.1,
@@ -349,7 +349,7 @@ with app.app_context():
         Animal(
         name = "Gus",
         age = 3,
-        gender = "Male",
+        gender = "male",
         species = "Toucan",
         price = 800,
         weight = 0.5,
@@ -367,7 +367,7 @@ with app.app_context():
         Animal(
         name = "Simba",
         age = 1,
-        gender = "Male",
+        gender = "male",
         species = "Cheetah",
         price = 1500,
         weight = 50,
@@ -385,7 +385,7 @@ with app.app_context():
         Animal(
         name = "Zara",
         age = 2,
-        gender = "Female",
+        gender = "female",
         species = "Turtle",
         price = 20,
         weight = 5,
@@ -403,7 +403,7 @@ with app.app_context():
         Animal(
         name = "Kiki",
         age = 5,
-        gender = "Hermaphrodite",
+        gender = "hermaphrodite",
         species = "Frog",
         price = 50,
         weight = 0.5,
@@ -421,7 +421,7 @@ with app.app_context():
         Animal(
         name = "Wally",
         age = 7,
-        gender = "Male",
+        gender = "male",
         species = "Walrus",
         price = 10000,
         weight = 1200,
@@ -439,7 +439,7 @@ with app.app_context():
         Animal(
         name = "Wilma",
         age = 5,
-        gender = "Female",
+        gender = "female",
         species = "Walrus",
         price = 9000,
         weight = 1100,
