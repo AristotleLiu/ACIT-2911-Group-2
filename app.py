@@ -1,10 +1,9 @@
 """
 1. make sure you have sql alchemy installed with `pip install -U Flask-SQLAlchemy`
-2. run `python .\database.py`
-3. run `python .\create_tables.py`
-4. run `python .\create_animal.py`
-5. run "python app.py"
-6. Running on http://127.0.0.1:5000
+2. run `python .\create_tables.py`
+3. run `python .\create_animal.py`
+4. run "python app.py"
+5. Running on http://127.0.0.1:5000
 """
 from database import db
 from pathlib import Path
@@ -23,9 +22,9 @@ def home():
     data = Animal.query.all()
     return render_template("index.html", animals=data)
 
-@app.route("/animal", methods=["POST"])
+@app.route("/", methods=["POST"])
 def add_animal():
-    data = request.json
+    data = request.form
     
     # Test to see the animal has all the required properties
     for key in ["name", 
