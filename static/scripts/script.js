@@ -44,6 +44,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #supplier').value = animalData.supplier;
             document.querySelector(modalTarget + ' #diet').value = JSON.stringify(animalData.diet);
             document.querySelector(modalTarget + ' #notes').value = animalData.notes;
+            document.querySelector(modalTarget + ' #image_url').value = animalData.image_url;
         }
         else if (modalTarget == "#view-animal-modal") {
             document.querySelector(modalTarget + ' .modal-title').innerHTML = animalData.name;
@@ -61,6 +62,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #ul_animal_page_sold_date').innerHTML = "<b>Sold Date (YYYY-MM_DD): </b> " + animalData.sold_date;
             document.querySelector(modalTarget + ' #ul_animal_page_supplier').innerHTML = "<b>Supplier: </b> " + animalData.supplier;
             document.querySelector(modalTarget + ' textarea').textContent = animalData.notes;
+            document.querySelector(modalTarget + ' #animal-page-img').src = animalData.image_url;
         }
     } catch (error) {
         console.error(error);

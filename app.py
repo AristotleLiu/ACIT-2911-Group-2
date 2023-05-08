@@ -41,7 +41,8 @@ def add_animal():
                 "supplier", 
                 "purchase_price", 
                 "diet", 
-                "notes"]:
+                "notes",
+                "image_url"]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
@@ -66,7 +67,8 @@ def add_animal():
                     supplier=data["supplier"],
                     purchase_price=data["purchase_price"],
                     diet=json.dumps(data["diet"]),
-                    notes=data["notes"])
+                    notes=data["notes"],
+                    image_url=data["image_url"])
     
     db.session.add(new_animal)
     db.session.commit()
@@ -112,7 +114,8 @@ def update_animal(animal_id):
                 "supplier", 
                 "purchase_price", 
                 "diet", 
-                "notes"]:
+                "notes",
+                "image_url"]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
         
@@ -132,6 +135,7 @@ def update_animal(animal_id):
     animal.purchase_price = data["purchase_price"]
     animal.diet = json.dumps(data["diet"])
     animal.notes = data["notes"]
+    animal.image_url = data["image_url"]
 
     db.session.commit()
     return "Item updated in the database"
