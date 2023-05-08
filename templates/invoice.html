@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script defer src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <title>Invoice</title>
+</head>
+<body>
+    <!-- Brand Name -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" id="index-navbar-title">Sales Invoices</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <!-- BUTTONS IN NAV BAR -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" id="index-search-button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+            
+            <button type="button" class="btn btn-outline-primary" id="index-filter-button" data-toggle="modal" data-target="#filter-modal">
+                <i class="fas fa-filter"></i>
+            </button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-animal-modal">
+                <i class="fas fa-paw"></i>
+                Create Invoice
+              </button>
+          </form>
+        </div>
+      </nav>
+      
+      <!-- DATA TABLE  -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Invoice No.</th>
+            <th scope="col">Customer</th>
+            <!-- <th scope="col">Address</th> -->
+            <th scope="col">City</th>
+            <th scope="col">Province</th>
+            <!-- <th scope="col">Postal Code</th> -->
+            <!-- <th scope="col">Price($)</th> -->
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Total Due ($):</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for animal in animals %}
+          <tr>
+
+              <th class="animalID" scope="row">{{ animal.id }}</th>
+              <td>{{ animal.name }}</td>
+              <td>{{ animal.age }}</td>
+              <td>{{ animal.gender }}</td>
+              <td>{{ animal.species }}</td>
+              <td>{{ animal.price }}</td>
+              <td>Total Due Holder</td>
+              <td>
+                <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
+              </td>
+          </tr>
+          {% endfor %}
+   
+        </tbody>
+      </table>
+
+ <!--  Add Animal MODAL -->
+
+ <div class="modal fade" id="add-animal-modal" tabindex="-1" role="dialog" aria-labelledby="add-animal-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Add Animal</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <body>
+            <form id="modal-form" method="post" onsubmit="addAnimal()">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required><br>
+          
+              <label for="age">Age:</label>
+              <input type="text" id="age" name="age" required><br>
+          
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                <option value="">--Select--</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="hermaphrodite">Hermaphrodite</option>
+                <option value="other">Other</option>
+              </select><br>
+          
+              <label for="species">Species:</label>
+              <input type="text" id="species" name="species" required><br>
+      
+              <label for="price">Price:</label>
+              <input type="number" id="price" name="price" step="0.01" min="0">
+
+              <label for="purchase_price">Purchase Price:</label>
+              <input type="number" id="purchase_price" name="purchase_price" step="0.01" min="0">
+
+              <label for="purchase_date">Purchase Date:</label>
+              <input type="date" id="purchase_date" name="purchase_date">
+
+              <label for="sold_date">Sold Date:</label>
+              <input type="date" id="sold_date" name="sold_date">
+          
+              <label for="weight">Weight:</label>
+              <input type="number" id="weight" name="weight" step="0.01" min="0" required><br>
+          
+              <label for="height">Height:</label>
+              <input type="number" id="height" name="height" step="0.01" min="0" required><br>
+          
+              <label for="health">Health:</label>
+              <select id="health" name="health" required>
+                <option value="">--Select--</option>
+                <option value="healthy">excellent</option>
+                <option value="good">good</option>
+                <option value="fair">fair</option>
+                <option value="poor">poor</option>
+                <option value="critical">critical</option>
+              </select><br>
+          
+              <label for="color">Color:</label>
+              <input type="text" id="color" name="color" required><br>
+          
+              <label for="supplier">Supplier:</label>
+              <input type="email" id="supplier" name="supplier" required><br>
+          
+              <label for="diet">Diet:</label>
+              <input type="text" id="diet" name="diet" required><br>
+          
+              <label for="notes">Additional Notes:</label>
+              <textarea id="notes" name="notes"></textarea><br>
+      
+              <label for="image_url">Image:</label>
+              <input type="url" id="image_url" name="image_url"><br>
+              <br>
+          
+              <button type type="submit" class="btn btn-success">Submit</button>
+            </form>
+            <!-- <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+          <!-- Invoice Modal -->
+
+          <div class="modal fade" id="view-animal-modal" tabindex="-1" role="dialog" aria-labelledby="view-animal-modal" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <body>
+
+<div class="card">
+  <div class="card-body">
+    <div class="container mb-5 mt-3">
+      <div class="row d-flex align-items-baseline">
+        <div class="col-xl-9">
+          <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>[Invoice No. Holder]</strong></p>
+        </div>
+        <div class="col-xl-3 float-end">
+          <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+              class="fas fa-print text-primary"></i> Print</a>
+          <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+              class="far fa-file-pdf text-danger"></i> Export</a>
+        </div>
+        <hr>
+      </div>
+
+      <div class="container">
+        <div class="col-md-12">
+          <div class="text-center">
+            <i class="fas fa-paw fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+            <p class="pt-0">Trap'd Animals</p>
+          </div>
+
+        </div>
+
+
+        <div class="row">
+          <div class="col-xl-8">
+            <ul class="list-unstyled">
+              <li class="text-muted">To: <span style="color:#5d9fc5 ;">Herman Luo</span></li>
+              <li class="text-muted">111 Hastings, Vancouver</li>
+              <li class="text-muted">British Columbia, Canada</li>
+              <li class="text-muted">V3G 1E9</li>
+              <li class="text-muted"><i class="fas fa-phone"></i> 778 - 777 - 1128</li>
+            </ul>
+          </div>
+          <div class="col-xl-4">
+            <p class="text-muted">Invoice</p>
+            <ul class="list-unstyled">
+              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                  class="fw-bold">ID:</span>#1-0001</li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                  class="fw-bold">Date: </span>May 05,2023</li>
+              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+                  class="me-1 fw-bold" id="invoice-status">Status:</span><span class="badge bg-warning text-black fw-bold">
+                  Unpaid</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row my-2 mx-1 justify-content-center">
+          <table class="table table-striped table-borderless">
+            <thead style="background-color:#84B0CA ;" class="text-white">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Animal ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Species</th>
+                <th scope="col">Price($)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>[Animal ID]</td>
+                <td>Timothy</td>
+                <td>Goat</td>
+                <td>$250</td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-xl-8">
+            <p class="ms-3">Add additional notes and payment information</p>
+
+          </div>
+          <div class="col-xl-3">
+            <ul class="list-unstyled">
+              <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
+              <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+            </ul>
+            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
+                style="font-size: 25px;">$1221</span></p>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+          <!-- Edit Invoice -->
+
+          <div class="modal fade" id="edit-animal-modal" tabindex="-1" role="dialog" aria-labelledby="edit-animal-modal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Edit Animal</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <body>
+                    <form id="modal-form" method="post" action="PATH TO ANIMAL" onsubmit="addAnimal()">
+                      <label for="name" id="invoice_id">Invoice ID:</label>
+                      <input class="form-control" id="formControlReadonly" type="text" value="Invoice ID Here" aria-label="readonly input example" readonly/>
+                  
+                      <label for="customer">Customer:</label>
+                      <input type="text" id="customer" value = "ADD YOUR VARIABLE HERE" required ><br>
+                    <label for="city">City:</label>
+                      <input type="text" id="city" name="" value = "ADD YOUR VARIABLE HERE" ><br>
+                      <label for="province">Province</label>
+                      <select name="province" id="province">
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                    <label for="sold_date">Postal Code:</label>
+                      <input type="text" id="postal_code" value = "ADD YOUR VARIABLE HERE">
+                    <label for="name" id="price">Total Due ($):</label>
+                    <input class="form-control" id="formControlReadonly" type="text" value="Price Here" aria-label="readonly input example" readonly/>
+
+                      <label for="sold_date">Date:</label>
+                      <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
+                  
+
+                      <label for="notes">Additional Notes:</label>
+                      <textarea id="notes" name="notes"></textarea><br>
+                  
+                      <button type type="submit" class="btn btn-success">Submit</button>
+                    </form>
+        
+                </div>
+              </div>
+            </div>
+          </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
