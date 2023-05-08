@@ -11,6 +11,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <link rel="stylesheet" href="../static/css/stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../static/scripts/script.js"></script>
     <script defer src="{{ url_for('static', filename='scripts/script.js') }}"></script>
     <title>Invoice</title>
 </head>
@@ -59,7 +61,7 @@
             <!-- <th scope="col">Price($)</th> -->
             <th scope="col">Date</th>
             <th scope="col">Status</th>
-            <th scope="col">Total Due ($):</th>
+            <th scope="col">Total ($):</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -91,80 +93,69 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Add Animal</h5>
+          <h5 class="modal-title" id="animal-modal"> Create Invoice</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <body>
-            <form id="modal-form" method="post" onsubmit="addAnimal()">
-              <label for="name">Name:</label>
-              <input type="text" id="name" name="name" required><br>
-          
-              <label for="age">Age:</label>
-              <input type="text" id="age" name="age" required><br>
-          
-              <label for="gender">Gender:</label>
-              <select id="gender" name="gender" required>
-                <option value="">--Select--</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="hermaphrodite">Hermaphrodite</option>
-                <option value="other">Other</option>
-              </select><br>
-          
-              <label for="species">Species:</label>
-              <input type="text" id="species" name="species" required><br>
-      
-              <label for="price">Price:</label>
-              <input type="number" id="price" name="price" step="0.01" min="0">
+            <body>
+              <form id="modal-form" method="post" action="PATH TO ANIMAL" onsubmit="addAnimal()">
+                <label for="name" id="invoice_id">Invoice ID:</label>
+                <input class="form-control"  type="text">
+                <label for="sold_date">Date:</label>
+                <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
+                <label for="customer"><b>Customer Info:</b></label>
+                <hr>
+                <label for="customer">Customer Name:</label>
+                <input type="text" id="customer"required ><br>
+              <label for="city">City:</label>
+                <input type="text" id="city"><br>
+                <label for="province">Province</label>
+                <select name="province" id="province">
+                  <option value="AB">Alberta</option>
+                  <option value="BC">British Columbia</option>
+                  <option value="MB">Manitoba</option>
+                  <option value="NB">New Brunswick</option>
+                  <option value="NL">Newfoundland and Labrador</option>
+                  <option value="NS">Nova Scotia</option>
+                  <option value="NT">Northwest Territories</option>
+                  <option value="NU">Nunavut</option>
+                  <option value="ON">Ontario</option>
+                  <option value="PE">Prince Edward Island</option>
+                  <option value="QC">Quebec</option>
+                  <option value="SK">Saskatchewan</option>
+                  <option value="YT">Yukon</option>
+              </select>
+              <label for="sold_date">Postal Code:</label>
+                <input type="text" id="postal_code">
+                <label for="phone">Phone number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="604-123-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
+                <hr>
+                <label for="animal-sold"><b>Animal:</b> </label>
+                <hr>
+                <div class="row">
+                    <div class="create_invoice_animal">
+                    <label for="name">Animal ID:</label>
+                      <input name="animal_id" type="text">
+                      <label for="name">Animal Name:</label>
+                      <input name="animal_name" type="text">
+                      <label for="name">Price:</label>
+                      <input name="price" type="text">
+                      <a class="extra_animal_field" href="#">Add More Animal</a>
+                    </div>
+                    <div class="add_invoice_animal"></div>
+                  </div>
+                  <hr>
+                
 
-              <label for="purchase_price">Purchase Price:</label>
-              <input type="number" id="purchase_price" name="purchase_price" step="0.01" min="0">
-
-              <label for="purchase_date">Purchase Date:</label>
-              <input type="date" id="purchase_date" name="purchase_date">
-
-              <label for="sold_date">Sold Date:</label>
-              <input type="date" id="sold_date" name="sold_date">
-          
-              <label for="weight">Weight:</label>
-              <input type="number" id="weight" name="weight" step="0.01" min="0" required><br>
-          
-              <label for="height">Height:</label>
-              <input type="number" id="height" name="height" step="0.01" min="0" required><br>
-          
-              <label for="health">Health:</label>
-              <select id="health" name="health" required>
-                <option value="">--Select--</option>
-                <option value="healthy">excellent</option>
-                <option value="good">good</option>
-                <option value="fair">fair</option>
-                <option value="poor">poor</option>
-                <option value="critical">critical</option>
-              </select><br>
-          
-              <label for="color">Color:</label>
-              <input type="text" id="color" name="color" required><br>
-          
-              <label for="supplier">Supplier:</label>
-              <input type="email" id="supplier" name="supplier" required><br>
-          
-              <label for="diet">Diet:</label>
-              <input type="text" id="diet" name="diet" required><br>
-          
-              <label for="notes">Additional Notes:</label>
-              <textarea id="notes" name="notes"></textarea><br>
-      
-              <label for="image_url">Image:</label>
-              <input type="url" id="image_url" name="image_url"><br>
-              <br>
-          
-              <button type type="submit" class="btn btn-success">Submit</button>
-            </form>
-            <!-- <iframe id="ifrm1" name="ifrm1" style="display:none"></iframe> -->
-        </div>
+                <label for="notes">Additional Notes:</label>
+                <textarea id="notes" name="notes"></textarea><br>
+            
+                <button type type="submit" class="btn btn-success">Submit</button>
+              </form>
+  
+          </div>
       </div>
     </div>
   </div>
