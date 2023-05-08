@@ -40,7 +40,7 @@
             <button type="button" class="btn btn-outline-primary" id="index-filter-button" data-toggle="modal" data-target="#filter-modal">
                 <i class="fas fa-filter"></i>
             </button>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-animal-modal">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-invoice-modal">
                 <i class="fas fa-paw"></i>
                 Create Invoice
               </button>
@@ -77,8 +77,8 @@
               <td>{{ animal.price }}</td>
               <td>Total Due Holder</td>
               <td>
-                <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
-                <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-invoice-modal"><i class="far fa-eye"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-invoice-modal"><i class="fas fa-edit"></i></button>
                 <button" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt" data-toggle="modal" data-target="#delete_modal"></i></button>
               </td>
           </tr>
@@ -87,9 +87,9 @@
         </tbody>
       </table>
 
- <!--  Add Animal MODAL -->
+ <!--  Create Invoice MODAL -->
 
- <div class="modal fade" id="add-animal-modal" tabindex="-1" role="dialog" aria-labelledby="add-animal-modal" aria-hidden="true">
+ <div class="modal fade" id="create-invoice-modal" tabindex="-1" role="dialog" aria-labelledby="create-invoice-modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -100,9 +100,15 @@
         </div>
         <div class="modal-body">
             <body>
-              <form id="modal-form" method="post" action="PATH TO ANIMAL" onsubmit="addAnimal()">
+              <form id="modal-form" method="post" action="PATH TO INVOICE" >
                 <label for="name" id="invoice_id">Invoice ID:</label>
                 <input class="form-control"  type="text">
+                <label for="status">Status:</label>
+                <select name="status" id="status">
+                    <option value="Unpaid">Unpaid</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Void">Void</option>
+                </select>
                 <label for="sold_date">Date:</label>
                 <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
                 <label for="customer"><b>Customer Info:</b></label>
@@ -162,7 +168,7 @@
 
           <!-- Invoice Modal -->
 
-          <div class="modal fade" id="view-animal-modal" tabindex="-1" role="dialog" aria-labelledby="view-animal-modal" aria-hidden="true">
+          <div class="modal fade" id="view-invoice-modal" tabindex="-1" role="dialog" aria-labelledby="view-invoice-modal" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-body">
@@ -188,7 +194,13 @@
         <div class="col-md-12">
           <div class="text-center">
             <i class="fas fa-paw fa-4x ms-0" style="color:#5d9fc5 ;"></i>
-            <p class="pt-0">Trap'd Animals</p>
+            <ul class="list-unstyled">
+                <li>Trap'd Animals</li>
+                <li>1234 Fake Street, Vancouver</li>
+                <li>British Columbia, Canada</li>
+                <li>V5E 1B5</li>
+                <li>604-111-2222</li>
+            </ul>
           </div>
 
         </div>
@@ -248,11 +260,11 @@
           </div>
           <div class="col-xl-3">
             <ul class="list-unstyled">
-              <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-              <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
+              <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$250.00</li>
+              <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(7%)</span>$17.50</li>
             </ul>
             <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                style="font-size: 25px;">$1221</span></p>
+                style="font-size: 25px;"> $267.50</span></p>
           </div>
         </div>
  
@@ -268,21 +280,30 @@
 
           <!-- Edit Invoice -->
 
-          <div class="modal fade" id="edit-animal-modal" tabindex="-1" role="dialog" aria-labelledby="edit-animal-modal" aria-hidden="true">
+          <div class="modal fade" id="edit-invoice-modal" tabindex="-1" role="dialog" aria-labelledby="edit-invoice-modal" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Edit Animal</h5>
+                  <h5 class="modal-title" id="animal-modal"><i class="fas fa-paw"></i> Edit Invoice</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post" action="PATH TO ANIMAL" onsubmit="addAnimal()">
+                    <form id="modal-form" method="post" action="PATH TO INVOICE" >
                       <label for="name" id="invoice_id">Invoice ID:</label>
                       <input class="form-control" id="formControlReadonly" type="text" value="Invoice ID Here" aria-label="readonly input example" readonly/>
-                  
+                    <label for="status" id="invoice_status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="Unpaid">Unpaid</option>
+                        <option value="Paid">Paid</option>
+                        <option value="Void">Void</option>
+                    </select>
+                    <label for="sold_date">Date:</label>
+                      <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
+                      <label for="customer"><b>Customer Info:</b></label>
+                    <hr>
                       <label for="customer">Customer:</label>
                       <input type="text" id="customer" value = "ADD YOUR VARIABLE HERE" required ><br>
                     <label for="city">City:</label>
@@ -305,19 +326,15 @@
                     </select>
                     <label for="sold_date">Postal Code:</label>
                       <input type="text" id="postal_code" value = "ADD YOUR VARIABLE HERE">
-                    <label for="name" id="price">Total Due ($):</label>
+                    <label for="name" id="price">Total ($):</label>
                     <input class="form-control" id="formControlReadonly" type="text" value="Price Here" aria-label="readonly input example" readonly/>
-
-                      <label for="sold_date">Date:</label>
-                      <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
-                  
 
                       <label for="notes">Additional Notes:</label>
                       <textarea id="notes" name="notes"></textarea><br>
                   
                       <button type type="submit" class="btn btn-success">Submit</button>
                     </form>
-        
+                        
                 </div>
               </div>
             </div>
