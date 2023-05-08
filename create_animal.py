@@ -19,7 +19,8 @@ with app.app_context():
         supplier = "tim@gmail.com",
         purchase_price = 50.0,
         diet = '{"type":"Herbivore", "foods":["Grass", "Hay"]}',
-        notes = "Has a chipped tooth!"
+        notes = "Has a chipped tooth!",
+        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
         ),
 
         Animal(
@@ -37,7 +38,9 @@ with app.app_context():
         supplier = "bobby@petstore.com",
         purchase_price = 350.0,
         diet = '{"type":"Omnivore", "foods":["Meat", "Vegetables"]}',
-        notes = "Loves to play fetch!"
+        notes = "Loves to play fetch!",
+        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
+
         ),
 
         Animal(
@@ -55,7 +58,8 @@ with app.app_context():
         supplier = "fred@craigslist.org",
         purchase_price = 200.0,
         diet = '{"type":"Carnivore", "foods":["Fish", "Meat"]}',
-        notes = "Likes to sleep in sunbeams."
+        notes = "Likes to sleep in sunbeams.",
+        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
         ),
 
         Animal(
@@ -73,7 +77,8 @@ with app.app_context():
         supplier = "harry@horsebreeder.com",
         purchase_price = 1000.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
-        notes = "Needs regular hoof care."
+        notes = "Needs regular hoof care.",
+        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
         ),
 
         Animal(
@@ -91,7 +96,8 @@ with app.app_context():
         supplier = "ivan@localpetstore.com",
         purchase_price = 75.0,
         diet = '{"type":"Herbivore", "foods":["Carrots", "Lettuce"]}',
-        notes = "Loves to hop around and play."
+        notes = "Loves to hop around and play.",
+        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
         ),
 
         Animal(
@@ -109,7 +115,8 @@ with app.app_context():
         supplier = "tyler@exoticbirds.com",
         purchase_price = 150.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit"]}',
-        notes = "Loves to mimic human speech."
+        notes = "Loves to mimic human speech.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -127,7 +134,8 @@ with app.app_context():
         supplier = "ivan@localpetstore.com",
         purchase_price = 30.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Vegetables"]}',
-        notes = "Likes to run on its wheel."
+        notes = "Likes to run on its wheel.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -145,7 +153,8 @@ with app.app_context():
         supplier = "ivan@localpetstore.com",
         purchase_price = 50.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Vegetables"]}',
-        notes = "Enjoys being held and cuddled."
+        notes = "Enjoys being held and cuddled.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -163,7 +172,8 @@ with app.app_context():
         supplier = "justin@reptilebreeder.com",
         purchase_price = 150.0,
         diet = '{"type":"Carnivore", "foods":["Mice", "Rats"]}',
-        notes = "Needs a heat lamp to stay warm."
+        notes = "Needs a heat lamp to stay warm.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -181,7 +191,8 @@ with app.app_context():
         supplier = "ivan@localpetstore.com",
         purchase_price = 80.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
-        notes = "Loves to play with toys."
+        notes = "Loves to play with toys.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
         
         Animal(
@@ -199,7 +210,8 @@ with app.app_context():
         supplier = "tyler@exoticbirds.com",
         purchase_price = 80.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
-        notes = "Loves to play with toys."
+        notes = "Loves to play with toys.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -217,7 +229,8 @@ with app.app_context():
         supplier = "johndoe@localpetstore.com",
         purchase_price = 75.0,
         diet = '{"type":"Herbivore", "foods":["Pellets", "Vegetables"]}',
-        notes = "Loves to chew on cardboard boxes."
+        notes = "Loves to chew on cardboard boxes.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -235,7 +248,8 @@ with app.app_context():
         supplier = "safariadventures@gmail.com",
         purchase_price = 4000.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Bone"]}',
-        notes = "Requires a large enclosure with plenty of space to roam."
+        notes = "Requires a large enclosure with plenty of space to roam.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -253,7 +267,8 @@ with app.app_context():
         supplier = "ivan@localpetstore.com",
         purchase_price = 2500.0,
         diet = '{"type":"Omnivore", "foods":["Kibble", "Meat", "Fish"]}',
-        notes = "Loves to play fetch."
+        notes = "Loves to play fetch.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -271,7 +286,8 @@ with app.app_context():
         supplier = "smithfarms@hotmail.com",
         purchase_price = 6000.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
-        notes = "Requires regular grooming and exercise."
+        notes = "Requires regular grooming and exercise.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -289,7 +305,8 @@ with app.app_context():
         supplier = "petshelter@gmail.com",
         purchase_price = 200.0,
         diet = '{"type":"Omnivore", "foods":["Kibble", "Fish"]}',
-        notes = "Likes to nap in cozy spots."
+        notes = "Likes to nap in cozy spots.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -307,7 +324,8 @@ with app.app_context():
         supplier = "alice@snailfarmer.com",
         purchase_price = 10.0,
         diet = '{"type":"Herbivore", "foods":["Lettuce", "Carrots"]}',
-        notes = "Likes to hide in its shell."
+        notes = "Likes to hide in its shell.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -325,7 +343,8 @@ with app.app_context():
         supplier = "exoticpets@zoo.com",
         purchase_price = 300.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit", "Insects"]}',
-        notes = "Loves to mimic human speech."
+        notes = "Loves to mimic human speech.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -343,7 +362,8 @@ with app.app_context():
         supplier = "junglecreatures@gmail.com",
         purchase_price = 250.0,
         diet = '{"type":"Insectivore", "foods":["Crickets", "Mealworms"]}',
-        notes = "Can change color to blend in with surroundings."
+        notes = "Can change color to blend in with surroundings.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -361,7 +381,8 @@ with app.app_context():
         supplier = "rainforestaviary@birdlovers.com",
         purchase_price = 500.0,
         diet = '{"type":"Frugivore", "foods":["Fruit"]}',
-        notes = "Has a loud, distinctive call."
+        notes = "Has a loud, distinctive call.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -379,7 +400,8 @@ with app.app_context():
         supplier = "africanwildlife@conservation.org",
         purchase_price = 1000.0,
         diet = '{"type":"Carnivore", "foods":["Meat"]}',
-        notes = "Extremely fast runner."
+        notes = "Extremely fast runner.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -397,7 +419,8 @@ with app.app_context():
         supplier = "exoticpetshop@aquatics.com",
         purchase_price = 100.0,
         diet = '{"type":"Herbivore", "foods":["Vegetables", "Fruit"]}',
-        notes = "Extremely slow runner."
+        notes = "Extremely slow runner.",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -415,7 +438,8 @@ with app.app_context():
         supplier = "bob@frogbreeder.com",
         purchase_price = 30.0,
         diet = '{"type":"Carnivore", "foods":["Insects", "Worms"]}',
-        notes = "Can jump really high!"
+        notes = "Can jump really high!",
+        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
         ),
 
         Animal(
@@ -433,7 +457,8 @@ with app.app_context():
         supplier = "walrusworld@marinepark.com",
         purchase_price = 8000.0,
         diet = '{"type":"Carnivore", "foods":["Fish", "Squid"]}',
-        notes = "Loves to swim and play with toys."
+        notes = "Loves to swim and play with toys.",
+        image_url = "https://i.natgeofe.com/k/60108d62-2d04-478e-bb79-3f3549ffd13e/walrus-tusks_4x3.jpg"
         ),
 
         Animal(
@@ -451,7 +476,8 @@ with app.app_context():
         supplier = "walrusworld@marinepark.com",
         purchase_price = 7500.0,
         diet = '{"type":"Carnivore", "foods":["Fish", "Squid"]}',
-        notes = "Enjoys playing with Wally, the male Walrus."
+        notes = "Enjoys playing with Wally, the male Walrus.",
+        image_url = "https://i.natgeofe.com/k/60108d62-2d04-478e-bb79-3f3549ffd13e/walrus-tusks_4x3.jpg"
         ),
     ]
 

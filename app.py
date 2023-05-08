@@ -7,7 +7,7 @@
 """
 from database import db
 from pathlib import Path
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, redirect
 from animal import Animal
 from dates import string_to_date
 import json
@@ -41,7 +41,8 @@ def add_animal():
                 "supplier", 
                 "purchase_price", 
                 "diet", 
-                "notes"]:
+                "notes",
+                "image_url"]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
@@ -66,11 +67,12 @@ def add_animal():
                     supplier=data["supplier"],
                     purchase_price=data["purchase_price"],
                     diet=json.dumps(data["diet"]),
-                    notes=data["notes"])
+                    notes=data["notes"],
+                    image_url=data["image_url"])
     
     db.session.add(new_animal)
     db.session.commit()
-    return "Item added to the database"
+    return redirect("http://127.0.0.1:5000/")
 
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):
@@ -93,9 +95,9 @@ def delete_animal(animal_id):
     db.session.commit()
     return "Item deleted from the database"
 
-@app.route("/animal/<int:animal_id>", methods=["PUT"])
+@app.route("/animal/<int:animal_id>", methods=["POST"])
 def update_animal(animal_id):
-    data = request.json
+    data = request.form
     
     # Test to see the animal has all the required properties
     for key in ["name", 
@@ -112,7 +114,8 @@ def update_animal(animal_id):
                 "supplier", 
                 "purchase_price", 
                 "diet", 
-                "notes"]:
+                "notes",
+                "image_url"]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
         
@@ -132,9 +135,10 @@ def update_animal(animal_id):
     animal.purchase_price = data["purchase_price"]
     animal.diet = json.dumps(data["diet"])
     animal.notes = data["notes"]
+    animal.image_url = data["image_url"]
 
     db.session.commit()
-    return "Item updated in the database"
+    return redirect("http://127.0.0.1:5000/")
 
 if __name__ == "__main__":
     app.run(debug=True)

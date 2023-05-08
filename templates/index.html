@@ -157,7 +157,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post">
+                    <form id="modal-form" method="post" onsubmit="addAnimal()">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" required><br>
                   
@@ -216,8 +216,8 @@
                       <label for="notes">Additional Notes:</label>
                       <textarea id="notes" name="notes"></textarea><br>
               
-                      <label for="image">Image:</label>
-                      <input type="file" id="image" name="image"><br>
+                      <label for="image_url">Image:</label>
+                      <input type="url" id="image_url" name="image_url"><br>
                       <br>
                   
                       <button type type="submit" class="btn btn-success">Submit</button>
@@ -296,7 +296,7 @@
                 </div>
                 <div class="modal-body">
                   <body>
-                    <form id="modal-form" method="post">
+                    <form id="modal-form" method="post" action="PATH TO ANIMAL" onsubmit="addAnimal()">
                       <label for="name">Name:</label>
                       <input type="text" id="name" name="name" value = "ADD YOUR VARIABLE HERE" required><br>
                   
@@ -355,8 +355,8 @@
                       <label for="notes">Additional Notes:</label>
                       <textarea id="notes" name="notes"></textarea><br>
               
-                      <label for="image">Image:</label>
-                      <input type="file" id="image" name="image"><br>
+                      <label for="image_url">Image:</label>
+                      <input type="url" id="image_url" name="image_url"><br>
                       <br>
                   
                       <button type type="submit" class="btn btn-success">Submit</button>
