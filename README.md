@@ -5,3 +5,4 @@ Group Members:
 - Timur Reziapov
 - Riona Wong
 - Pei-Lun Huang
+- Dev Uppin
