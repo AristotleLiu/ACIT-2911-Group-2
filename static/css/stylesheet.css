@@ -160,7 +160,6 @@ input[type="submit"] {
     border-radius: 4px;
     background: #60c7c1;
     text-decoration: none;
-    tranistion all 0.4s;
     line-height: normal;
     min-width: 120px;
     border: none;
