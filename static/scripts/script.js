@@ -29,14 +29,15 @@ const renderModal = async (element) => {
         // Parse the response JSON data and populate the modal form fields
         const animalData = await response.json();
         if (modalTarget == "#edit-animal-modal") {
+            document.querySelector(modalTarget + ' #modal-form').action = `/animal/${animalData.id}`;
             document.querySelector(modalTarget + ' #name').value = animalData.name;
             document.querySelector(modalTarget + ' #age').value = animalData.age;
             document.querySelector(modalTarget + ' #gender').value = animalData.gender;
             document.querySelector(modalTarget + ' #species').value = animalData.species;
             document.querySelector(modalTarget + ' #price').value = animalData.price;
-            document.querySelector(modalTarget + ' #purchase_price').value = animalData.purchase_price;
-            document.querySelector(modalTarget + ' #purchase_date').value = animalData.purchase_date;
-            document.querySelector(modalTarget + ' #sold_date').value = animalData.sold_date;
+            document.querySelector(modalTarget + ' #purchase_price').value = animalData.purchase_price; 
+            document.querySelector(modalTarget + ' #purchase_date').value = (new Date(animalData.purchase_date)).toISOString().split('T')[0]
+            document.querySelector(modalTarget + ' #sold_date').value = (new Date(animalData.sold_date)).toISOString().split('T')[0];
             document.querySelector(modalTarget + ' #weight').value = animalData.weight;
             document.querySelector(modalTarget + ' #height').value = animalData.height;
             document.querySelector(modalTarget + ' #health').value = animalData.health;
@@ -57,9 +58,9 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #ul_animal_page_health').innerHTML = "<b>Health: </b> " + animalData.health;
             document.querySelector(modalTarget + ' #ul_animal_page_color').innerHTML = "<b>Color: </b> " + animalData.color;
             document.querySelector(modalTarget + ' #ul_animal_page_diet').innerHTML = "<b>Diet: </b> " + JSON.stringify(animalData.diet);
-            document.querySelector(modalTarget + ' #ul_animal_page_purchase_date').innerHTML = "<b>Purchase Date: </b> " + animalData.purchase_date;
+            document.querySelector(modalTarget + ' #ul_animal_page_purchase_date').innerHTML = "<b>Purchase Date (YYYY-MM-DD): </b> " + (new Date(animalData.purchase_date)).toISOString().split('T')[0];
             document.querySelector(modalTarget + ' #ul_animal_page_purchase_price').innerHTML = "<b>Purchase Price($): </b> " + animalData.purchase_price;
-            document.querySelector(modalTarget + ' #ul_animal_page_sold_date').innerHTML = "<b>Sold Date (YYYY-MM_DD): </b> " + animalData.sold_date;
+            document.querySelector(modalTarget + ' #ul_animal_page_sold_date').innerHTML = "<b>Sold Date (YYYY-MM-DD): </b> " + (new Date(animalData.sold_date)).toISOString().split('T')[0];
             document.querySelector(modalTarget + ' #ul_animal_page_supplier').innerHTML = "<b>Supplier: </b> " + animalData.supplier;
             document.querySelector(modalTarget + ' textarea').textContent = animalData.notes;
             document.querySelector(modalTarget + ' #animal-page-img').src = animalData.image_url;
