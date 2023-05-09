@@ -187,3 +187,23 @@ input[type="submit"] {
     display: inline-block;
     margin: 100px auto;
   }
+
+
+  /* Invoice Status Color Change */
+
+  .red-text{
+    background-color:red;
+    color:white;
+  }
+  
+  .green-text{
+    background-color:green;
+    color: white;
+
+  }
+
+  .yellow-text{
+    background-color:yellow;
+    color: black;
+
+  }

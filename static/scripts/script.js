@@ -98,4 +98,16 @@ $(document).ready(function() {
     $(targetClass).remove();
     e.preventDefault();
   });
+
+if ($('#invoice_status').text().toLowerCase() === 'paid') {
+    $('#invoice_status').addClass('green-text');
+    } 
+    else if ($('#invoice_status').text().toLowerCase() === 'unpaid') {
+        $('#invoice_status').addClass('yellow-text');
+        } 
+    else {
+        $('#invoice_status').addClass('red-text');
+    }
 });
+
+
