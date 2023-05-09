@@ -78,7 +78,7 @@ const filterTable = (event) => {
     console.log(animals)
     if (event.target.value != '') {
         for (animal of animals) {
-            if (animal.querySelector(".animalName").innerText.toLowerCase().includes(event.target.value.toLowerCase())) {
+            if (animal.querySelector(".animalName").innerText.toLowerCase().includes(event.target.value.toLowerCase()) || animal.querySelector(".animalID").innerText.includes(event.target.value)) {
                 animal.classList.remove("hidden");
             } else {
                 animal.className = "hidden";
