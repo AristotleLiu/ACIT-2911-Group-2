@@ -93,6 +93,8 @@ $(document).ready(function() {
     animalCount++;
   });
   
+
+//   Change color of status Highlight in the View Invoice
   $(document).on('click', '.delete_animal_field', function(e) {
     var targetClass = $(this).data('target');
     $(targetClass).remove();

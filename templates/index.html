@@ -75,7 +75,7 @@
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
                 <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
-                <button onclick="deleteItem(this)" type="button" class="btn btn-danger" id="index-action-button"><i class="far fa-trash-alt"></i></button>
+                <button type="button" class="btn btn-danger" id="index-action-button" data-toggle="modal" data-target="#delete_modal"><i class="far fa-trash-alt"></i></button>
               </td>
           </tr>
           {% endfor %}
@@ -369,6 +369,30 @@
               </div>
             </div>
           </div>
+
+
+           <!-- Delete Modal -->
+           <div id="delete_modal" class="modal fade">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header flex-column">
+                        <div class="icon-box">
+                            <i class="fas fa-exclamation"></i>
+                        </div>
+                        <h4 class="modal-title w-100">Are you Sure?</h4>
+                        <button type=""button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Do you really want to delete [Insert Animal ID]? This process cannot be undone</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
