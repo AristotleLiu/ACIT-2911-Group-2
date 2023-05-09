@@ -31,12 +31,12 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
-                <div class="input-group-append">
+                <input type="text" class="form-control" placeholder="Search Name" id="animalNameSearch">
+                <!-- <div class="input-group-append">
                   <button class="btn btn-secondary" type="button" id="index-search-button">
                     <i class="fa fa-search"></i>
                   </button>
-                </div>
+                </div> -->
             
             <button type="button" class="btn btn-outline-primary" id="index-filter-button" data-toggle="modal" data-target="#filter-modal">
                 <i class="fas fa-filter"></i>
@@ -67,7 +67,7 @@
           <tr>
 
               <th class="animalID" scope="row">{{ animal.id }}</th>
-              <td>{{ animal.name }}</td>
+              <td class="animalName">{{ animal.name }}</td>
               <td>{{ animal.age }}</td>
               <td>{{ animal.gender }}</td>
               <td>{{ animal.species }}</td>

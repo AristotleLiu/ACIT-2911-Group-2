@@ -207,3 +207,9 @@ input[type="submit"] {
     color: black;
 
   }
+
+  /* Hide stuff */
+
+  .hidden {
+    display: none;
+  }
