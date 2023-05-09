@@ -70,6 +70,30 @@ const renderModal = async (element) => {
     }
 }
 
+const filter = document.querySelector("#animalNameSearch");
+const animalList = document.querySelector("tbody");
+
+const filterTable = (event) => {
+    animals = animalList.children;
+    console.log(animals)
+    if (event.target.value != '') {
+        for (animal of animals) {
+            if (animal.querySelector(".animalName").innerText.toLowerCase().includes(event.target.value.toLowerCase())) {
+                animal.classList.remove("hidden");
+            } else {
+                animal.className = "hidden";
+            }
+        }
+    } else {
+        for (animal of animals) {
+            animal.classList.remove("hidden");
+        }
+    }
+}
+
+filter.addEventListener("input", filterTable);
+
+
 // To add more Fields to the Invoice Creation page
 var animalCount = 1;
   
