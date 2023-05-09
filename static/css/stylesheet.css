@@ -18,6 +18,10 @@
   #index-search-button{
     height: 38.1px;
   }
+
+#nav-create-button{
+  width: 150px ;
+}
   
 /* Table CSS */
 

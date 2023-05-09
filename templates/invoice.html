@@ -19,7 +19,11 @@
 <body>
     <!-- Brand Name -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#" id="index-navbar-title">Sales Invoices</a>
+        
+        <div class="btn-group btn-group-lg" role="group" aria-label="UI Title Buttons">
+            <button type="button" class="btn btn-outline-dark">Animals</button>
+            <button type="button" class="btn btn-dark">Invoices</button>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +44,7 @@
             <button type="button" class="btn btn-outline-primary" id="index-filter-button" data-toggle="modal" data-target="#filter-modal">
                 <i class="fas fa-filter"></i>
             </button>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-invoice-modal">
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-invoice-modal" id="nav-create-button">
                 <i class="fas fa-paw"></i>
                 Create Invoice
               </button>
@@ -86,6 +90,55 @@
    
         </tbody>
       </table>
+
+ <!--  Filter MODAL -->
+
+ <div class="modal fade" id="filter-modal" tabindex="-1" role="dialog" aria-labelledby="filter-modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="filter-modal">Filter</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <body>
+            <form action="#" method="POST" id="modal-form">
+        
+                <label for="Invoice_ID"><b>Invoice ID:</b></label>
+                <input type="number" id="Invoice_ID" name="Invoice_ID"><br>
+
+                <label for="species"><b>Customer Name:</b></label>
+                <input type="text" id="Customer Name" name="Customer Name"><br>
+        
+                <label for="invoice_country"><b>Country:</b></label>
+                <input type="text" id="invoice_country" name="Invoice Country"><br>
+
+                <label for="invoice_city"><b>City:</b></label>
+                <input type="text" id="invoice_city" name="invoice_city"><br>
+
+                <label for="postal_code"><b>Postal Code:</b></label>
+                <input type="text" id="postal_code" name="postal_code"><br>
+  
+                <label for="status"><b>Status: </b></label>
+                <select id="status" name="status">
+                  <option value="">--Select--</option>
+                  <option value="">Unpaid</option>
+                  <option value="sold">Paid</option>
+                  <option value="sold">Void</option>
+                </select><br>
+
+                <br>
+  
+                <button type type="submit" class="btn btn-success">Submit</button>
+
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
  <!--  Create Invoice MODAL -->
 
