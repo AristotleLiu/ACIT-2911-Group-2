@@ -1,12 +1,17 @@
-const deleteItem = (element) => {
-    const thread = element.parentNode.parentNode;
-    const animalId = thread.querySelector(".animalID").innerText;
-    
-    fetch(`http://127.0.0.1:5000/animal/${animalId}`, {
-        method: 'DELETE'
-    }).then(response => console.log(response));
+const deleteItem = (id) => {
+    const list = document.querySelectorAll("tr")
+    const newList = Array.prototype.slice.call(list, 1)
 
-    thread.remove()
+    for (item of newList) {
+        if (item.firstElementChild.textContent == id) {
+            fetch(`http://127.0.0.1:5000/animal/${id}`, {
+                method: 'DELETE'
+            }).then(response => console.log(response));
+
+            item.remove()
+            setTimeout(() => location.reload(), 100)
+        }
+    }
 }
 
 const addItem = (element) => {
@@ -67,8 +72,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #animal-page-img').src = animalData.image_url;
         }
         else if (modalTarget == "#delete_modal") {
-            console.log("yessir")
-            console.log(document.querySelector(modalTarget + ' #del_modal_message'))
+            document.querySelector(modalTarget + ' #delete_button').attributes.onclick.value = `deleteItem(${animalData.id})`
             document.querySelector(modalTarget + ' #del_modal_message').textContent = `Do you really want to delete [animal id: ${animalData.id}] This process cannot be undone`
         }
     } catch (error) {
