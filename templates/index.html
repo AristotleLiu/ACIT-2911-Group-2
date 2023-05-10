@@ -75,7 +75,7 @@
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
                 <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
-                <button type="button" class="btn btn-danger" id="index-action-button" data-toggle="modal" data-target="#delete_modal"><i class="far fa-trash-alt"></i></button>
+                <button onclick="renderModal(this)" type="button" class="btn btn-danger" id="index-action-button" data-toggle="modal" data-target="#delete_modal"><i class="far fa-trash-alt"></i></button>
               </td>
           </tr>
           {% endfor %}
@@ -384,7 +384,7 @@
                         <button type=""button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Do you really want to delete [Insert Animal ID]? This process cannot be undone</p>
+                        <p id="del_modal_message">Do you really want to delete [Insert Animal ID]? This process cannot be undone</p>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

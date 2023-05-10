@@ -66,6 +66,11 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' textarea').textContent = animalData.notes;
             document.querySelector(modalTarget + ' #animal-page-img').src = animalData.image_url;
         }
+        else if (modalTarget == "#delete_modal") {
+            console.log("yessir")
+            console.log(document.querySelector(modalTarget + ' #del_modal_message'))
+            document.querySelector(modalTarget + ' #del_modal_message').textContent = `Do you really want to delete [animal id: ${animalData.id}] This process cannot be undone`
+        }
     } catch (error) {
         console.error(error);
     }
