@@ -49,3 +49,42 @@ class Animal(db.Model):
             "image_url" : self.image_url
         }
         return animal_dict
+    
+
+class Invoice(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.String, nullable=False)
+    date = db.Column(db.Date, nullable=True)
+    name = db.Column(db.String, nullable=False)
+    city = db.Column(db.String, nullable=False)
+    province = db.Column(db.String, nullable=False)
+    postal_code = db.Column(db.String, nullable=False)
+    phone = db.Column(db.String, nullable=False)
+
+    animals = db.relationship('AnimalInvoice', back_populates='invoice')
+
+    def to_dict(self):
+        order_dict = {
+            "id": self.id,
+            "status": self.status,
+            "date": self.date,
+            "name": self.name,
+            "city": self.city,
+            "province": self.province,
+            "postal_code": self.postal_code,
+            "phone": self.phone,
+            "animals":[], 
+            "price":0
+        }
+        for item in self.animals:
+            order_dict["animals"].append({"animal_id":item.animal_id, "animal_name":item.animal.name, "animal_species":item.animal.species,"animal_price":item.animal.price})
+            order_dict["price"] += item.animal.price
+        return order_dict
+
+
+class AnimalInvoice(db.Model):
+    animal_id = db.Column(db.ForeignKey("animal.id"), primary_key=True)
+    invoice_id = db.Column(db.ForeignKey("invoice.id"), primary_key=True)
+
+    animal = db.relationship('Animal')
+    invoice = db.relationship('Invoice', back_populates='animals')

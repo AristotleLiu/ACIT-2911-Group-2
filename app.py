@@ -8,7 +8,7 @@
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
-from animal import Animal
+from animal import Animal, Invoice, AnimalInvoice
 from dates import string_to_date
 import json
 
@@ -21,6 +21,11 @@ db.init_app(app)
 def home():
     data = Animal.query.all()
     return render_template("index.html", animals=data)
+
+@app.route("/invoice")
+def invoice_home():
+    data = Invoice.query.all()
+    return render_template("invoice.html", invoices=[item.to_dict() for item in data])
 
 @app.route("/", methods=["POST"])
 def add_animal():
