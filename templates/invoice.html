@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../static/css/stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../static/scripts/script.js"></script>
+    <!-- <script src="../static/scripts/script.js"></script> -->
     <script defer src="{{ url_for('static', filename='scripts/script.js') }}"></script>
     <title>Invoice</title>
 </head>
@@ -21,8 +21,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
         <div class="btn-group btn-group-lg" role="group" aria-label="UI Title Buttons">
-          <a href="http://127.0.0.1:5000/" class="btn btn-dark">Animals</a>
-          <a href="http://127.0.0.1:5000/invoice" class="btn btn-outline-dark">Invoices</a>
+          <a href="http://127.0.0.1:5000/" class="btn btn-outline-dark">Animals</a>
+          <a href="http://127.0.0.1:5000/invoice" class="btn btn-dark">Invoices</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -232,7 +232,7 @@
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
         <div class="col-xl-9">
-          <p style="color: #7e8d9f;font-size: 20px;">Invoice >> <strong>[Invoice No. Holder]</strong></p>
+          <p id="invoice_number">Invoice >> <strong>[Invoice No. Holder]</strong></p>
         </div>
         <div class="col-xl-3 float-end">
           <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
@@ -246,7 +246,7 @@
       <div class="container">
         <div class="col-md-12">
           <div class="text-center">
-            <i class="fas fa-paw fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+            <i class="fas fa-paw fa-4x ms-0" id="invoice_icon"></i>
             <ul class="list-unstyled">
                 <li>Trap'd Animals</li>
                 <li>1234 Fake Street, Vancouver</li>
@@ -262,7 +262,7 @@
         <div class="row">
           <div class="col-xl-8">
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span style="color:#5d9fc5 ;">Herman Luo</span></li>
+              <li class="text-muted">To: <span id="invoice_customer">Herman Luo</span></li>
               <li class="text-muted">111 Hastings, Vancouver</li>
               <li class="text-muted">British Columbia, Canada</li>
               <li class="text-muted">V3G 1E9</li>
@@ -272,11 +272,11 @@
           <div class="col-xl-4">
             <p class="text-muted">Invoice</p>
             <ul class="list-unstyled">
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
                   class="fw-bold">ID:</span>#1-0001</li>
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
                   class="fw-bold">Date: </span>May 05,2023</li>
-              <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
+              <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
                   class="me-1 fw-bold" id="invoice-status">Status:</span>
                   <span class="badge text-black fw-bold" id="invoice_status">Paid</span></li>
             </ul>
@@ -285,7 +285,7 @@
 
         <div class="row my-2 mx-1 justify-content-center">
           <table class="table table-striped table-borderless">
-            <thead style="background-color:#84B0CA ;" class="text-white">
+            <thead id="invoice_table" class="text-white">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Animal ID</th>

@@ -189,6 +189,30 @@ input[type="submit"] {
   }
 
 
+  /* Invoice Modal */
+
+  #invoice_number{
+  color: #7e8d9f;
+  font-size: 20px;
+  }
+#invoice_icon{
+  color:#5d9fc5;
+}
+ 
+#invoice_customer{
+  color:#5d9fc5;
+}
+
+#invoice_list{
+  color: #84B0CA;
+}
+
+#invoice_table{
+  background-color:#84B0CA;
+}
+
+
+
   /* Invoice Status Color Change */
 
   .red-text{
@@ -213,3 +237,4 @@ input[type="submit"] {
   .hidden {
     display: none;
   }
+
