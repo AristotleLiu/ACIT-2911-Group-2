@@ -21,8 +21,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         
         <div class="btn-group btn-group-lg" role="group" aria-label="UI Title Buttons">
-          <button type="button" class="btn btn-outline-dark"><a href="/">Animals</a></button>
-          <button type="button" class="btn btn-dark"><a href="/invoice">Invoices</a></button>
+          <a href="http://127.0.0.1:5000/" class="btn btn-dark">Animals</a>
+          <a href="http://127.0.0.1:5000/invoice" class="btn btn-outline-dark">Invoices</a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -70,16 +70,16 @@
           </tr>
         </thead>
         <tbody>
-          {% for animal in animals %}
+          {% for invoice in invoices %}
           <tr>
 
-              <th class="animalID" scope="row">{{ animal.id }}</th>
-              <td>{{ animal.name }}</td>
-              <td>{{ animal.age }}</td>
-              <td>{{ animal.gender }}</td>
-              <td>{{ animal.species }}</td>
-              <td>{{ animal.price }}</td>
-              <td>Total Due Holder</td>
+              <th class="animalID" scope="row">{{ invoice.id }}</th>
+              <td>{{ invoice.name }}</td>
+              <td>{{ invoice.city }}</td>
+              <td>{{ invoice.province }}</td>
+              <td>{{ invoice.date }}</td>
+              <td>{{ invoice.status }}</td>
+              <td>{{ invoice.price }}</td>
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-invoice-modal"><i class="far fa-eye"></i></button>
                 <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-invoice-modal"><i class="fas fa-edit"></i></button>
@@ -295,13 +295,19 @@
               </tr>
             </thead>
             <tbody>
+<!------------------------------------TEMPORARY (ONLY FOR DEMONSTRATION)-------------------------------------------------------->
+            {% for invoice in invoices %}
+              {% for animal in invoice.animals %}
               <tr>
                 <th scope="row">1</th>
-                <td>[Animal ID]</td>
-                <td>Timothy</td>
-                <td>Goat</td>
-                <td>$250</td>
+                <td>{{ animal.animal_id }}</td>
+                <td>{{ animal.animal_name }}</td>
+                <td>{{ animal.animal_species }}</td>
+                <td>${{ animal.animal_price }}</td>
               </tr>
+              {% endfor %}
+            {% endfor %}
+<!------------------------------------TEMPORARY (ONLY FOR DEMONSTRATION)-------------------------------------------------------->
             </tbody>
 
           </table>
