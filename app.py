@@ -17,6 +17,11 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///store.db"
 app.instance_path = Path(".").resolve()
 db.init_app(app)
 
+@app.route("/invoice")
+def invoice_home():
+    data = Animal.query.all()
+    return render_template("invoice.html", animals=data)
+
 @app.route("/")
 def home():
     data = Animal.query.all()

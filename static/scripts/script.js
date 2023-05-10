@@ -50,6 +50,7 @@ const renderModal = async (element) => {
         else if (modalTarget == "#view-animal-modal") {
             document.querySelector(modalTarget + ' .modal-title').innerHTML = animalData.name;
             document.querySelector(modalTarget + ' #ul_animal_page_id').innerHTML = "<b>ID: </b> " + animalData.id;
+            document.querySelector(modalTarget + ' #ul_animal_page_species').innerHTML = "<b>Species: </b> " + animalData.species;
             document.querySelector(modalTarget + ' #ul_animal_page_age').innerHTML = "<b>Age: </b> " + animalData.age;
             document.querySelector(modalTarget + ' #ul_animal_page_gender').innerHTML = "<b>Gender: </b> " + animalData.gender;
             document.querySelector(modalTarget + ' #ul_animal_page_price').innerHTML = "<b>Price($): </b> " + animalData.price;
