@@ -92,9 +92,6 @@ const filterTable = (event) => {
     }
 }
 
-filter.addEventListener("input", filterTable);
-
-
 // To add more Fields to the Invoice Creation page
 var animalCount = 1;
   
@@ -136,5 +133,10 @@ if ($('#invoice_status').text().toLowerCase() === 'paid') {
         $('#invoice_status').addClass('red-text');
     }
 });
+
+
+filter.addEventListener("input", filterTable);
+
+
 
 
