@@ -64,7 +64,7 @@
         </thead>
         <tbody>
           {% for animal in animals %}
-          <tr>
+          <tr in_invoice="{{ animal.is_in_invoice }}">
 
               <th class="animalID" scope="row">{{ animal.id }}</th>
               <td class="animalName">{{ animal.name }}</td>

@@ -24,6 +24,7 @@ with app.app_context():
     for ani in animals:
         print("Animal added, with ID", ani.id)
         association = AnimalInvoice(animal=ani, invoice=inv)
+        ani.is_in_invoice = True
         db.session.add(association)
 
     db.session.commit()
