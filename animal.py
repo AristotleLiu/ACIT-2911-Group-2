@@ -21,6 +21,8 @@ class Animal(db.Model):
     notes = db.Column(db.String, nullable=True)
 
     image_url = db.Column(db.String, nullable=True)
+    
+    is_in_invoice = db.Column(db.Boolean, default=False)
 
     def set_diet(self, data):
         self.diet = json.dumps(data)
@@ -46,7 +48,8 @@ class Animal(db.Model):
             "purchase_price" : self.purchase_price,
             "diet" : self.get_diet(),
             "notes" : self.notes,
-            "image_url" : self.image_url
+            "image_url" : self.image_url,
+            "is_in_invoice" : self.is_in_invoice
         }
         return animal_dict
     

@@ -4,12 +4,16 @@ const deleteItem = (id) => {
 
     for (item of newList) {
         if (item.firstElementChild.textContent == id) {
-            fetch(`http://127.0.0.1:5000/animal/${id}`, {
-                method: 'DELETE'
-            }).then(response => console.log(response));
+            if (item.getAttribute("in_invoice") == "True") {
+                alert("WARNING: Animal is in an invoice")
+            } else {
+                fetch(`http://127.0.0.1:5000/animal/${id}`, {
+                    method: 'DELETE'
+                }).then(response => console.log(response));
 
-            item.remove()
-            setTimeout(() => location.reload(), 100)
+                item.remove()
+                setTimeout(() => location.reload(), 100)
+            }
         }
     }
 }
