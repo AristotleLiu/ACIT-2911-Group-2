@@ -7,6 +7,8 @@ from app import app, db
 
 class Test_animal(unittest.TestCase):
     
+
+    # Date Format Checker 
     def test_date(self):
         date_format = '%Y-%m-%d'
         datetime_obj = datetime.strptime("2023-08-21", date_format)
