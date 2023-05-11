@@ -155,6 +155,13 @@ def delete_animal(animal_id):
     db.session.commit()
     return "Item deleted from the database"
 
+@app.route("/invoice/<int:invoice_id>", methods=["DELETE"])
+def delete_invoice(invoice_id):
+    invoice = db.session.get(Invoice, invoice_id)
+    db.session.delete(invoice)
+    db.session.commit()
+    return "Item deleted from the database"
+
 @app.route("/animal/<int:animal_id>", methods=["POST"])
 def update_animal(animal_id):
     data = request.form
