@@ -125,12 +125,12 @@ const checkAnimalIDs = async (event) => {
             // First, check if the ID exists
             const response = await fetch(`/animal/${ID}`);
             if (!response.ok) {
-                throw new Error('Failed to fetch animal data.');
+                throw new Error(`Failed to fetch animal data from ID ${ID}.`);
             }
             // Then, check if the animal is not apart of another invoice
             const animalData = await response.json();
             if (animalData.is_in_invoice) {
-                throw new Error('Cannot add animal: already exists in another invoice.');
+                throw new Error(`Cannot add animal: ID ${ID} already exists in another invoice.`);
             }
             document.querySelector("#submitbutton").classList.remove("disabled");
             document.querySelector("#submitbutton").removeAttribute("disabled")
