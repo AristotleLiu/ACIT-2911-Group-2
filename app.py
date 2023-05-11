@@ -155,13 +155,6 @@ def delete_animal(animal_id):
     db.session.commit()
     return "Item deleted from the database"
 
-@app.route("/invoice/<int:invoice_id>", methods=["DELETE"])
-def delete_invoice(invoice_id):
-    invoice = db.session.get(Invoice, invoice_id)
-    db.session.delete(invoice)
-    db.session.commit()
-    return "Item deleted from the database"
-
 @app.route("/animal/<int:animal_id>", methods=["POST"])
 def update_animal(animal_id):
     data = request.form
@@ -206,6 +199,35 @@ def update_animal(animal_id):
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/")
+
+@app.route("/invoice/<int:invoice_id>", methods=["POST"])
+def update_invoice(invoice_id):
+    data = request.form
+    
+    # Test to see the animal has all the required properties
+    for key in ["status", 
+            "date", 
+            "name", 
+            "city", 
+            "province", 
+            "postal_code", 
+            "phone", 
+            "animals_id"]:
+        if key not in data:
+            return f"The JSON provided is invalid (missing: {key})", 400
+            
+    invoice = db.session.get(Invoice, invoice_id)
+    invoice.status = data["status"]
+    invoice.date = data["date"]
+    invoice.name = data["name"] 
+    invoice.city = data["city"]
+    invoice.province = data["province"] 
+    invoice.postal_code = data["postal_coe"] 
+    invoice.phone = data["phone"]
+    invoice.animals_id = data["animals_id"]
+
+    db.session.commit()
+    return redirect("http://127.0.0.1:5000/invoice")
 
 if __name__ == "__main__":
     app.run(debug=True)
