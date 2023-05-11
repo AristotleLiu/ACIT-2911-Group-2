@@ -133,10 +133,15 @@ const checkAnimalIDs = async (event) => {
                 throw new Error('Cannot add animal: already exists in another invoice.');
             }
             document.querySelector("#submitbutton").classList.remove("disabled");
+
+            document.querySelector("#animalIdError").classList.add("hidden")
         }
     } catch (error) {
         console.error(error);
-        document.querySelector("#submitbutton").classList.add("disabled");
+        document.querySelector("#submitbutton").classList.add("disabled"); 
+
+        document.querySelector("#animalIdError").classList.remove("hidden");
+        document.querySelector("#animalIdError").innerHTML = error
     }
 
     console.log(testIDs)

@@ -86,5 +86,3 @@ class Test_animal(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
