@@ -20,6 +20,10 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
       }
+      else if (modalTarget == "#edit-invoice-modal") {
+          document.querySelector(modalTarget + ' #modal-form').action = `/invoice/${invoiceData.id}`;
+          document.querySelector(modalTarget + ' #status').value = invoiceData.status
+      }
   } catch (error) {
       console.error(error);
   }
