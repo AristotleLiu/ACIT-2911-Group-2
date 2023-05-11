@@ -134,6 +134,20 @@ def get_animal(animal_id):
     animal = db.session.get(Animal, animal_id)
     return jsonify(animal.to_dict())
 
+@app.route("/invoice/<int:invoice_id>", methods=["GET"])
+def get_invoice(invoice_id):
+    try:
+        if not (db.session.get(Invoice, invoice_id)):
+            raise ValueError(f"Invoice id {invoice_id} does not exist")
+    except ValueError as excpt:
+        return (
+            f"Invalid values: {excpt}",
+            404,
+        )
+
+    invoice = db.session.get(Invoice, invoice_id)
+    return jsonify(invoice.to_dict())
+
 @app.route("/animal/<int:animal_id>", methods=["DELETE"])
 def delete_animal(animal_id):
     animal = db.session.get(Animal, animal_id)
