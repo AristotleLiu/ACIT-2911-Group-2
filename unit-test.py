@@ -56,7 +56,8 @@ class Test_animal(unittest.TestCase):
             'purchase_price': 25.0,
             'diet': {'morning': 'kibble', 'afternoon': 'wet food'},
             'notes': 'likes to play with toys',
-            'image_url': None
+            'image_url': None,
+            'is_in_invoice': None,
         }
 
     # Run the test to check if the animal obj is same as the expected dictionary
