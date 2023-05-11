@@ -204,7 +204,7 @@ def update_animal(animal_id):
 def update_invoice(invoice_id):
     data = request.json
     
-    # Test to see the animal has all the required properties
+    # Test to see the invoice has all the required properties
     for key in ["status", 
             "date", 
             "name", 
