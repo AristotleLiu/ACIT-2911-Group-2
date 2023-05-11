@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- <script src="../static/scripts/script.js"></script> -->
-  <script defer src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='scripts/invoice_script.js') }}"></script>
   <title>Invoice</title>
 </head>
 
@@ -64,7 +64,7 @@
       <tr>
         <th scope="col">Invoice No.</th>
         <th scope="col">Customer</th>
-        <!-- <th scope="col">Address</th> -->
+        <th scope="col">Street</th>
         <th scope="col">City</th>
         <th scope="col">Province</th>
         <!-- <th scope="col">Postal Code</th> -->
@@ -81,6 +81,7 @@
 
         <th class="animalID" scope="row">{{ invoice.id }}</th>
         <td>{{ invoice.name }}</td>
+        <td>{{ invoice.street }}</td>
         <td>{{ invoice.city }}</td>
         <td>{{ invoice.province }}</td>
         <td>{{ invoice.date }}</td>
@@ -174,6 +175,9 @@
               <hr>
               <label for="name">Customer Name:</label>
               <input type="text" id="name" name="name" required><br>
+
+              <label for="invoice_city">Street:</label>
+              <input type="text" id="invoice_street" name="invoice_street"><br>
 
               <label for="city">City:</label>
               <input type="text" id="city" name="city"><br>
@@ -383,6 +387,8 @@
               <input class="form-control" id="formControlReadonly" type="text" value="Customer Name"
                 aria-label="readonly input" readonly />
               <label for="city">City:</label>
+              <input class="form-control" id="formControlReadonly" type="text" value="Street"
+              aria-label="readonly input" readonly />
               <input class="form-control" id="formControlReadonly" type="text" value="City Name"
                 aria-label="readonly input" readonly />
               <label for="province">Province</label>
