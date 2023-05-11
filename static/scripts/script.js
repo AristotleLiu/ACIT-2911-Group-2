@@ -28,13 +28,13 @@ const renderModal = async (element) => {
         // Get the animal ID
         const thread = element.parentNode.parentNode;
         const animalId = thread.querySelector(".animalID").innerText;
-    
+
         // Make a GET request to the server to fetch the animal data
         const response = await fetch(`/animal/${animalId}`);
         if (!response.ok) {
-          throw new Error('Failed to fetch animal data');
+            throw new Error('Failed to fetch animal data');
         }
-    
+
         // Parse the response JSON data and populate the modal form fields
         const animalData = await response.json();
         if (modalTarget == "#edit-animal-modal") {
@@ -44,7 +44,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #gender').value = animalData.gender;
             document.querySelector(modalTarget + ' #species').value = animalData.species;
             document.querySelector(modalTarget + ' #price').value = animalData.price;
-            document.querySelector(modalTarget + ' #purchase_price').value = animalData.purchase_price; 
+            document.querySelector(modalTarget + ' #purchase_price').value = animalData.purchase_price;
             document.querySelector(modalTarget + ' #purchase_date').value = (new Date(animalData.purchase_date)).toISOString().split('T')[0]
             document.querySelector(modalTarget + ' #sold_date').value = (new Date(animalData.sold_date)).toISOString().split('T')[0];
             document.querySelector(modalTarget + ' #weight').value = animalData.weight;
@@ -86,6 +86,11 @@ const renderModal = async (element) => {
 
 const filter = document.querySelector("#animalNameSearch");
 const animalList = document.querySelector("tbody");
+const animalIDs = document.querySelector("#animals_id");
+
+const availableAnimalIDs = () => {
+
+}
 
 const filterTable = (event) => {
     animals = animalList.children;
@@ -105,52 +110,81 @@ const filterTable = (event) => {
     }
 }
 
+const checkAnimalIDs = async (event) => {
+    const animalIdArray = animalIDs.value.split(" ");
+    const testIDs = [];
+    for (const item of animalIdArray) {
+        testID = parseFloat(item)
+        if (!isNaN(testID)) {
+            testIDs.push(parseFloat(item));
+        }
+    }
+
+    try {
+        for (const ID of testIDs) {
+            // First, check if the ID exists
+            const response = await fetch(`/animal/${ID}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch animal data.');
+            }
+            // Then, check if the animal is not apart of another invoice
+            const animalData = await response.json();
+            if (animalData.is_in_invoice) {
+                throw new Error('Cannot add animal: already exists in another invoice.');
+            }
+            document.querySelector("#submitbutton").classList.remove("disabled");
+        }
+    } catch (error) {
+        console.error(error);
+        document.querySelector("#submitbutton").classList.add("disabled");
+    }
+
+    console.log(testIDs)
+}
+
+
 // To add more Fields to the Invoice Creation page
 // ------------------------------------------------------------------leave for now 
 // var animalCount = 1;
-  
+
 // $(document).ready(function() {
 //   $('.extra_animal_field').click(function() {
 
 //     var newAnimal = $('.create_invoice_animal').last().clone();
- 
+
 //     var newClass = 'create_invoice_animal_' + animalCount;
 //     newAnimal.removeClass().addClass(newClass);
-  
+
 //     newAnimal.find('input').val('');
- 
+
 //     newAnimal.find('.extra_animal_field').remove();
 
 //     var deleteButton = $('<a class="delete_animal_field" href="#">Delete Animal</a>');
 //     deleteButton.data('target', '.' + newClass);
 //     newAnimal.append(deleteButton);
-  
+
 //     $('.add_invoice_animal').append(newAnimal);
 //     animalCount++;
 //   });
 // ----------------------------------------------------------------------------------------------------
 
 //   Change color of status Highlight in the View Invoice
-  $(document).on('click', '.delete_animal_field', function(e) {
+$(document).on('click', '.delete_animal_field', function (e) {
     var targetClass = $(this).data('target');
     $(targetClass).remove();
     e.preventDefault();
-  });
+});
 
 if ($('#invoice_status').text().toLowerCase() === 'paid') {
     $('#invoice_status').addClass('green-text');
-    } 
-    else if ($('#invoice_status').text().toLowerCase() === 'unpaid') {
-        $('#invoice_status').addClass('yellow-text');
-        } 
-    else {
-        $('#invoice_status').addClass('red-text');
-    }
-});
+}
+else if ($('#invoice_status').text().toLowerCase() === 'unpaid') {
+    $('#invoice_status').addClass('yellow-text');
+}
+else {
+    $('#invoice_status').addClass('red-text');
+}
 
 
 filter.addEventListener("input", filterTable);
-
-
-
-
+animalIDs.addEventListener("blur", checkAnimalIDs)
