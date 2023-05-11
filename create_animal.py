@@ -39,7 +39,7 @@ with app.app_context():
         purchase_price = 350.0,
         diet = '{"type":"Omnivore", "foods":["Meat", "Vegetables"]}',
         notes = "Loves to play fetch!",
-        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
+        image_url = "https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
 
         ),
 
@@ -59,7 +59,7 @@ with app.app_context():
         purchase_price = 200.0,
         diet = '{"type":"Carnivore", "foods":["Fish", "Meat"]}',
         notes = "Likes to sleep in sunbeams.",
-        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
+        image_url = "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -78,7 +78,7 @@ with app.app_context():
         purchase_price = 1000.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
         notes = "Needs regular hoof care.",
-        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
+        image_url = "https://images.unsplash.com/photo-1576289163370-0634b5d94d28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
         ),
 
         Animal(
@@ -97,7 +97,7 @@ with app.app_context():
         purchase_price = 75.0,
         diet = '{"type":"Herbivore", "foods":["Carrots", "Lettuce"]}',
         notes = "Loves to hop around and play.",
-        image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
+        image_url = "https://images.unsplash.com/photo-1591382386627-349b692688ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFiYml0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -116,7 +116,7 @@ with app.app_context():
         purchase_price = 150.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit"]}',
         notes = "Loves to mimic human speech.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1596044574113-bd6dc59e6337?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fFBhcnJvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -135,7 +135,7 @@ with app.app_context():
         purchase_price = 30.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Vegetables"]}',
         notes = "Likes to run on its wheel.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1599154820236-ebe408351213?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fEhhbXN0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -154,7 +154,7 @@ with app.app_context():
         purchase_price = 50.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Vegetables"]}',
         notes = "Enjoys being held and cuddled.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1630173207885-c903abb963f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
         ),
 
         Animal(
@@ -173,7 +173,7 @@ with app.app_context():
         purchase_price = 150.0,
         diet = '{"type":"Carnivore", "foods":["Mice", "Rats"]}',
         notes = "Needs a heat lamp to stay warm.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c25ha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -192,7 +192,7 @@ with app.app_context():
         purchase_price = 80.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
         notes = "Loves to play with toys.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1615087240969-eeff2fa558f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8RmVycmV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
         
         Animal(
@@ -211,7 +211,7 @@ with app.app_context():
         purchase_price = 80.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
         notes = "Loves to play with toys.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1605235923175-9930bcad51df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9iY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -230,7 +230,7 @@ with app.app_context():
         purchase_price = 75.0,
         diet = '{"type":"Herbivore", "foods":["Pellets", "Vegetables"]}',
         notes = "Loves to chew on cardboard boxes.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1591382386627-349b692688ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8UmFiYml0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -249,7 +249,7 @@ with app.app_context():
         purchase_price = 4000.0,
         diet = '{"type":"Carnivore", "foods":["Meat", "Bone"]}',
         notes = "Requires a large enclosure with plenty of space to roam.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1607490703747-0519d2e398a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGxpb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -268,7 +268,7 @@ with app.app_context():
         purchase_price = 2500.0,
         diet = '{"type":"Omnivore", "foods":["Kibble", "Meat", "Fish"]}',
         notes = "Loves to play fetch.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1546712508-dacd722e76e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBvbGFyJTIwYmVhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -287,7 +287,7 @@ with app.app_context():
         purchase_price = 6000.0,
         diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
         notes = "Requires regular grooming and exercise.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1576289163370-0634b5d94d28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGhvcnNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -306,7 +306,7 @@ with app.app_context():
         purchase_price = 200.0,
         diet = '{"type":"Omnivore", "foods":["Kibble", "Fish"]}',
         notes = "Likes to nap in cozy spots.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1667286266878-e0c40979c220?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8RG9kbyUyMEJpcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -325,7 +325,7 @@ with app.app_context():
         purchase_price = 10.0,
         diet = '{"type":"Herbivore", "foods":["Lettuce", "Carrots"]}',
         notes = "Likes to hide in its shell.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1563662185892-fe39abf9ba9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8U25haWx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -344,7 +344,7 @@ with app.app_context():
         purchase_price = 300.0,
         diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit", "Insects"]}',
         notes = "Loves to mimic human speech.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1596044574113-bd6dc59e6337?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fFBhcnJvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -363,7 +363,7 @@ with app.app_context():
         purchase_price = 250.0,
         diet = '{"type":"Insectivore", "foods":["Crickets", "Mealworms"]}',
         notes = "Can change color to blend in with surroundings.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1598904396634-9a630c4fd8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fENoYW1lbGVvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -382,7 +382,7 @@ with app.app_context():
         purchase_price = 500.0,
         diet = '{"type":"Frugivore", "foods":["Fruit"]}',
         notes = "Has a loud, distinctive call.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1595363530143-b913b4ea30dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8VG91Y2FufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -401,7 +401,7 @@ with app.app_context():
         purchase_price = 1000.0,
         diet = '{"type":"Carnivore", "foods":["Meat"]}',
         notes = "Extremely fast runner.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1582425312148-de9955e68e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Q2hlZXRhaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -420,7 +420,7 @@ with app.app_context():
         purchase_price = 100.0,
         diet = '{"type":"Herbivore", "foods":["Vegetables", "Fruit"]}',
         notes = "Extremely slow runner.",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1572713629470-3e9f5d4fdf4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8VHVydGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -439,7 +439,7 @@ with app.app_context():
         purchase_price = 30.0,
         diet = '{"type":"Carnivore", "foods":["Insects", "Worms"]}',
         notes = "Can jump really high!",
-        image_url = "https://www.omlet.co.uk/images/originals/Syrian-hamsters.jpg"
+        image_url = "https://images.unsplash.com/photo-1579380656108-f98e4df8ea62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
         Animal(
@@ -477,7 +477,7 @@ with app.app_context():
         purchase_price = 7500.0,
         diet = '{"type":"Carnivore", "foods":["Fish", "Squid"]}',
         notes = "Enjoys playing with Wally, the male Walrus.",
-        image_url = "https://i.natgeofe.com/k/60108d62-2d04-478e-bb79-3f3549ffd13e/walrus-tusks_4x3.jpg"
+        image_url = "https://images.unsplash.com/photo-1627477150479-b7f109c3aaa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
         ),
     ]
 
