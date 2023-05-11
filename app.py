@@ -211,8 +211,7 @@ def update_invoice(invoice_id):
             "city", 
             "province", 
             "postal_code", 
-            "phone", 
-            "animals_id"]:
+            "phone"]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
             
@@ -224,17 +223,6 @@ def update_invoice(invoice_id):
     invoice.province = data["province"] 
     invoice.postal_code = data["postal_code"] 
     invoice.phone = data["phone"]
-
-    db.session.commit()
-
-    print(data["animals_id"].split())
-    for ani_id in (data["animals_id"].split()):
-        print(ani_id)
-        animal = db.session.get(Animal, ani_id)
-        print(animal)
-        association = AnimalInvoice(animal=animal, invoice=invoice)
-        animal.is_in_invoice = True
-        db.session.add(association)
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
