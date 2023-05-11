@@ -146,7 +146,6 @@ if ($('#invoice_status').text().toLowerCase() === 'paid') {
     else {
         $('#invoice_status').addClass('red-text');
     }
-});
 
 
 filter.addEventListener("input", filterTable);

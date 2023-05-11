@@ -150,25 +150,28 @@
         </div>
         <div class="modal-body">
             <body>
-              <form id="modal-form" method="post" action="PATH TO INVOICE" >
-                <label for="name" id="invoice_id">Invoice ID:</label>
-                <input class="form-control"  type="text">
+              <form id="modal-form" method="post" action="/invoice" >
+
                 <label for="status">Status:</label>
                 <select name="status" id="status">
                     <option value="Unpaid">Unpaid</option>
                     <option value="Paid">Paid</option>
                     <option value="Void">Void</option>
                 </select>
-                <label for="sold_date">Date:</label>
-                <input type="date" id="sold_date" name="sold_date" value = "ADD YOUR VARIABLE HERE">
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" value = "ADD YOUR VARIABLE HERE">
+
                 <label for="customer"><b>Customer Info:</b></label>
                 <hr>
-                <label for="customer">Customer Name:</label>
-                <input type="text" id="customer"required ><br>
-              <label for="city">City:</label>
-                <input type="text" id="city"><br>
+                <label for="name">Customer Name:</label>
+                <input type="text" id="name" name="name" required ><br>
+
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city"><br>
+
                 <label for="province">Province</label>
-                <select name="province" id="province">
+                <select name="province" id="province" name="province">
                   <option value="AB">Alberta</option>
                   <option value="BC">British Columbia</option>
                   <option value="MB">Manitoba</option>
@@ -181,19 +184,22 @@
                   <option value="PE">Prince Edward Island</option>
                   <option value="QC">Quebec</option>
                   <option value="SK">Saskatchewan</option>
-                  <option value="YT">Yukon</option>
+                  <option value="YK">Yukon</option>
               </select>
-              <label for="sold_date">Postal Code:</label>
-                <input type="text" id="postal_code">
+
+              <label for="postal_code">Postal Code:</label>
+                <input type="text" id="postal_code" name="postal_code">
+        
                 <label for="phone">Phone number:</label>
                 <input type="tel" id="phone" name="phone" placeholder="604-123-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br>
                 <hr>
+
                 <label for="animal-sold"><b>Animal:</b> </label>
                 <hr>
                 <div class>
                     <div class="create_invoice_animal">
-                    <label for="name">List of Animal IDs (comma seperated):</label>
-                      <input name="animal_id" type="text">
+                    <label for="animals_id">List of Animal IDs (space separated):</label>
+                      <input id="animals_id" name="animals_id" type="text">
     
                       <!-- <a class="extra_animal_field" href="#">Add More Animal</a> -->
                     </div>

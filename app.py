@@ -98,7 +98,7 @@ def add_invoice():
 
     new_invoice = Invoice(
         status=data["status"],
-        date=data["date"], 
+        date=string_to_date(data["date"]), 
         name=data["name"], 
         city=data["city"],
         province=data["province"], 
@@ -108,8 +108,11 @@ def add_invoice():
     db.session.add(new_invoice)
     db.session.commit()
 
-    for ani_id in data["animals_id"]:
+    print(data["animals_id"].split())
+    for ani_id in (data["animals_id"].split()):
+        print(ani_id)
         animal = db.session.get(Animal, ani_id)
+        print(animal)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
         db.session.add(association)

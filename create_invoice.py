@@ -5,11 +5,11 @@ from animal import Animal, Invoice, AnimalInvoice
 
 with app.app_context():
     inv = Invoice(
-        status="paid",
+        status="Paid",
         date=string_to_date("2022-06-10"),
         name="Tim",
-        city="Edmonton",
-        province="Alberta",
+        city="Victoria",
+        province="BC",
         postal_code="U8E 9B2",
         phone="901-153-1355",
     )
