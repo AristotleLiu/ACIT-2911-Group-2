@@ -86,11 +86,7 @@ const renderModal = async (element) => {
 
 const filter = document.querySelector("#animalNameSearch");
 const animalList = document.querySelector("tbody");
-const animalIDs = document.querySelector("#animals_id");
 
-const availableAnimalIDs = () => {
-
-}
 
 const filterTable = (event) => {
     animals = animalList.children;
@@ -110,44 +106,6 @@ const filterTable = (event) => {
     }
 }
 
-const checkAnimalIDs = async (event) => {
-    const animalIdArray = animalIDs.value.split(" ");
-    const testIDs = [];
-    for (const item of animalIdArray) {
-        testID = parseFloat(item)
-        if (!isNaN(testID)) {
-            testIDs.push(parseFloat(item));
-        }
-    }
-
-    try {
-        for (const ID of testIDs) {
-            // First, check if the ID exists
-            const response = await fetch(`/animal/${ID}`);
-            if (!response.ok) {
-                throw new Error('Failed to fetch animal data.');
-            }
-            // Then, check if the animal is not apart of another invoice
-            const animalData = await response.json();
-            if (animalData.is_in_invoice) {
-                throw new Error('Cannot add animal: already exists in another invoice.');
-            }
-            document.querySelector("#submitbutton").classList.remove("disabled");
-            document.querySelector("#submitbutton").removeAttribute("disabled")
-
-            document.querySelector("#animalIdError").classList.add("hidden")
-        }
-    } catch (error) {
-        console.error(error);
-        document.querySelector("#submitbutton").classList.add("disabled"); 
-        document.querySelector("#submitbutton").setAttribute("disabled", "")
-
-        document.querySelector("#animalIdError").classList.remove("hidden");
-        document.querySelector("#animalIdError").innerHTML = error
-    }
-
-    console.log(testIDs)
-}
 
 
 // To add more Fields to the Invoice Creation page
@@ -194,4 +152,3 @@ else {
 
 
 filter.addEventListener("input", filterTable);
-animalIDs.addEventListener("blur", checkAnimalIDs)
