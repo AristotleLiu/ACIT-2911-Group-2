@@ -309,18 +309,6 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <!------------------------------------TEMPORARY (ONLY FOR DEMONSTRATION)-------------------------------------------------------->
-                          {% for invoice in invoices %}
-                          {% for animal in invoice.animals %}
-                          <tr>
-                            <td>{{ animal.animal_id }}</td>
-                            <td>{{ animal.animal_name }}</td>
-                            <td>{{ animal.animal_species }}</td>
-                            <td>${{ animal.animal_price }}</td>
-                          </tr>
-                          {% endfor %}
-                          {% endfor %}
-                          <!------------------------------------TEMPORARY (ONLY FOR DEMONSTRATION)-------------------------------------------------------->
                         </tbody>
 
                       </table>
