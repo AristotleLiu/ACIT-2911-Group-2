@@ -108,11 +108,8 @@ def add_invoice():
     db.session.add(new_invoice)
     db.session.commit()
 
-    print(data["animals_id"].split())
     for ani_id in (data["animals_id"].split()):
-        print(ani_id)
         animal = db.session.get(Animal, ani_id)
-        print(animal)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
         db.session.add(association)
@@ -204,7 +201,7 @@ def update_animal(animal_id):
 def update_invoice(invoice_id):
     data = request.json
     
-    # Test to see the animal has all the required properties
+    # Test to see the invoice has all the required properties
     for key in ["status", 
             "date", 
             "name", 
