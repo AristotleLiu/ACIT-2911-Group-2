@@ -371,7 +371,7 @@
             <form id="modal-form" method="post" action="PATH TO INVOICE">
               <label for="name" id="invoice_id">Invoice ID:</label>
               <input class="form-control" id="formControlReadonly" type="text" value="Invoice ID Here"
-                aria-label="readonly input example" readonly />
+                aria-label="readonly input" readonly />
               <label for="status" id="invoice_status">Status:</label>
               <select name="status" id="status">
                 <option value="Unpaid">Unpaid</option>
@@ -379,38 +379,24 @@
                 <option value="Void">Void</option>
               </select>
               <label for="sold_date">Date:</label>
-              <input type="date" id="sold_date" name="sold_date" value="ADD YOUR VARIABLE HERE">
-              <label for="customer"><b>Customer Info:</b></label>
+              <input class="form-control" id="formControlReadonly" type="text" value="YYYY-MM_DD"
+                aria-label="readonly input" readonly />
               <hr>
               <label for="customer">Customer:</label>
-              <input type="text" id="customer" value="ADD YOUR VARIABLE HERE" required><br>
+              <input class="form-control" id="formControlReadonly" type="text" value="Customer Name"
+                aria-label="readonly input" readonly />
               <label for="city">City:</label>
-              <input type="text" id="city" name="" value="ADD YOUR VARIABLE HERE"><br>
+              <input class="form-control" id="formControlReadonly" type="text" value="City Name"
+                aria-label="readonly input" readonly />
               <label for="province">Province</label>
-              <select name="province" id="province">
-                <option value="AB">Alberta</option>
-                <option value="BC">British Columbia</option>
-                <option value="MB">Manitoba</option>
-                <option value="NB">New Brunswick</option>
-                <option value="NL">Newfoundland and Labrador</option>
-                <option value="NS">Nova Scotia</option>
-                <option value="NT">Northwest Territories</option>
-                <option value="NU">Nunavut</option>
-                <option value="ON">Ontario</option>
-                <option value="PE">Prince Edward Island</option>
-                <option value="QC">Quebec</option>
-                <option value="SK">Saskatchewan</option>
-                <option value="YT">Yukon</option>
-              </select>
+              <input class="form-control" id="formControlReadonly" type="text" value="Province Name"
+                aria-label="readonly input" readonly />
               <label for="sold_date">Postal Code:</label>
-              <input type="text" id="postal_code" value="ADD YOUR VARIABLE HERE">
+              <input class="form-control" id="formControlReadonly" type="text" value="Postal Code"
+              aria-label="readonly input" readonly />
               <label for="name" id="price">Total ($):</label>
               <input class="form-control" id="formControlReadonly" type="text" value="Price Here"
                 aria-label="readonly input example" readonly />
-
-              <label for="notes">Additional Notes:</label>
-              <textarea id="notes" name="notes"></textarea><br>
-
               <button type type="submit" class="btn btn-success">Submit</button>
             </form>
 
