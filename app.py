@@ -201,25 +201,11 @@ def update_animal(animal_id):
 def update_invoice(invoice_id):
     data = request.json
     
-    # Test to see the invoice has all the required properties
-    for key in ["status", 
-            "date", 
-            "name", 
-            "city", 
-            "province", 
-            "postal_code", 
-            "phone"]:
-        if key not in data:
-            return f"The JSON provided is invalid (missing: {key})", 400
+    if "status" not in data:
+            return "The JSON provided is invalid (missing: 'status')", 400
             
     invoice = db.session.get(Invoice, invoice_id)
     invoice.status = data["status"]
-    invoice.date = string_to_date(data["date"])
-    invoice.name = data["name"] 
-    invoice.city = data["city"]
-    invoice.province = data["province"] 
-    invoice.postal_code = data["postal_code"] 
-    invoice.phone = data["phone"]
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
