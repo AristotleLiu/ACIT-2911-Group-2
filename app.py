@@ -202,7 +202,7 @@ def update_animal(animal_id):
 
 @app.route("/invoice/<int:invoice_id>", methods=["POST"])
 def update_invoice(invoice_id):
-    data = request.form
+    data = request.json
     
     # Test to see the animal has all the required properties
     for key in ["status", 
@@ -218,13 +218,23 @@ def update_invoice(invoice_id):
             
     invoice = db.session.get(Invoice, invoice_id)
     invoice.status = data["status"]
-    invoice.date = data["date"]
+    invoice.date = string_to_date(data["date"])
     invoice.name = data["name"] 
     invoice.city = data["city"]
     invoice.province = data["province"] 
-    invoice.postal_code = data["postal_coe"] 
+    invoice.postal_code = data["postal_code"] 
     invoice.phone = data["phone"]
-    invoice.animals_id = data["animals_id"]
+
+    db.session.commit()
+
+    print(data["animals_id"].split())
+    for ani_id in (data["animals_id"].split()):
+        print(ani_id)
+        animal = db.session.get(Animal, ani_id)
+        print(animal)
+        association = AnimalInvoice(animal=animal, invoice=invoice)
+        animal.is_in_invoice = True
+        db.session.add(association)
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
