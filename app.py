@@ -108,11 +108,8 @@ def add_invoice():
     db.session.add(new_invoice)
     db.session.commit()
 
-    print(data["animals_id"].split())
     for ani_id in (data["animals_id"].split()):
-        print(ani_id)
         animal = db.session.get(Animal, ani_id)
-        print(animal)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
         db.session.add(association)
