@@ -80,6 +80,43 @@ def add_animal():
     db.session.commit()
     return redirect("http://127.0.0.1:5000/")
 
+@app.route("/invoice", methods=["POST"])
+def add_invoice():
+    data = request.form
+    
+    # Test to see the animal has all the required properties
+    for key in ["status", 
+                "date", 
+                "name", 
+                "city", 
+                "province", 
+                "postal_code", 
+                "phone", 
+                "animals_id"]:
+        if key not in data:
+            return f"The JSON provided is invalid (missing: {key})", 400
+
+    new_invoice = Invoice(
+        status=data["status"],
+        date=data["date"], 
+        name=data["name"], 
+        city=data["city"],
+        province=data["province"], 
+        postal_code=data["postal_code"], 
+        phone=data["phone"]
+        )
+    db.session.add(new_invoice)
+    db.session.commit()
+
+    for ani_id in data["animals_id"]:
+        animal = db.session.get(Animal, ani_id)
+        association = AnimalInvoice(animal=animal, invoice=new_invoice)
+        animal.is_in_invoice = True
+        db.session.add(association)
+
+    db.session.commit()
+    return redirect("http://127.0.0.1:5000/invoice")
+
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):
     try:
