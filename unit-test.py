@@ -7,10 +7,12 @@ from app import app, db
 
 class Test_animal(unittest.TestCase):
     
+
+    # Date Format Checker 
     def test_date(self):
         date_format = '%Y-%m-%d'
         datetime_obj = datetime.strptime("2023-08-21", date_format)
-        self.assertEqual(dates.string_to_date("2023-08-21"),datetime_obj.date())
+        self.assertEqual(dates.string_to_date("2023-08-21"),datetime(year=2023,month=8,day=21).date())
 
     def test_to_dict(self):
     # Gets an instance of one of the animal object in the database
@@ -56,7 +58,8 @@ class Test_animal(unittest.TestCase):
             'purchase_price': 25.0,
             'diet': {'morning': 'kibble', 'afternoon': 'wet food'},
             'notes': 'likes to play with toys',
-            'image_url': None
+            'image_url': None,
+            'is_in_invoice': None,
         }
 
     # Run the test to check if the animal obj is same as the expected dictionary
