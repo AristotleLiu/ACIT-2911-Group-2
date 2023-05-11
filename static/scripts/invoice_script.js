@@ -5,7 +5,7 @@ const renderModal = async (element) => {
       const thread = element.parentNode.parentNode;
       const invoiceId = thread.querySelector(".invoiceID").innerText;
 
-      // Make a GET request to the server to fetch the animal data
+      // Make a GET request to the server to fetch the invoice data
       const response = await fetch(`/invoice/${invoiceId}`);
       if (!response.ok) {
           throw new Error('Failed to fetch invoice data');
@@ -19,6 +19,45 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_location').innerHTML = `${invoiceData["province"]}`;
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
+
+          while (document.querySelector(modalTarget + " tbody").hasChildNodes()) {
+            document.querySelector(modalTarget + " tbody").removeChild(document.querySelector(modalTarget + " tbody").firstChild)
+          }
+
+          var sub_total = 0
+
+          for (animal of invoiceData["animals"]) {
+            sub_total += animal["animal_price"]
+
+            var row = document.createElement("tr")
+            var row_id = document.createElement("td")
+            var row_name = document.createElement("td")
+            var row_species = document.createElement("td")
+            var row_price = document.createElement("td")
+
+            var row_id_text = document.createTextNode(animal["animal_id"])
+            var row_name_text = document.createTextNode(animal["animal_name"])
+            var row_species_text = document.createTextNode(animal["animal_price"])
+            var row_price_text = document.createTextNode(animal["animal_species"])
+
+            row_id.appendChild(row_id_text)
+            row_name.appendChild(row_name_text)
+            row_species.appendChild(row_species_text)
+            row_price.appendChild(row_price_text)
+
+            row.appendChild(row_id)
+            row.appendChild(row_name)
+            row.appendChild(row_species)
+            row.appendChild(row_price)
+
+            console.log(document.querySelector(modalTarget + " tbody"))
+
+            document.querySelector(modalTarget + " tbody").appendChild(row)
+          }
+
+          document.querySelector(modalTarget + " #invoice_sub_total").innerHTML = `<span class="text-black me-4">Sub Total:</span> $${sub_total.toFixed(2)}`
+          document.querySelector(modalTarget + " #invoice_tax").innerHTML = `<span class="text-black me-4">Tax(5%):</span> $${(sub_total * 0.05).toFixed(2)}`
+          document.querySelector(modalTarget + " #invoice_total_amount").innerHTML = `<span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;"> $${(sub_total * 1.05).toFixed(2)}</span>`
       }
       else if (modalTarget == "#edit-invoice-modal") {
           document.querySelector(modalTarget + ' #modal-form').action = `/invoice/${invoiceData.id}`;
