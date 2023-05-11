@@ -24,7 +24,11 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + " tbody").removeChild(document.querySelector(modalTarget + " tbody").firstChild)
           }
 
+          var sub_total = 0
+
           for (animal of invoiceData["animals"]) {
+            sub_total += animal["animal_price"]
+
             var row = document.createElement("tr")
             var row_id = document.createElement("td")
             var row_name = document.createElement("td")
@@ -50,6 +54,10 @@ const renderModal = async (element) => {
 
             document.querySelector(modalTarget + " tbody").appendChild(row)
           }
+
+          document.querySelector(modalTarget + " #invoice_sub_total").innerHTML = `<span class="text-black me-4">Sub Total:</span> $${sub_total.toFixed(2)}`
+          document.querySelector(modalTarget + " #invoice_tax").innerHTML = `<span class="text-black me-4">Tax(5%):</span> $${(sub_total * 0.05).toFixed(2)}`
+          document.querySelector(modalTarget + " #invoice_total_amount").innerHTML = `<span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;"> $${(sub_total * 1.05).toFixed(2)}</span>`
       }
       else if (modalTarget == "#edit-invoice-modal") {
           document.querySelector(modalTarget + ' #modal-form').action = `/invoice/${invoiceData.id}`;
