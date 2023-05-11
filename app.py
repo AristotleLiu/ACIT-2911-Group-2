@@ -199,7 +199,7 @@ def update_animal(animal_id):
 
 @app.route("/invoice/<int:invoice_id>", methods=["POST"])
 def update_invoice(invoice_id):
-    data = request.json
+    data = request.form
     
     if "status" not in data:
             return "The JSON provided is invalid (missing: 'status')", 400
