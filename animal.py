@@ -63,6 +63,7 @@ class Invoice(db.Model):
     province = db.Column(db.String, nullable=False)
     postal_code = db.Column(db.String, nullable=False)
     phone = db.Column(db.String, nullable=False)
+    street = db.Column(db.String, nullable=False)
 
     animals = db.relationship('AnimalInvoice', back_populates='invoice')
 
@@ -76,6 +77,7 @@ class Invoice(db.Model):
             "province": self.province,
             "postal_code": self.postal_code,
             "phone": self.phone,
+            "street": self.street,
             "animals":[], 
             "price":0
         }
