@@ -18,7 +18,12 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_address').innerHTML = `${invoiceData["street"]}, ${invoiceData["city"]}`;
           document.querySelector(modalTarget + ' #invoice_location').innerHTML = `${invoiceData["province"]}`;
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
-          document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
+          document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`; 
+          document.querySelector(modalTarget + ' #invoice_status').innerHTML = `${invoiceData["status"]}`; 
+          document.querySelector(modalTarget + ' #invoice_number').innerHTML = `Invoice >> <strong>${invoiceData["id"]}</strong>`; 
+
+          document.querySelector(modalTarget + ' #invoice_list_id').innerHTML = `<i class="fas fa-circle"></i> <span class="fw-bold">ID:</span>#${invoiceData["id"]}`;
+          document.querySelector(modalTarget + ' #invoice_list_date').innerHTML = `<i class="fas fa-circle"></i> <span class="fw-bold">Date: </span>${(new Date(invoiceData["date"])).toISOString().split('T')[0]}`;
 
           while (document.querySelector(modalTarget + " tbody").hasChildNodes()) {
             document.querySelector(modalTarget + " tbody").removeChild(document.querySelector(modalTarget + " tbody").firstChild)
