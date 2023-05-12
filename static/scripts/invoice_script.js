@@ -50,8 +50,6 @@ const renderModal = async (element) => {
             row.appendChild(row_species)
             row.appendChild(row_price)
 
-            console.log(document.querySelector(modalTarget + " tbody"))
-
             document.querySelector(modalTarget + " tbody").appendChild(row)
           }
 
@@ -61,7 +59,22 @@ const renderModal = async (element) => {
       }
       else if (modalTarget == "#edit-invoice-modal") {
           document.querySelector(modalTarget + ' #modal-form').action = `/invoice/${invoiceData.id}`;
+          document.querySelector(modalTarget + ' .invoice_id').value = invoiceData.id
           document.querySelector(modalTarget + ' #status').value = invoiceData.status
+          document.querySelector(modalTarget + ' .invoice_date').value = (new Date(invoiceData.date)).toISOString().split('T')[0]
+          document.querySelector(modalTarget + ' .invoice_customer').value = invoiceData.name
+          document.querySelector(modalTarget + ' .invoice_street').value = invoiceData.street
+          document.querySelector(modalTarget + ' .invoice_city').value = invoiceData.city
+          document.querySelector(modalTarget + ' .invoice_province').value = invoiceData.province
+          document.querySelector(modalTarget + ' .invoice_postal_code').value = invoiceData.postal_code
+
+          var sub_total = 0
+
+          for (animal of invoiceData["animals"]) {
+            sub_total += animal["animal_price"]
+          }
+
+          document.querySelector(modalTarget + ' .invoice_price').value = sub_total
       }
   } catch (error) {
       console.error(error);
