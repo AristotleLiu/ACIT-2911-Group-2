@@ -25,6 +25,50 @@
 
 #nav-create-button{
   width: 150px ;
+  background-color: #5d9fc5;
+  color: white;
+  border:none;
+  border-radius: 30px;
+  
+}
+
+#nav-create-button:hover{
+  background-color: #5579C6;
+  color: white;
+}
+
+#animal_ui_animals{
+  background-color: #5d9fc5;
+  color: white;
+  border:none;
+}
+
+#animal_ui_invoices{
+  background-color: white;
+  color:#5d9fc5;
+  border:1px solid #5d9fc5;
+}
+
+#invoice_ui_animals{
+  background-color: white;
+  color:#5d9fc5;
+  border:1px solid #5d9fc5;
+}
+
+#invoice_ui_animals:hover{
+  background-color: #5579C6;
+  color: white;
+}
+
+#animal_ui_invoices:hover{
+  background-color: #5579C6;
+  color: white;
+}
+
+#invoice_ui_invoices{
+  background-color: #5d9fc5;
+  color: white;
+  border:none;
 }
   
 /* Table CSS */
