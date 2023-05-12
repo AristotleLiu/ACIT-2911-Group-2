@@ -82,7 +82,7 @@
 
         <th class="animalID" scope="row">{{ invoice.id }}</th>
         <td>{{ invoice.name }}</td>
-        <td>{{ Street.city }}</td>
+        <td>{{ invoice.street }}</td>
         <td>{{ invoice.city }}</td>
         <td>{{ invoice.province }}</td>
         <td>{{ invoice.date }}</td>
@@ -177,8 +177,8 @@
               <label for="name">Customer Name:</label>
               <input type="text" id="name" name="name" required><br>
 
-              <label for="invoice_city">Street:</label>
-              <input type="text" id="invoice_street" name="invoice_street"><br>
+              <label for="street">Street:</label>
+              <input type="text" id="street" name="street"><br>
 
               <label for="city">City:</label>
               <input type="text" id="city" name="city"><br>
