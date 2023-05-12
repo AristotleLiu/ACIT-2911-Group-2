@@ -71,7 +71,7 @@
         <!-- <th scope="col">Price($)</th> -->
         <th scope="col">Date</th>
         <th scope="col">Status</th>
-        <th scope="col">Total ($):</th>
+        <th scope="col">Sub Total ($):</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -79,8 +79,8 @@
       {% for invoice in invoices %}
       <tr>
 
-        <th class="animalID" scope="row">{{ invoice.id }}</th>
-        <td>{{ invoice.name }}</td>
+        <th class="invoiceID" scope="row">{{ invoice.id }}</th>
+        <td class="invoiceName">{{ invoice.name }}</td>
         <td>{{ invoice.street }}</td>
         <td>{{ invoice.city }}</td>
         <td>{{ invoice.province }}</td>
@@ -313,7 +313,6 @@
                           </tr>
                         </thead>
                         <tbody>
-                          [animals go here]
                         </tbody>
 
                       </table>
@@ -359,7 +358,7 @@
           <body>
             <form id="modal-form" method="post" action="PATH TO INVOICE">
               <label for="name" id="invoice_id">Invoice ID:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Invoice ID Here"
+              <input class="form-control invoice_id" id="formControlReadonly" type="text" value="Invoice ID Here"
                 aria-label="readonly input" readonly />
               <label for="status" id="invoice_status">Status:</label>
               <select name="status" id="status">
@@ -368,25 +367,25 @@
                 <option value="Void">Void</option>
               </select>
               <label for="sold_date">Date:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="YYYY-MM_DD"
+              <input class="form-control invoice_date" id="formControlReadonly" type="text" value="YYYY-MM_DD"
                 aria-label="readonly input" readonly />
               <hr>
               <label for="customer">Customer:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Customer Name"
+              <input class="form-control invoice_customer" id="formControlReadonly" type="text" value="Customer Name"
                 aria-label="readonly input" readonly />
               <label for="city">City:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Street"
+              <input class="form-control invoice_street" id="formControlReadonly" type="text" value="Street"
               aria-label="readonly input" readonly />
-              <input class="form-control" id="formControlReadonly" type="text" value="City Name"
+              <input class="form-control invoice_city" id="formControlReadonly" type="text" value="City Name"
                 aria-label="readonly input" readonly />
               <label for="province">Province</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Province Name"
+              <input class="form-control invoice_province" id="formControlReadonly" type="text" value="Province Name"
                 aria-label="readonly input" readonly />
               <label for="sold_date">Postal Code:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Postal Code"
+              <input class="form-control invoice_postal_code" id="formControlReadonly" type="text" value="Postal Code"
               aria-label="readonly input" readonly />
-              <label for="name" id="price">Total ($):</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Price Here"
+              <label for="name" id="price">Sub Total ($):</label>
+              <input class="form-control invoice_price" id="formControlReadonly" type="text" value="Price Here"
                 aria-label="readonly input example" readonly />
               <button type type="submit" class="btn btn-success">Submit</button>
             </form>
