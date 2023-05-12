@@ -103,7 +103,8 @@ def add_invoice():
         city=data["city"],
         province=data["province"], 
         postal_code=data["postal_code"], 
-        phone=data["phone"]
+        phone=data["phone"],
+        street=data["street"]
         )
     db.session.add(new_invoice)
     db.session.commit()

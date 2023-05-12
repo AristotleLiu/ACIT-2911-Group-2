@@ -13,6 +13,7 @@ with app.app_context():
         province="BC",
         postal_code="U8E 9B2",
         phone="601-153-1355",
+        street="9000 Great White St."
         ),
         Invoice(
         status="Unpaid",
@@ -21,7 +22,8 @@ with app.app_context():
         city="Toronto",
         province="ON",
         postal_code="M5V 2J4",
-        phone="905-123-4567"
+        phone="905-123-4567",
+        street="002 Dino St."
         ),
         Invoice(
         status="Paid",
@@ -30,7 +32,8 @@ with app.app_context():
         city="Calgary",
         province="AB",
         postal_code="T2P 3G6",
-        phone="403-789-0123"
+        phone="403-789-0123",
+        street="1333 Turkey St."
         ),
         Invoice(
         status="Void",
@@ -39,7 +42,8 @@ with app.app_context():
         city="Montreal",
         province="QC",
         postal_code="H2Y 1T1",
-        phone="514-555-7890"
+        phone="514-555-7890",
+        street="264 Raptor St."
         ),
         Invoice(
         status="Unpaid",
@@ -48,7 +52,8 @@ with app.app_context():
         city="Vancouver",
         province="BC",
         postal_code="V6B 4N9",
-        phone="604-987-6543"
+        phone="604-987-6543",
+        street="13851 Animal St."
         )
     ]
 
