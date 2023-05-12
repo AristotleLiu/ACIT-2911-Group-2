@@ -20,10 +20,27 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
           document.querySelector(modalTarget + ' #invoice_status').innerHTML = `${invoiceData["status"]}`; 
+          // hehe... this is the color change for now----------------------------------------------------------------------------------------------
+          var color_change = document.querySelector(modalTarget + ' #invoice_status');
+          if(color_change.textContent.toLowerCase()===("paid")){
+            document.getElementById("invoice_status").classList.remove("red-text");
+            document.getElementById("invoice_status").classList.remove("yellow-text");
+              document.getElementById("invoice_status").classList.add("green-text");
+          }
+          else if (color_change.textContent.toLowerCase()===("unpaid")){
+            document.getElementById("invoice_status").classList.remove("red-text");
+              document.getElementById("invoice_status").classList.remove("green-text");
+              document.getElementById("invoice_status").classList.add("yellow-text");
+          }
+          else{
+            document.getElementById("invoice_status").classList.remove("yellow-text");
+            document.getElementById("invoice_status").classList.remove("green-text");
+              document.getElementById("invoice_status").classList.add("red-text");
+          }
+          // ----------------------------------------------------------------------------------------------------------------------------------------
           document.querySelector(modalTarget + ' #invoice_number').innerHTML = `Invoice >> <strong>${invoiceData["id"]}</strong>`; 
-
-          document.querySelector(modalTarget + ' #invoice_list_id').innerHTML = `<i class="fas fa-circle"></i> <span class="fw-bold">ID:</span>#${invoiceData["id"]}`;
-          document.querySelector(modalTarget + ' #invoice_list_date').innerHTML = `<i class="fas fa-circle"></i> <span class="fw-bold">Date: </span>${(new Date(invoiceData["date"])).toISOString().split('T')[0]}`;
+          document.querySelector(modalTarget + ' #invoice_list_id').innerHTML = `<i class="fas fa-circle invoice_list"></i> <span class="fw-bold">ID:</span>#${invoiceData["id"]}`;
+          document.querySelector(modalTarget + ' #invoice_list_date').innerHTML = `<i class="fas fa-circle invoice_list"></i> <span class="fw-bold">Date: </span>${(new Date(invoiceData["date"])).toISOString().split('T')[0]}`;
 
           while (document.querySelector(modalTarget + " tbody").hasChildNodes()) {
             document.querySelector(modalTarget + " tbody").removeChild(document.querySelector(modalTarget + " tbody").firstChild)
@@ -115,25 +132,6 @@ const animalIDs = document.querySelector("#animals_id");
   //   });
   // ----------------------------------------------------------------------------------------------------
 
-  //   Change color of status Highlight in the View Invoice
-//   var status_color = document.querySelector("#invoice_status")
-
-//   $(document).on('click', '.delete_animal_field', function (e) {
-//     var targetClass = $(this).data('target');
-//     $(targetClass).remove();
-//     e.preventDefault();
-//   });
-
-//   if ($('#invoice_status').text().toLowerCase() == 'paid') {
-//     $('#invoice_status').addClass('green-text');
-//   }
-//   else if ($('#invoice_status').text().toLowerCase() == 'unpaid') {
-//     $('#invoice_status').addClass('yellow-text');
-//   }
-//   else {
-//     $('#invoice_status').addClass('red-text');
-//   }
-// });
 
 const checkAnimalIDs = async (event) => {
   const animalIdArray = animalIDs.value.split(" ");
