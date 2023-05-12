@@ -18,7 +18,7 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_address').innerHTML = `${invoiceData["street"]}, ${invoiceData["city"]}`;
           document.querySelector(modalTarget + ' #invoice_location').innerHTML = `${invoiceData["province"]}`;
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
-          document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`; 
+          document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
           document.querySelector(modalTarget + ' #invoice_status').innerHTML = `${invoiceData["status"]}`; 
           document.querySelector(modalTarget + ' #invoice_number').innerHTML = `Invoice >> <strong>${invoiceData["id"]}</strong>`; 
 
@@ -94,7 +94,7 @@ const animalIDs = document.querySelector("#animals_id");
 // ------------------------------------------------------------------leave for now 
 // var animalCount = 1;
 
-$(document).ready(function () {
+// $(document).ready(function () {
   //   $('.extra_animal_field').click(function() {
 
   //     var newAnimal = $('.create_invoice_animal').last().clone();
@@ -116,22 +116,24 @@ $(document).ready(function () {
   // ----------------------------------------------------------------------------------------------------
 
   //   Change color of status Highlight in the View Invoice
-  $(document).on('click', '.delete_animal_field', function (e) {
-    var targetClass = $(this).data('target');
-    $(targetClass).remove();
-    e.preventDefault();
-  });
+//   var status_color = document.querySelector("#invoice_status")
 
-  if ($('#invoice_status').text().toLowerCase() === 'paid') {
-    $('#invoice_status').addClass('green-text');
-  }
-  else if ($('#invoice_status').text().toLowerCase() === 'unpaid') {
-    $('#invoice_status').addClass('yellow-text');
-  }
-  else {
-    $('#invoice_status').addClass('red-text');
-  }
-});
+//   $(document).on('click', '.delete_animal_field', function (e) {
+//     var targetClass = $(this).data('target');
+//     $(targetClass).remove();
+//     e.preventDefault();
+//   });
+
+//   if ($('#invoice_status').text().toLowerCase() == 'paid') {
+//     $('#invoice_status').addClass('green-text');
+//   }
+//   else if ($('#invoice_status').text().toLowerCase() == 'unpaid') {
+//     $('#invoice_status').addClass('yellow-text');
+//   }
+//   else {
+//     $('#invoice_status').addClass('red-text');
+//   }
+// });
 
 const checkAnimalIDs = async (event) => {
   const animalIdArray = animalIDs.value.split(" ");

@@ -40,12 +40,6 @@
       <form class="form-inline my-2 my-lg-0">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search" id="searchInv">
-          <div class="input-group-append">
-            <button class="btn btn-secondary" type="button" id="index-search-button">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-
           <button type="button" class="btn btn-outline-primary" id="index-filter-button" data-toggle="modal"
             data-target="#filter-modal">
             <i class="fas fa-filter"></i>
@@ -217,10 +211,7 @@
                   <div class="alert alert-danger hidden" role="alert" id="animalIdError">
                     Warning: Animal ID list in invalid.
                   </div>
-
-                  <!-- <a class="extra_animal_field" href="#">Add More Animal</a> -->
                 </div>
-                <!-- <div class="add_invoice_animal"></div> -->
               </div>
               <hr>
 
@@ -297,7 +288,7 @@
                               class="fw-bold">Date: </span>2022-06-10</li>
                           <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
                               class="me-1 fw-bold" id="invoice-status">Status:</span>
-                            <span class="badge text-black fw-bold" id="invoice_status">Paid</span>
+                            <span class="badge text-black fw-bold" id="invoice_status">Void</span>
                           </li>
                         </ul>
                       </div>
