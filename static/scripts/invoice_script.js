@@ -19,7 +19,6 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_location').innerHTML = `${invoiceData["province"]}`;
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
-
           while (document.querySelector(modalTarget + " tbody").hasChildNodes()) {
             document.querySelector(modalTarget + " tbody").removeChild(document.querySelector(modalTarget + " tbody").firstChild)
           }
@@ -117,10 +116,10 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  if ($('#invoice_status').text().toLowerCase() === 'paid') {
+  if ($('#invoice_status').text().toLowerCase() == 'paid') {
     $('#invoice_status').addClass('green-text');
   }
-  else if ($('#invoice_status').text().toLowerCase() === 'unpaid') {
+  else if ($('#invoice_status').text().toLowerCase() == 'unpaid') {
     $('#invoice_status').addClass('yellow-text');
   }
   else {
