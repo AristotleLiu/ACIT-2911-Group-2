@@ -82,6 +82,11 @@ class Test_animal(unittest.TestCase):
     def test_home_page(self):
         response = self.app.get('/')
         self.assertEqual(response._status_code, 200)
+
+    # Test invoice page 
+    def test_home_invoice(self):
+        response = self.app.get('/invoice')
+        self.assertEqual(response.status_code, 200)
             
 
 if __name__ == '__main__':
