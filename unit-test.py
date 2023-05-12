@@ -83,17 +83,7 @@ class Test_animal(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response._status_code, 200)
 
-
-    def setUp_invoice(self):
-        self.app = app.test_client
-        with app.app_context():
-            db.create_all()
-
-    def tearDown_invoice(self):
-        with app.app_context():
-            db.session.remove()
-            db.drop_all()
-
+    # Test invoice page 
     def test_home_invoice(self):
         response = self.app.get('/invoice')
         self.assertEqual(response.status_code, 200)
