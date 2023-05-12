@@ -15,7 +15,7 @@ const renderModal = async (element) => {
       const invoiceData = await response.json();
       if (modalTarget == "#view-invoice-modal") {
           document.querySelector(modalTarget + ' #invoice_name').innerHTML = `To: <span id="invoice_customer">${invoiceData["name"]}</span>`;
-          document.querySelector(modalTarget + ' #invoice_address').innerHTML = `${invoiceData["city"]}`;
+          document.querySelector(modalTarget + ' #invoice_address').innerHTML = `${invoiceData["street"]}, ${invoiceData["city"]}`;
           document.querySelector(modalTarget + ' #invoice_location').innerHTML = `${invoiceData["province"]}`;
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
