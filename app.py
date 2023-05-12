@@ -90,6 +90,7 @@ def add_invoice():
                 "name", 
                 "city", 
                 "province", 
+                "street",
                 "postal_code", 
                 "phone", 
                 "animals_id"]:

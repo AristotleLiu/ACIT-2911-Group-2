@@ -72,7 +72,7 @@
         <!-- <th scope="col">Price($)</th> -->
         <th scope="col">Date</th>
         <th scope="col">Status</th>
-        <th scope="col">Total ($):</th>
+        <th scope="col">Sub Total ($):</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -80,15 +80,15 @@
       {% for invoice in invoices %}
       <tr>
 
-        <th class="animalID" scope="row">{{ invoice.id }}</th>
-        <td>{{ invoice.name }}</td>
+        <th class="invoiceID" scope="row">{{ invoice.id }}</th>
+        <td class="invoiceName">{{ invoice.name }}</td>
         <td>{{ invoice.street }}</td>
         <td>{{ invoice.city }}</td>
         <td>{{ invoice.province }}</td>
         <td>{{ invoice.date }}</td>
         <td>{{ invoice.status }}</td>
         <td>{{ invoice.price }}</td>
-        <td> 
+        <td>
           <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button"
             data-toggle="modal" data-target="#view-invoice-modal"><i class="far fa-eye"></i></button>
           <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button"
@@ -291,9 +291,9 @@
                       <div class="col-xl-4">
                         <p class="text-muted">Invoice</p>
                         <ul class="list-unstyled">
-                          <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
+                          <li class="text-muted" id="invoice_list_id"><i class="fas fa-circle"></i> <span
                               class="fw-bold">ID:</span>#1-0001</li>
-                          <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
+                          <li class="text-muted" id="invoice_list_date"><i class="fas fa-circle"></i> <span
                               class="fw-bold">Date: </span>2022-06-10</li>
                           <li class="text-muted"><i class="fas fa-circle" id="invoice_list"></i> <span
                               class="me-1 fw-bold" id="invoice-status">Status:</span>
@@ -314,7 +314,6 @@
                           </tr>
                         </thead>
                         <tbody>
-                          [animals go here]
                         </tbody>
 
                       </table>
@@ -326,10 +325,13 @@
                       </div>
                       <div class="col-xl-3">
                         <ul class="list-unstyled">
-                          <li class="text-muted ms-3" id="invoice_sub_total"><span class="text-black me-4">Sub Total:</span> $1150.00</li>
-                          <li class="text-muted ms-3 mt-2" id="invoice_tax"><span class="text-black me-4">Tax(5%):</span> $57.50</li>
+                          <li class="text-muted ms-3" id="invoice_sub_total"><span class="text-black me-4">Sub
+                              Total:</span> $1150.00</li>
+                          <li class="text-muted ms-3 mt-2" id="invoice_tax"><span
+                              class="text-black me-4">Tax(5%):</span> $57.50</li>
                         </ul>
-                        <p class="text-black float-start" id="invoice_total_amount"><span class="text-black me-3"> Total Amount</span><span style="font-size: 25px;"> $1207.50</span></p>
+                        <p class="text-black float-start" id="invoice_total_amount"><span class="text-black me-3"> Total
+                            Amount</span><span style="font-size: 25px;"> $1207.50</span></p>
                       </div>
                     </div>
 
@@ -360,7 +362,7 @@
           <body>
             <form id="modal-form" method="post" action="PATH TO INVOICE">
               <label for="name" id="invoice_id">Invoice ID:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Invoice ID Here"
+              <input class="form-control invoice_id" id="formControlReadonly" type="text" value="Invoice ID Here"
                 aria-label="readonly input" readonly />
               <label for="status" id="invoice_status">Status:</label>
               <select name="status" id="status">
@@ -369,25 +371,25 @@
                 <option value="Void">Void</option>
               </select>
               <label for="sold_date">Date:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="YYYY-MM_DD"
+              <input class="form-control invoice_date" id="formControlReadonly" type="text" value="YYYY-MM_DD"
                 aria-label="readonly input" readonly />
               <hr>
               <label for="customer">Customer:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Customer Name"
+              <input class="form-control invoice_customer" id="formControlReadonly" type="text" value="Customer Name"
                 aria-label="readonly input" readonly />
               <label for="city">City:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Street"
-              aria-label="readonly input" readonly />
-              <input class="form-control" id="formControlReadonly" type="text" value="City Name"
+              <input class="form-control invoice_street" id="formControlReadonly" type="text" value="Street"
+                aria-label="readonly input" readonly />
+              <input class="form-control invoice_city" id="formControlReadonly" type="text" value="City Name"
                 aria-label="readonly input" readonly />
               <label for="province">Province</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Province Name"
+              <input class="form-control invoice_province" id="formControlReadonly" type="text" value="Province Name"
                 aria-label="readonly input" readonly />
               <label for="sold_date">Postal Code:</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Postal Code"
-              aria-label="readonly input" readonly />
-              <label for="name" id="price">Total ($):</label>
-              <input class="form-control" id="formControlReadonly" type="text" value="Price Here"
+              <input class="form-control invoice_postal_code" id="formControlReadonly" type="text" value="Postal Code"
+                aria-label="readonly input" readonly />
+              <label for="name" id="price">Sub Total ($):</label>
+              <input class="form-control invoice_price" id="formControlReadonly" type="text" value="Price Here"
                 aria-label="readonly input example" readonly />
               <button type type="submit" class="btn btn-success">Submit</button>
             </form>
