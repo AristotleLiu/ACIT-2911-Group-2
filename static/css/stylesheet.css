@@ -2,6 +2,10 @@
 /* Navigation Bar */
 /* Please specify your page with the ID if you have specific formatting */
 
+#logo {
+  margin-right: 0.5em;
+}
+
 #index-navbar-title {
     color: red;
     font-size: 25px;
