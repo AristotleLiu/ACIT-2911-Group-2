@@ -43,7 +43,7 @@ class Test_animal(unittest.TestCase):
     # New dict of the expected result with correct values
         expected_dict = {
             'id': animal.id,
-            'name': 'Fluffy',
+            'name': 'Not Fluffy',
             'age': 3,
             'gender': 'female',
             'species': 'cat',
