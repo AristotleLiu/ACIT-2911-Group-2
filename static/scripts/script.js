@@ -90,7 +90,6 @@ const animalList = document.querySelector("tbody");
 
 const filterTable = (event) => {
     animals = animalList.children;
-    console.log(animals)
     if (event.target.value != '') {
         for (animal of animals) {
             if (animal.querySelector(".animalName").innerText.toLowerCase().includes(event.target.value.toLowerCase()) || animal.querySelector(".animalID").innerText.includes(event.target.value)) {
@@ -105,6 +104,33 @@ const filterTable = (event) => {
         }
     }
 }
+
+const filterForm = (event) => {
+
+    const formEl = document.forms.filterForm;
+    const animalFormData = new FormData(formEl);
+    const filter_gender = animalFormData.get('gender');
+
+    console.log(filter_gender)
+
+    animals = animalList.children;
+    if (filter_gender != '') {
+        for (animal of animals) {
+            if (animal.querySelector(".animalGender").innerText.toLowerCase() === filter_gender.toLowerCase()) {
+                animal.classList.remove("hidden");
+            } else {
+                animal.className = "hidden";
+            }
+        }
+    } else {
+        for (animal of animals) {
+            animal.classList.remove("hidden");
+        }
+    }
+
+
+}
+
 
 
 filter.addEventListener("input", filterTable);
