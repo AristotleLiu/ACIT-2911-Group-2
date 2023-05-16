@@ -66,10 +66,10 @@
 
               <th class="animalID" scope="row">{{ animal.id }}</th>
               <td class="animalName">{{ animal.name }}</td>
-              <td>{{ animal.age }}</td>
+              <td class="animalAge">{{ animal.age }}</td>
               <td class="animalGender">{{ animal.gender }}</td>
-              <td>{{ animal.species }}</td>
-              <td>{{ animal.price }}</td>
+              <td class="animalSpecies">{{ animal.species }}</td>
+              <td class="animalPrice">{{ animal.price }}</td>
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
                 <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
@@ -114,8 +114,8 @@
             
                     <label for="price"><b>Price($):</b>></label>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Min"/>
-                      <input type="text" class="form-control" placeholder="Max"/>
+                      <input type="text" id="minPrice" name="minPrice" class="form-control" placeholder="Min"/>
+                      <input type="text" id="maxPrice" name="maxPrice" class="form-control" placeholder="Max"/>
                   </div>
       
                     <label for="status"><b>Health:</b>></label>
