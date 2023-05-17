@@ -20,7 +20,7 @@
   <title>Invoice</title>
 </head>
 
-<body>
+<body class="invoice_page_body">
   <!-- Brand Name -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div>
@@ -226,6 +226,59 @@
     </div>
   </div>
 
+  <!--  Create Summary MODAL -->
+  <div class="modal fade" id="create-summary-modal" tabindex="-1" role="dialog" aria-labelledby="create-summary-modal"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animal-modal"><img id="logo" src="{{ url_for('static', filename='money.ico') }}">Create Summary</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <body>
+          <form id="modal-form" method="post">
+
+            <label><b>Select The Period</b></label>
+            <br>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" value="ADD YOUR VARIABLE HERE">
+            <br>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" value="ADD YOUR VARIABLE HERE">
+            <br>
+            <hr>
+            <label><b>Monthly/Yearly Sales</b></label>
+            <br>
+            <select name="quick_select" id="quick_select" name="quick_select">
+              <option value="year">Yearly</option>
+              <option value="month">Monthly</option>
+            </select>
+            <hr>
+            <br>
+            <label><b>Select The Animal</b></label>
+            <br>
+            <label for="top_sale_animals">Top sale animals:</label>
+            <input type="number" id="top_sale_animals" name="top_sale_animals" step="1" min="0">
+            <br>
+            <label for="most_profitable">Most profitable animals:</label>
+            <input type="number" id="most_profitable" name="most_profitable" step="1" min="0">
+            <br>
+
+            <button type id="submitbutton" type="submit" class="btn btn-success">Submit</button>
+          </form>
+        </body>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
   <!-- Invoice Modal -->
 
   <div class="modal fade" id="view-invoice-modal" tabindex="-1" role="dialog" aria-labelledby="view-invoice-modal"
@@ -388,6 +441,13 @@
       </div>
     </div>
   </div>
+
+  <!-- creat summary button -->
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-summary-modal"
+  id="create-summary-button">
+  <i class="fas fa-paw"></i>
+  Create Summary
+  </button>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
