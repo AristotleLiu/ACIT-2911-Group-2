@@ -188,6 +188,4 @@ const filterForm = (event) => {
     }
 }
 
-
-
 filter.addEventListener("input", filterTable);
