@@ -1,3 +1,17 @@
+const createSummary = async () => {
+  try {
+    const response = await fetch("/invoice/all")
+    if (!response.ok) {
+      throw new Error('Failed to fetch invoice data');
+    }
+    // data is a list of all invoices
+    const data = await response.json
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
+
 const renderModal = async (element) => {
   try {
       const modalTarget = element.getAttribute("data-target");
