@@ -6,13 +6,20 @@
 5. run "python app.py"
 6. Running on http://127.0.0.1:5000
 """
-from crypt import methods
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
 from animal import Animal, Invoice, AnimalInvoice
 from dates import string_to_date
 import json
+import platform
+
+if platform.system() != 'Windows':
+    try:
+        import crypt
+    except ImportError:
+        raise ImportError("The crypt module is not available or not supported on this platform")
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///store.db"
