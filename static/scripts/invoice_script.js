@@ -54,6 +54,26 @@ function findPopularAnimal(invoiceData) {
   return animalDict
 }
 
+function mostProfitableAnimals(invoiceData) {
+  profitAnimalsDict = {}
+  for (invoice of invoiceData) {
+    for (animal of invoice.animals) {
+      if (profitAnimalsDict[animal]) {
+        profitAnimalsDict[animal] += animal.price
+      } else {
+        profitAnimalsict[animal] = animal.price
+      }
+    }
+  }
+  return profitAnimalsDict
+}
+
+function sortAnimalDict(animalDict, numAnimals) {
+  const sortedAnimals = Object.keys(animalDict).sort((a, b) => animalDict[b] - animalDict[a]);
+  const finalSortedAnimals = sortedAnimals.slice(0, numAnimals);
+  return finalSortedAnimals;
+}
+
 const createSummary = async (event) => {
   try {
     const response = await fetch("/invoice/all")
