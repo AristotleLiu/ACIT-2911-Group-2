@@ -2,7 +2,7 @@ const deleteItem = (id) => {
     const list = document.querySelectorAll("tr")
     const newList = Array.prototype.slice.call(list, 1)
 
-    for (item of newList) {
+    for (const item of newList) {
         if (item.firstElementChild.textContent == id) {
             if (item.getAttribute("in_invoice") == "True") {
                 alert("WARNING: Animal is in an invoice")
@@ -114,18 +114,17 @@ const filterForm = (event) => {
     const filter_species = animalFormData.get('species');
     const filter_price_max = animalFormData.get('maxPrice');
     const filter_price_min = animalFormData.get('minPrice');
+    const filter_health = animalFormData.get('health');
+    const filter_color = animalFormData.get('color');
+    const filter_supplier = animalFormData.get('supplier');
 
-    console.log(filter_price_max)
-    console.log(filter_price_min)
-
-
-    animals = animalList.children;
+    const animals = animalList.children;
     for (animal of animals) {
         animal.classList.remove("hidden2");
     }
 
     if (filter_age != '') {
-        for (animal of animals) {
+        for (const animal of animals) {
             if (!(animal.querySelector(".animalAge").innerText == filter_age)) {
                 animal.classList.add("hidden2");
             }
@@ -133,7 +132,7 @@ const filterForm = (event) => {
     }
 
     if (filter_gender != '') {
-        for (animal of animals) {
+        for (const animal of animals) {
             if (!(animal.querySelector(".animalGender").innerText.toLowerCase() === filter_gender.toLowerCase())) {
                 animal.classList.add("hidden2");
             }
@@ -141,7 +140,7 @@ const filterForm = (event) => {
     }
 
     if (filter_species != '') {
-        for (animal of animals) {
+        for (const animal of animals) {
             if (!(animal.querySelector(".animalSpecies").innerText.toLowerCase() === filter_species.toLowerCase())) {
                 animal.classList.add("hidden2");
             }
@@ -149,7 +148,7 @@ const filterForm = (event) => {
     }
 
     if (filter_price_min != '') {
-        for (animal of animals) {
+        for (const animal of animals) {
             if (!(parseInt(animal.querySelector(".animalPrice").innerText) >= parseInt(filter_price_min))) {
                 animal.classList.add("hidden2");
             }
@@ -157,8 +156,32 @@ const filterForm = (event) => {
     }
 
     if (filter_price_max != '') {
-        for (animal of animals) {
+        for (const animal of animals) {
             if (!(parseInt(animal.querySelector(".animalPrice").innerText) <= parseInt(filter_price_max))) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
+
+    if (filter_health != '') {
+        for (const animal of animals) {
+            if (!(animal.getAttribute("animalhealth").toLowerCase() === filter_health.toLowerCase())) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
+
+    if (filter_color != '') {
+        for (const animal of animals) {
+            if (!(animal.getAttribute("animalcolor").toLowerCase().includes(filter_color.toLowerCase()))) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
+
+    if (filter_supplier != '') {
+        for (const animal of animals) {
+            if (!(animal.getAttribute("animalsupplier").toLowerCase() === filter_supplier.toLowerCase())) {
                 animal.classList.add("hidden2");
             }
         }

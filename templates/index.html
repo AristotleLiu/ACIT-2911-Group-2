@@ -62,7 +62,7 @@
         </thead>
         <tbody>
           {% for animal in animals %}
-          <tr in_invoice="{{ animal.is_in_invoice }}">
+          <tr in_invoice="{{ animal.is_in_invoice }}" animalHealth="{{ animal.health }}" animalColor="{{ animal.color }}" animalSupplier="{{ animal.supplier }}">
 
               <th class="animalID" scope="row">{{ animal.id }}</th>
               <td class="animalName">{{ animal.name }}</td>
@@ -109,30 +109,30 @@
                       <option value="other">Other</option>
                     </select><br>
                 
-                    <label for="species"><b>Species:</b>></label>
+                    <label for="species"><b>Species:</b></label>
                     <input type="text" id="species" name="species"><br>
             
-                    <label for="price"><b>Price($):</b>></label>
+                    <label for="price"><b>Price($):</b></label>
                     <div class="input-group">
                       <input type="text" id="minPrice" name="minPrice" class="form-control" placeholder="Min"/>
                       <input type="text" id="maxPrice" name="maxPrice" class="form-control" placeholder="Max"/>
                   </div>
       
-                    <label for="status"><b>Health:</b>></label>
-                    <select id="status" name="status">
+                    <label for="health"><b>Health:</b></label>
+                    <select id="health" name="health">
                       <option value="">--Select--</option>
-                      <option value="">excellent</option>
-                      <option value="sold">good</option>
-                      <option value="sold">fair</option>
-                      <option value="sold">poor</option>
-                      <option value="sold">critical</option>
+                      <option value="excellent">excellent</option>
+                      <option value="good">good</option>
+                      <option value="fair">fair</option>
+                      <option value="poor">poor</option>
+                      <option value="critical">critical</option>
                     </select><br>
                 
-                    <label for="colour"><b>Colour:</b>></label>
-                    <input type="text" id="colour" name="colour"><br>
+                    <label for="color"><b>Color:</b></label>
+                    <input type="text" id="color" name="color"><br>
                 
-                    <label for="supplier"><b>Supplier:</b>></label>
-                    <input type="email" id="email" name="email"><br>
+                    <label for="supplier"><b>Supplier:</b></label>
+                    <input type="email" id="supplier" name="supplier"><br>
                 
                     <br>
       
