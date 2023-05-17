@@ -43,10 +43,10 @@ function findPopularAnimal(invoiceData) {
   animalDict = {}
   for (invoice of invoiceData) {
     for (animal of invoice.animals) {
-      if (animalDict[animal]) {
-        animalDict[animal] += 1
+      if (animalDict[animal.animal_species]) {
+        animalDict[animal.animal_species] += 1
       } else {
-        animalDict[animal] = 1
+        animalDict[animal.animal_species] = 1
       }
     }
   }
@@ -58,10 +58,10 @@ function mostProfitableAnimals(invoiceData) {
   profitAnimalsDict = {}
   for (invoice of invoiceData) {
     for (animal of invoice.animals) {
-      if (profitAnimalsDict[animal]) {
-        profitAnimalsDict[animal] += animal.price
+      if (profitAnimalsDict[animal.animal_species]) {
+        profitAnimalsDict[animal.animal_species] += animal.animal_price
       } else {
-        profitAnimalsict[animal] = animal.price
+        profitAnimalsDict[animal.animal_species] = animal.animal_price
       }
     }
   }
