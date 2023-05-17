@@ -72,18 +72,18 @@
         <th scope="col">Action</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="invoiceList">
       {% for invoice in invoices %}
       <tr>
 
         <th class="invoiceID" scope="row">{{ invoice.id }}</th>
         <td class="invoiceName">{{ invoice.name }}</td>
-        <td>{{ invoice.street }}</td>
-        <td>{{ invoice.city }}</td>
-        <td>{{ invoice.province }}</td>
-        <td>{{ invoice.date }}</td>
-        <td>{{ invoice.status }}</td>
-        <td>{{ invoice.price }}</td>
+        <td class="invoiceStreet">{{ invoice.street }}</td>
+        <td class="invoiceCity">{{ invoice.city }}</td>
+        <td class="invoiceProvince">{{ invoice.province }}</td>
+        <td class="invoiceDate">{{ invoice.date }}</td>
+        <td class="invoiceStatus">{{ invoice.status }}</td>
+        <td class="invoicePrice">{{ invoice.price }}</td>
         <td>
           <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button"
             data-toggle="modal" data-target="#view-invoice-modal"><i class="far fa-eye"></i></button>
@@ -111,20 +111,35 @@
         <div class="modal-body">
 
           <body>
-            <form action="#" method="POST" id="modal-form">
+            <form method="dialog" onsubmit="filterForm()" id="filterForm">
+
+              <label for="invoice_province"><b>Province:</b></label>
+              <select id="invoice_province" name="invoice_province">
+                <option value="">--Select--</option>
+                <option value="BC">British Columbia</option>
+                <option value="AB">Alberta</option>
+                <option value="SK">Saskatchewan</option>
+                <option value="MB">Manitoba</option>
+                <option value="ON">Ontario</option>
+                <option value="QC">Quebec</option>
+                <option value="NL">Newfoundland and Labrador</option>
+                <option value="NB">New Brunswick</option>
+                <option value="PE">Prince Edward Island</option>
+                <option value="NS">Nova Scotia</option>
+                <option value="YT">Yukon Territories</option>
+                <option value="NT">Northwest Territories</option>
+                <option value="NU">Nunavut</option>
+              </select><br>
 
               <label for="invoice_city"><b>City:</b></label>
               <input type="text" id="invoice_city" name="invoice_city"><br>
 
-              <label for="postal_code"><b>Postal Code:</b></label>
-              <input type="text" id="postal_code" name="postal_code"><br>
-
               <label for="status"><b>Status: </b></label>
               <select id="status" name="status">
                 <option value="">--Select--</option>
-                <option value="">Unpaid</option>
-                <option value="sold">Paid</option>
-                <option value="sold">Void</option>
+                <option value="Unpaid">Unpaid</option>
+                <option value="Paid">Paid</option>
+                <option value="Void">Void</option>
               </select><br>
 
               <br>

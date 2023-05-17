@@ -10,7 +10,7 @@ const createSummary = async () => {
   catch (error) {
     console.log(error)
   }
-}
+} 
 
 const renderModal = async (element) => {
   try {
@@ -201,6 +201,45 @@ const filterTableInvoice = (event) => {
   } else {
     for (invoice of invoices) {
       invoice.classList.remove("hidden");
+    }
+  }
+}
+
+const filterForm = (event) => {
+ 
+  const formEl = document.forms.filterForm;
+  const animalFormData = new FormData(formEl);
+  const filter_province = animalFormData.get('invoice_province');
+  const filter_city = animalFormData.get('invoice_city');
+  const filter_status = animalFormData.get('status');
+
+  const invoices = document.querySelector("#invoiceList").children;
+  for (invoice of invoices) {
+    invoice.classList.remove("hidden2");
+  }
+
+  if (filter_province != '') {
+    for (const invoice of invoices) {
+        if (!(invoice.querySelector(".invoiceProvince").innerText == filter_province)) {
+            invoice.classList.add("hidden2");
+        }
+    }
+  }
+
+  if (filter_city != '') {
+    for (const invoice of invoices) {
+        if (!(invoice.querySelector(".invoiceCity").innerText == filter_city)) {
+            invoice.classList.add("hidden2");
+        }
+    }
+  }
+
+  if (filter_status != '') {
+    for (const invoice of invoices) {
+        console.log(filter_status)
+        if (!(invoice.querySelector(".invoiceStatus").innerText == filter_status)) {
+            invoice.classList.add("hidden2");
+        }
     }
   }
 }
