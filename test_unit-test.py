@@ -30,15 +30,10 @@ class Test_animal(unittest.TestCase):
             sold_date=None,
             supplier='Pet Store',
             purchase_price=25.0,
-            diet={'morning': 'kibble', 'afternoon': 'wet food'},
-            notes='likes to play with toys',
+            diet="Omnivore",
+            notes='likes to play with toys. Eats wet food',
             image_url=None
     )
-
-
-    # Convert it from a string to a dictionary
-        diet_dict = {'morning': 'kibble', 'afternoon': 'wet food'}
-        animal.set_diet(diet_dict)
 
     # New dict of the expected result with correct values
         expected_dict = {
@@ -56,8 +51,8 @@ class Test_animal(unittest.TestCase):
             'sold_date': None,
             'supplier': 'Pet Store',
             'purchase_price': 25.0,
-            'diet': {'morning': 'kibble', 'afternoon': 'wet food'},
-            'notes': 'likes to play with toys',
+            'diet': "Omnivore",
+            'notes': 'likes to play with toys. Eats wet food',
             'image_url': None,
             'is_in_invoice': None,
         }
