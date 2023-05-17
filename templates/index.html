@@ -56,7 +56,8 @@
             <th scope="col">Age</th>
             <th scope="col">Gender</th>
             <th scope="col">Species</th>
-            <th scope="col">Price($)</th>
+            <th scope="col">Purchase Price($)</th>
+            <th scope="col">Retail Price($)</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -67,8 +68,9 @@
               <th class="animalID" scope="row">{{ animal.id }}</th>
               <td class="animalName">{{ animal.name }}</td>
               <td class="animalAge">{{ animal.age }}</td>
-              <td class="animalGender">{{ animal.gender }}</td>
+              <td class="animalGender">{{ animal.gender }}</td> 
               <td class="animalSpecies">{{ animal.species }}</td>
+              <td class="animalPrice">{{ animal.purchase_price }}</td>
               <td class="animalPrice">{{ animal.price }}</td>
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
