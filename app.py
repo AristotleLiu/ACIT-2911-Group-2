@@ -212,18 +212,10 @@ def update_invoice(invoice_id):
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
 
-@app.route("/invoice/summary", methods=["GET"])
-def create_summary():
-    # Request.form is the data from the summary modal. Basically it's the user info, what they selected in the modal.
-    data = request.form
-
-    for key in ["date", "animals"]:
-        if key not in data:
-            return f"The JSON provided is invalid (missing: {key})", 400
-
+@app.route("/invoice/all", methods=["GET"])
+def get_all_invoices():
     invoice_data = Invoice.query.all()
-    for invoice in invoice_data:
-        pass
+    return [item.to_dict() for item in invoice_data]
             
 
 if __name__ == "__main__":
