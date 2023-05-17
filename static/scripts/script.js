@@ -95,7 +95,7 @@ const filterTable = (event) => {
             if (animal.querySelector(".animalName").innerText.toLowerCase().includes(event.target.value.toLowerCase()) || animal.querySelector(".animalID").innerText.includes(event.target.value)) {
                 animal.classList.remove("hidden");
             } else {
-                animal.className = "hidden";
+                animal.classList.add("hidden");
             }
         }
     } else {
@@ -109,26 +109,60 @@ const filterForm = (event) => {
 
     const formEl = document.forms.filterForm;
     const animalFormData = new FormData(formEl);
+    const filter_age = animalFormData.get('age');
     const filter_gender = animalFormData.get('gender');
+    const filter_species = animalFormData.get('species');
+    const filter_price_max = animalFormData.get('maxPrice');
+    const filter_price_min = animalFormData.get('minPrice');
 
-    console.log(filter_gender)
+    console.log(filter_price_max)
+    console.log(filter_price_min)
+
 
     animals = animalList.children;
-    if (filter_gender != '') {
+    for (animal of animals) {
+        animal.classList.remove("hidden2");
+    }
+
+    if (filter_age != '') {
         for (animal of animals) {
-            if (animal.querySelector(".animalGender").innerText.toLowerCase() === filter_gender.toLowerCase()) {
-                animal.classList.remove("hidden");
-            } else {
-                animal.className = "hidden";
+            if (!(animal.querySelector(".animalAge").innerText == filter_age)) {
+                animal.classList.add("hidden2");
             }
-        }
-    } else {
-        for (animal of animals) {
-            animal.classList.remove("hidden");
         }
     }
 
+    if (filter_gender != '') {
+        for (animal of animals) {
+            if (!(animal.querySelector(".animalGender").innerText.toLowerCase() === filter_gender.toLowerCase())) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
 
+    if (filter_species != '') {
+        for (animal of animals) {
+            if (!(animal.querySelector(".animalSpecies").innerText.toLowerCase() === filter_species.toLowerCase())) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
+
+    if (filter_price_min != '') {
+        for (animal of animals) {
+            if (!(parseInt(animal.querySelector(".animalPrice").innerText) >= parseInt(filter_price_min))) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
+
+    if (filter_price_max != '') {
+        for (animal of animals) {
+            if (!(parseInt(animal.querySelector(".animalPrice").innerText) <= parseInt(filter_price_max))) {
+                animal.classList.add("hidden2");
+            }
+        }
+    }
 }
 
 
