@@ -1,4 +1,50 @@
-const createSummary = async () => {
+function filterSalesByDate(invoiceData, startDate, endDate) {
+  const filteredSales = invoiceData.filter(data => {
+    const saleDate = new Date(data.date);
+    return saleDate >= new Date(startDate) && saleDate <= new Date(endDate);
+  });
+  return filteredSales
+}
+
+function calcMonthlySales(filteredSales) {
+  const monthlySales = {};
+  filteredSales.forEach(sale => {
+    const saleDate = new Date(sale.date);
+    const year = saleDate.getFullYear();
+    const month = saleDate.getMonth();
+    const key = `${year}-${month.toString().padStart(2, '0')}`;
+
+    if (monthlySales[key]) {
+      monthlySales[key] += sale.price;
+    } else {
+      monthlySales[key] = sale.price;
+    }
+  });
+  return monthlySales;
+}
+
+function calcAnnualSales(filteredSales) {
+  const annualSales = {};
+  filteredSales.forEach(sale => {
+    const saleDate = new Date(sale.date);
+    const year = saleDate.getFullYear();
+
+    if (annualSales[year]) {
+      annualSales[year] += sale.price;
+    } else {
+      annualSales[year] = sale.price;
+    }
+  });
+
+  return annualSales;
+
+}
+
+function findPopularAnimal() {
+  pass
+}
+
+const createSummary = async (event) => {
   try {
     const response = await fetch("/invoice/all")
     if (!response.ok) {
@@ -8,55 +54,14 @@ const createSummary = async () => {
     const data = await response.json
 
     // Retrieve form input values from the modal
-    const startDate = document.getElementById('start_date').value;
-    const endDate = document.getElementById('end_date').value;
-    const quickSelect = document.getElementById('quick_select').value;
-    const popularAnimals = parseInt(document.getElementById('top_sale_animals').value);
-    const profitableAnimals = parseInt(document.getElementById('most_profitable').value);
+    const formEl = document.forms.summaryForm;
+    const formData = new FormData(formEl);
+    const startDate = formData.get('start_date');
+    const endDate = formData.get('end_date');
+    const quickSelect = formData.get('quick_select');
+    const topSaleAnimals = formData.get('top_sale_animals');
+    const mostProfitable = formData.get('most_profitable');
 
-    function filterSalesByDate(invoiceData, startDate, endDate) {
-      const filteredSales = invoiceData.filter(data => {
-        const saleDate = new Date(data.date);
-        return saleDate >= new Date(startDate) && saleDate <= new Date(endDate);
-      });
-      return filteredSales
-    }
-
-    function calcMonthlySales(filteredSales) {
-      const monthlySales = {};
-      filteredSales.forEach(sale => {
-        const saleDate = new Date(sale.date);
-        const year = saleDate.getFullYear();
-        const month = saleDate.getMonth();
-        const key = `${year}-${month.toString().padStart(2, '0')}`;
-
-        if (monthlySales[key]) {
-          monthlySales[kkey] += sale.price;
-        } else {
-          monthlySales[key] = sale.price;
-        }
-      });
-      return monthlySales;
-    }
-
-    function calcAnnualSales(filteredSales) {
-      const annualSales = {};
-      filteredSales.forEach(sale => {
-        const saleDate = new Date(sale.date);
-        const year = saleDate.getFullYear();
-    
-        if (annualSales[year]) {
-          annualSales[year] += sale.price;
-        } else {
-          annualSales[year] = sale.price;
-        }
-      });
-    
-      return annualSales;
-
-    }
-
-    function findPopularAnimal()
   }
   catch (error) {
     console.log(error)
