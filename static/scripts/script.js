@@ -116,7 +116,7 @@ const filterTable = (event) => {
 }
 
 const filterForm = (event) => {
-
+ 
     const formEl = document.forms.filterForm;
     const animalFormData = new FormData(formEl);
     const filter_age = animalFormData.get('age');
