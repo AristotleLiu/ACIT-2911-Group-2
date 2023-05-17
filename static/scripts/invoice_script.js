@@ -195,7 +195,7 @@ const filterTableInvoice = (event) => {
       if (invoice.querySelector(".invoiceName").innerText.toLowerCase().includes(event.target.value.toLowerCase()) || invoice.querySelector(".invoiceID").innerText.includes(event.target.value)) {
         invoice.classList.remove("hidden");
       } else {
-        invoice.className = "hidden";
+        invoice.classList.add("hidden");
       }
     }
   } else {
