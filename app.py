@@ -114,6 +114,7 @@ def add_invoice():
         animal = db.session.get(Animal, ani_id)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
+        animal.sold_date = new_invoice.date
         db.session.add(association)
 
     db.session.commit()
