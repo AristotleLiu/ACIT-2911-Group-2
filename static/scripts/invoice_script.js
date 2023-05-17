@@ -6,42 +6,52 @@ function filterSalesByDate(invoiceData, startDate, endDate) {
   return filteredSales
 }
 
-function calcMonthlySales(filteredSales) {
+function calcMonthlySales(invoiceData) {
   const monthlySales = {};
-  filteredSales.forEach(sale => {
-    const saleDate = new Date(sale.date);
+  invoiceData.forEach(invoice => {
+    const saleDate = new Date(invoice.date);
     const year = saleDate.getFullYear();
-    const month = saleDate.getMonth();
+    const month = saleDate.getMonth() + 1;
     const key = `${year}-${month.toString().padStart(2, '0')}`;
 
     if (monthlySales[key]) {
-      monthlySales[key] += sale.price;
+      monthlySales[key] += invoice.price;
     } else {
-      monthlySales[key] = sale.price;
+      monthlySales[key] = invoice.price;
     }
   });
   return monthlySales;
 }
 
-function calcAnnualSales(filteredSales) {
+function calcAnnualSales(invoiceData) {
   const annualSales = {};
-  filteredSales.forEach(sale => {
-    const saleDate = new Date(sale.date);
+  invoiceData.forEach(invoice => {
+    const saleDate = new Date(invoice.date);
     const year = saleDate.getFullYear();
 
     if (annualSales[year]) {
-      annualSales[year] += sale.price;
+      annualSales[year] += invoice.price;
     } else {
-      annualSales[year] = sale.price;
+      annualSales[year] = invoice.price;
     }
   });
 
   return annualSales;
-
 }
 
-function findPopularAnimal() {
-  pass
+function findPopularAnimal(invoiceData) {
+  animalDict = {}
+  for (invoice of invoiceData) {
+    for (animal of invoice.animals) {
+      if (animalDict[animal]) {
+        animalDict[animal] += 1
+      } else {
+        animalDict[animal] = 1
+      }
+    }
+  }
+
+  return animalDict
 }
 
 const createSummary = async (event) => {
