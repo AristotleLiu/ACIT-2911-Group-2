@@ -7,7 +7,7 @@ with app.app_context():
     invoice_list =[
         Invoice(
         status="Paid",
-        date=string_to_date("2022-06-10"),
+        date=string_to_date("2023-06-10"),
         name="Tim",
         city="Victoria",
         province="BC",
@@ -17,7 +17,7 @@ with app.app_context():
         ),
         Invoice(
         status="Unpaid",
-        date=string_to_date("2022-07-05"),
+        date=string_to_date("2023-07-05"),
         name="Jane",
         city="Toronto",
         province="ON",
@@ -27,7 +27,7 @@ with app.app_context():
         ),
         Invoice(
         status="Paid",
-        date=string_to_date("2022-08-15"),
+        date=string_to_date("2023-08-15"),
         name="Michael",
         city="Calgary",
         province="AB",
@@ -37,7 +37,7 @@ with app.app_context():
         ),
         Invoice(
         status="Void",
-        date=string_to_date("2022-09-20"),
+        date=string_to_date("2023-09-20"),
         name="Sarah",
         city="Montreal",
         province="QC",
@@ -47,7 +47,7 @@ with app.app_context():
         ),
         Invoice(
         status="Unpaid",
-        date=string_to_date("2022-10-25"),
+        date=string_to_date("2023-10-25"),
         name="David",
         city="Vancouver",
         province="BC",
@@ -75,6 +75,7 @@ with app.app_context():
             print("+", end='')
             association = AnimalInvoice(animal=ani, invoice=inv)
             ani.is_in_invoice = True
+            ani.sold_date = inv.date
             db.session.add(association)
         print()
 

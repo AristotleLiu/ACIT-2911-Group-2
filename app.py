@@ -6,6 +6,7 @@
 5. run "python app.py"
 6. Running on http://127.0.0.1:5000
 """
+from crypt import methods
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
@@ -114,10 +115,15 @@ def add_invoice():
         animal = db.session.get(Animal, ani_id)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
+        animal.sold_date = new_invoice.date
         db.session.add(association)
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
+    
+@app.route("/summary", methods=["post"])
+def sum():
+    return redirect("http://127.0.0.1:5000/summary")
 
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):

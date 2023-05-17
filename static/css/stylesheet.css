@@ -286,6 +286,33 @@ input[type="submit"] {
     display: none;
   }
 
+
+
+
+/* sum style */
+.invoice_page_body{
+  position: relative;
+}
+#create-summary-button{
+  background-color: #5d9fc5;
+  border: none;
+  margin-right: 11px;
+  color: white;
+  border:none;
+  border-radius: 30px;
+  float: right;
+  position: sticky;
+  bottom: 6vh;
+  z-index: 2;
+}
+
+#create-summary-button:hover{
+  background-color: #5579C6;
+  border: none;
+  color: white;
+}
+
   .hidden2 {
     display: none;
   }
+
