@@ -23,13 +23,13 @@
 <body class="invoice_page_body">
   <!-- Brand Name -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
+    <div>
     <img id="logo" src="{{ url_for('static', filename='favicon.ico') }}">
-
     <div class="btn-group btn-group-lg" role="group" aria-label="UI Title Buttons">
       <a href="http://127.0.0.1:5000/" class="btn btn-outline-dark" id="invoice_ui_animals">Animals</a>
       <a href="http://127.0.0.1:5000/invoice" class="btn btn-dark" id="invoice_ui_invoices">Invoices</a>
     </div>
+  </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -112,9 +112,6 @@
 
           <body>
             <form action="#" method="POST" id="modal-form">
-
-              <label for="species"><b>Customer Name:</b></label>
-              <input type="text" id="Customer Name" name="Customer Name"><br>
 
               <label for="invoice_city"><b>City:</b></label>
               <input type="text" id="invoice_city" name="invoice_city"><br>

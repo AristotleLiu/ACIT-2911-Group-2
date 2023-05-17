@@ -62,14 +62,14 @@
         </thead>
         <tbody>
           {% for animal in animals %}
-          <tr in_invoice="{{ animal.is_in_invoice }}">
+          <tr in_invoice="{{ animal.is_in_invoice }}" animalHealth="{{ animal.health }}" animalColor="{{ animal.color }}" animalSupplier="{{ animal.supplier }}">
 
               <th class="animalID" scope="row">{{ animal.id }}</th>
               <td class="animalName">{{ animal.name }}</td>
-              <td>{{ animal.age }}</td>
-              <td>{{ animal.gender }}</td>
-              <td>{{ animal.species }}</td>
-              <td>{{ animal.price }}</td>
+              <td class="animalAge">{{ animal.age }}</td>
+              <td class="animalGender">{{ animal.gender }}</td>
+              <td class="animalSpecies">{{ animal.species }}</td>
+              <td class="animalPrice">{{ animal.price }}</td>
               <td>
                 <button onclick="renderModal(this)" type="button" class="btn btn-primary" id="index-action-button" data-toggle="modal" data-target="#view-animal-modal"><i class="far fa-eye"></i></button>
                 <button onclick="renderModal(this)" type="button" class="btn btn-success btn-edit" id="index-action-button" data-toggle="modal" data-target="#edit-animal-modal"><i class="fas fa-edit"></i></button>
@@ -95,7 +95,7 @@
             </div>
             <div class="modal-body">
               <body>
-                <form action="#" method="POST" id="modal-form">
+                <form id="filterForm" onsubmit="filterForm()" method="dialog">
             
                     <label for="age"><b>Age:</b></label>
                     <input type="text" id="age" name="age"><br>
@@ -109,34 +109,36 @@
                       <option value="other">Other</option>
                     </select><br>
                 
-                    <label for="species"><b>Species:</b>></label>
+                    <label for="species"><b>Species:</b></label>
                     <input type="text" id="species" name="species"><br>
             
-                    <label for="price"><b>Price($):</b>></label>
+                    <label for="price"><b>Price($):</b></label>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Min"/>
-                      <input type="text" class="form-control" placeholder="Max"/>
+                      <input type="text" id="minPrice" name="minPrice" class="form-control" placeholder="Min"/>
+                      <input type="text" id="maxPrice" name="maxPrice" class="form-control" placeholder="Max"/>
                   </div>
       
-                    <label for="status"><b>Health:</b>></label>
-                    <select id="status" name="status">
+                    <label for="health"><b>Health:</b></label>
+                    <select id="health" name="health">
                       <option value="">--Select--</option>
-                      <option value="">excellent</option>
-                      <option value="sold">good</option>
-                      <option value="sold">fair</option>
-                      <option value="sold">poor</option>
-                      <option value="sold">critical</option>
+                      <option value="excellent">excellent</option>
+                      <option value="good">good</option>
+                      <option value="fair">fair</option>
+                      <option value="poor">poor</option>
+                      <option value="critical">critical</option>
                     </select><br>
                 
-                    <label for="colour"><b>Colour:</b>></label>
-                    <input type="text" id="colour" name="colour"><br>
+                    <label for="color"><b>Color:</b></label>
+                    <input type="text" id="color" name="color"><br>
                 
-                    <label for="supplier"><b>Supplier:</b>></label>
-                    <input type="email" id="email" name="email"><br>
+                    <label for="supplier"><b>Supplier:</b></label>
+                    <input type="email" id="supplier" name="supplier"><br>
                 
                     <br>
       
                     <button type type="submit" class="btn btn-success">Submit</button>
+
+                    <input type="reset" class="btn btn-outline-danger" value="Clear Form">
 
                   </form>
             </div>

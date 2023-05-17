@@ -288,6 +288,7 @@ input[type="submit"] {
 
 
 
+
 /* sum style */
 .invoice_page_body{
   position: relative;
@@ -310,3 +311,8 @@ input[type="submit"] {
   border: none;
   color: white;
 }
+
+  .hidden2 {
+    display: none;
+  }
+

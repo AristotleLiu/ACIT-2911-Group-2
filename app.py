@@ -217,5 +217,11 @@ def update_invoice(invoice_id):
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
 
+@app.route("/invoice/all", methods=["GET"])
+def get_all_invoices():
+    invoice_data = Invoice.query.all()
+    return [item.to_dict() for item in invoice_data]
+            
+
 if __name__ == "__main__":
     app.run(debug=True)
