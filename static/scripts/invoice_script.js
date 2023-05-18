@@ -92,6 +92,24 @@ const createSummary = async (event) => {
     const topSaleAnimals = formData.get('top_sale_animals');
     const mostProfitable = formData.get('most_profitable');
 
+    // Filter invoice data based on selected date range
+    const filterSales = filterSalesByDate(data, startDate, endDate);
+    // Calculate monthly of yearly sales
+    let salesData;
+    if (quickSelect === 'monthly') {
+      salesData = calcMonthlySales(filterSales); 
+    } else {
+      salesData = calcAnnualSales(filterSales);
+    }
+    
+    // Find popular animals and most profitable animals
+    const popularAnimals = findPopularAnimal(filterSales);
+    const profitableAnimals = mostProfitableAnimals(filterSales);
+    
+    // Sort animal dictionaries to get top sale animals and most profitable animals
+    const topSaleAnimalsList = sortAnimalDict(popularAnimals, topSaleAnimals);
+    const mostProfitableAnimalsList = sortAnimalDict(profitableAnimals, mostProfitable);
+
   }
   catch (error) {
     console.log(error)
