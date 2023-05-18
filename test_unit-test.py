@@ -45,7 +45,7 @@ class Test_animal(unittest.TestCase):
             'price': 50.0,
             'weight': 4.0,
             'height': 8.0,
-            'health': 'not good',
+            'health': 'good',
             'color': 'white',
             'purchase_date': date.today(),
             'sold_date': None,
