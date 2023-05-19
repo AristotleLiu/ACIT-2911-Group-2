@@ -40,7 +40,7 @@ class Test_animal(unittest.TestCase):
             'id': animal.id,
             'name': 'Fluffy',
             'age': 3,
-            'gender': 'female',
+            'gender': 'rfemale',
             'species': 'cat',
             'price': 50.0,
             'weight': 4.0,
