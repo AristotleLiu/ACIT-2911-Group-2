@@ -212,8 +212,8 @@ const renderModal = async (element) => {
 
             var row_id_text = document.createTextNode(animal["animal_id"])
             var row_name_text = document.createTextNode(animal["animal_name"])
-            var row_species_text = document.createTextNode(animal["animal_price"])
-            var row_price_text = document.createTextNode(animal["animal_species"])
+            var row_species_text = document.createTextNode(animal["animal_species"])
+            var row_price_text = document.createTextNode(animal["animal_price"])
 
             row_id.appendChild(row_id_text)
             row_name.appendChild(row_name_text)
