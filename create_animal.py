@@ -18,8 +18,8 @@ with app.app_context():
         sold_date = string_to_date("2020-5-17"),
         supplier = "tim@gmail.com",
         purchase_price = 50.0,
-        diet = '{"type":"Herbivore", "foods":["Grass", "Hay"]}',
-        notes = "Has a chipped tooth!",
+        diet = "Herbivore",
+        notes = "Has a chipped tooth! Likes grass and hay",
         image_url = "https://pethelpful.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:eco%2Cw_1200%2Cx_1281%2Cy_628/MTg5NzA4MjI3MTEyMzQ3NDAx/trac-vu-yzzn7zgjnqs-unsplash.jpg"
         ),
 
@@ -37,8 +37,8 @@ with app.app_context():
         sold_date = string_to_date("2022-03-01"),
         supplier = "bobby@petstore.com",
         purchase_price = 350.0,
-        diet = '{"type":"Omnivore", "foods":["Meat", "Vegetables"]}',
-        notes = "Loves to play fetch!",
+        diet = "Omnivore",
+        notes = "Loves to play fetch! Likes meat and vegetables",
         image_url = "https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGRvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -56,8 +56,8 @@ with app.app_context():
         sold_date = string_to_date("2022-03-01"),
         supplier = "fred@craigslist.org",
         purchase_price = 200.0,
-        diet = '{"type":"Carnivore", "foods":["Fish", "Meat"]}',
-        notes = "Likes to sleep in sunbeams.",
+        diet = "Carnivore",
+        notes = "Likes to sleep in sunbeams. Likes fish and meat",
         image_url = "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
         Animal(
@@ -74,8 +74,8 @@ with app.app_context():
         sold_date = string_to_date("2022-01-15"),
         supplier = "harry@horsebreeder.com",
         purchase_price = 1000.0,
-        diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
-        notes = "Needs regular hoof care.",
+        diet = "Herbivore",
+        notes = "Needs regular hoof care. Eats hay and grass.",
         image_url = "https://images.unsplash.com/photo-1576289163370-0634b5d94d28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
         ),
 
@@ -93,8 +93,8 @@ with app.app_context():
         sold_date = string_to_date("2023-03-20"),
         supplier = "ivan@localpetstore.com",
         purchase_price = 75.0,
-        diet = '{"type":"Herbivore", "foods":["Carrots", "Lettuce"]}',
-        notes = "Loves to hop around and play.",
+        diet = "Herbivore",
+        notes = "Loves to hop around and play. Enjoys carrots and lettuce.",
         image_url = "https://images.unsplash.com/photo-1591382386627-349b692688ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8cmFiYml0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -112,8 +112,8 @@ with app.app_context():
         sold_date = string_to_date("2022-05-05"),
         supplier = "tyler@exoticbirds.com",
         purchase_price = 150.0,
-        diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit"]}',
-        notes = "Loves to mimic human speech.",
+        diet = "Omnivore",
+        notes = "Loves to mimic human speech. Eats seeds and fruit.",
         image_url = "https://images.unsplash.com/photo-1596044574113-bd6dc59e6337?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fFBhcnJvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -131,8 +131,8 @@ with app.app_context():
         sold_date = string_to_date("2022-01-02"),
         supplier = "ivan@localpetstore.com",
         purchase_price = 30.0,
-        diet = '{"type":"Omnivore", "foods":["Seeds", "Vegetables"]}',
-        notes = "Likes to run on its wheel.",
+        diet = "Omnivore",
+        notes = "Likes to run on its wheel. Eats seeds and vegetables.",
         image_url = "https://images.unsplash.com/photo-1599154820236-ebe408351213?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fEhhbXN0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -150,8 +150,8 @@ with app.app_context():
         sold_date = string_to_date("2022-04-01"),
         supplier = "ivan@localpetstore.com",
         purchase_price = 50.0,
-        diet = '{"type":"Herbivore", "foods":["Hay", "Vegetables"]}',
-        notes = "Enjoys being held and cuddled.",
+        diet = "Herbivore",
+        notes = "Enjoys being held and cuddled. Eats hay and vegetables.",
         image_url = "https://images.unsplash.com/photo-1630173207885-c903abb963f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
         ),
 
@@ -169,8 +169,8 @@ with app.app_context():
         sold_date = string_to_date("2022-05-01"),
         supplier = "justin@reptilebreeder.com",
         purchase_price = 150.0,
-        diet = '{"type":"Carnivore", "foods":["Mice", "Rats"]}',
-        notes = "Needs a heat lamp to stay warm.",
+        diet = "Carnivore",
+        notes = "Needs a heat lamp to stay warm. Eats mice and rats.",
         image_url = "https://images.unsplash.com/photo-1531386151447-fd76ad50012f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c25ha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -188,8 +188,8 @@ with app.app_context():
         sold_date = string_to_date("2022-06-01"),
         supplier = "ivan@localpetstore.com",
         purchase_price = 80.0,
-        diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
-        notes = "Loves to play with toys.",
+        diet = "Carnivore",
+        notes = "Loves to play with toys. Eats meat and eggs.",
         image_url = "https://images.unsplash.com/photo-1615087240969-eeff2fa558f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8RmVycmV0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
         
@@ -207,8 +207,8 @@ with app.app_context():
         sold_date = string_to_date("2022-06-01"),
         supplier = "tyler@exoticbirds.com",
         purchase_price = 80.0,
-        diet = '{"type":"Carnivore", "foods":["Meat", "Eggs"]}',
-        notes = "Loves to play with toys.",
+        diet = "Carnivore",
+        notes = "Loves to play with the zookeeper. Eats meat and eggs.",
         image_url = "https://images.unsplash.com/photo-1605235923175-9930bcad51df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Qm9iY2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -226,8 +226,8 @@ with app.app_context():
         sold_date = string_to_date("2022-04-05"),
         supplier = "johndoe@localpetstore.com",
         purchase_price = 75.0,
-        diet = '{"type":"Herbivore", "foods":["Pellets", "Vegetables"]}',
-        notes = "Loves to chew on cardboard boxes.",
+        diet = "Herbivore",
+        notes = "Loves to chew on cardboard boxes. Eats pellets and vegetables.",
         image_url = "https://images.unsplash.com/photo-1591382386627-349b692688ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8UmFiYml0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -245,8 +245,8 @@ with app.app_context():
         sold_date = string_to_date("2022-06-10"),
         supplier = "safariadventures@gmail.com",
         purchase_price = 4000.0,
-        diet = '{"type":"Carnivore", "foods":["Meat", "Bone"]}',
-        notes = "Requires a large enclosure with plenty of space to roam.",
+        diet = "Carnivore",
+        notes = "Requires a large enclosure with plenty of space to roam. Eats meat and bone.",
         image_url = "https://images.unsplash.com/photo-1607490703747-0519d2e398a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGxpb258ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -264,8 +264,8 @@ with app.app_context():
         sold_date = string_to_date("2022-05-25"),
         supplier = "ivan@localpetstore.com",
         purchase_price = 2500.0,
-        diet = '{"type":"Omnivore", "foods":["Kibble", "Meat", "Fish"]}',
-        notes = "Loves to play fetch.",
+        diet = "Omnivore",
+        notes = "Loves to play fetch. Eats kibble, meat, and fish.",
         image_url = "https://images.unsplash.com/photo-1546712508-dacd722e76e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHBvbGFyJTIwYmVhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -283,8 +283,8 @@ with app.app_context():
         sold_date = string_to_date("2022-06-30"),
         supplier = "smithfarms@hotmail.com",
         purchase_price = 6000.0,
-        diet = '{"type":"Herbivore", "foods":["Hay", "Grass"]}',
-        notes = "Requires regular grooming and exercise.",
+        diet = "Herbivore",
+        notes = "Requires regular grooming and exercise. Eats hay and grass.",
         image_url = "https://images.unsplash.com/photo-1576289163370-0634b5d94d28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGhvcnNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -302,8 +302,8 @@ with app.app_context():
         sold_date = string_to_date("2022-07-15"),
         supplier = "petshelter@gmail.com",
         purchase_price = 200.0,
-        diet = '{"type":"Omnivore", "foods":["Kibble", "Fish"]}',
-        notes = "Likes to nap in cozy spots.",
+        diet = "Omnivore",
+        notes = "Barely survived time travel, needs extensive care. Eats kibble and fish.",
         image_url = "https://images.unsplash.com/photo-1667286266878-e0c40979c220?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8RG9kbyUyMEJpcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -321,8 +321,8 @@ with app.app_context():
         sold_date = string_to_date("2023-02-14"),
         supplier = "alice@snailfarmer.com",
         purchase_price = 10.0,
-        diet = '{"type":"Herbivore", "foods":["Lettuce", "Carrots"]}',
-        notes = "Likes to hide in its shell.",
+        diet = "Herbivore",
+        notes = "Likes to hide in its shell. Eats lettuce and carrots.",
         image_url = "https://images.unsplash.com/photo-1563662185892-fe39abf9ba9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8U25haWx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -340,8 +340,8 @@ with app.app_context():
         sold_date = string_to_date("2022-02-14"),
         supplier = "exoticpets@zoo.com",
         purchase_price = 300.0,
-        diet = '{"type":"Omnivore", "foods":["Seeds", "Fruit", "Insects"]}',
-        notes = "Loves to mimic human speech.",
+        diet = "Omnivore",
+        notes = "Loves to mimic human speech. Eats seeds, fruit, and insects.",
         image_url = "https://images.unsplash.com/photo-1596044574113-bd6dc59e6337?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjl8fFBhcnJvdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -359,8 +359,8 @@ with app.app_context():
         sold_date = string_to_date("2022-04-15"),
         supplier = "junglecreatures@gmail.com",
         purchase_price = 250.0,
-        diet = '{"type":"Insectivore", "foods":["Crickets", "Mealworms"]}',
-        notes = "Can change color to blend in with surroundings.",
+        diet = "Insectivore",
+        notes = "Can change color to blend in with surroundings. Eats crickets and mealworms.",
         image_url = "https://images.unsplash.com/photo-1598904396634-9a630c4fd8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fENoYW1lbGVvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -378,8 +378,8 @@ with app.app_context():
         sold_date = string_to_date("2022-05-15"),
         supplier = "rainforestaviary@birdlovers.com",
         purchase_price = 500.0,
-        diet = '{"type":"Frugivore", "foods":["Fruit"]}',
-        notes = "Has a loud, distinctive call.",
+        diet = "Frugivore",
+        notes = "Has a loud, distinctive call. Eats fruit.",
         image_url = "https://images.unsplash.com/photo-1595363530143-b913b4ea30dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8VG91Y2FufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -397,8 +397,8 @@ with app.app_context():
         sold_date = string_to_date("2022-04-30"),
         supplier = "africanwildlife@conservation.org",
         purchase_price = 1000.0,
-        diet = '{"type":"Carnivore", "foods":["Meat"]}',
-        notes = "Extremely fast runner.",
+        diet = "Carnivore",
+        notes = "Extremely fast runner. Eats meat.",
         image_url = "https://images.unsplash.com/photo-1582425312148-de9955e68e45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Q2hlZXRhaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -416,8 +416,8 @@ with app.app_context():
         sold_date = string_to_date("2022-06-10"),
         supplier = "exoticpetshop@aquatics.com",
         purchase_price = 100.0,
-        diet = '{"type":"Herbivore", "foods":["Vegetables", "Fruit"]}',
-        notes = "Extremely slow runner.",
+        diet = "Herbivore",
+        notes = "Extremely slow runner and has dementia. Eats vegetables and fruit.",
         image_url = "https://images.unsplash.com/photo-1572713629470-3e9f5d4fdf4c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8VHVydGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -435,8 +435,8 @@ with app.app_context():
         sold_date = string_to_date("2023-03-01"),
         supplier = "bob@frogbreeder.com",
         purchase_price = 30.0,
-        diet = '{"type":"Carnivore", "foods":["Insects", "Worms"]}',
-        notes = "Can jump really high!",
+        diet = "Carnivore",
+        notes = "Can jump really high! Eats insects and worms.",
         image_url = "https://images.unsplash.com/photo-1579380656108-f98e4df8ea62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJvZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
         ),
 
@@ -454,8 +454,8 @@ with app.app_context():
         sold_date = string_to_date("2023-05-01"),
         supplier = "walrusworld@marinepark.com",
         purchase_price = 8000.0,
-        diet = '{"type":"Carnivore", "foods":["Fish", "Squid"]}',
-        notes = "Loves to swim and play with toys.",
+        diet = "Carnivore",
+        notes = "Loves to swim and play with toys. Eats fish and squid.",
         image_url = "https://i.natgeofe.com/k/60108d62-2d04-478e-bb79-3f3549ffd13e/walrus-tusks_4x3.jpg"
         ),
 
@@ -473,8 +473,8 @@ with app.app_context():
         sold_date = string_to_date("2023-04-01"),
         supplier = "walrusworld@marinepark.com",
         purchase_price = 7500.0,
-        diet = '{"type":"Carnivore", "foods":["Fish", "Squid"]}',
-        notes = "Enjoys playing with Wally, the male Walrus.",
+        diet = "Carnivore",
+        notes = "Enjoys playing with Wally, the male Walrus. Eats fish and squid.",
         image_url = "https://images.unsplash.com/photo-1627477150479-b7f109c3aaa9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
         ),
 
@@ -492,8 +492,8 @@ with app.app_context():
         sold_date=string_to_date("2023-01-05"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=9000.0,
-        diet='{"type":"Carnivore", "foods":["Meat", "Bone"]}',
-        notes="Has beautiful stripes.",
+        diet = "Carnivore",
+        notes = "Has beautiful stripes. Eats meat and bone.",
         image_url="https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
         ),
 
@@ -511,8 +511,8 @@ with app.app_context():
         sold_date=string_to_date("2023-05-10"),
         supplier="exoticbirds@aviary.com",
         purchase_price=600.0,
-        diet='{"type":"Omnivore", "foods":["Shrimp", "Algae"]}',
-        notes="Has long legs.",
+        diet = "Omnivore",
+        notes = "Has long legs. Eats shrimp and algae.",
         image_url="https://images.unsplash.com/photo-1539418561314-565804e349c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
         ),
 
@@ -530,8 +530,8 @@ with app.app_context():
         sold_date=string_to_date("2022-10-10"),
         supplier="wildsafaripark@wildlifeconservation.org",
         purchase_price=4500.0,
-        diet='{"type":"Herbivore", "foods":["Fruits", "Leaves"]}',
-        notes="Has a long tail.",
+        diet = "Herbivore",
+        notes = "Has a long tail. Eats fruits and leaves.",
         image_url="https://images.unsplash.com/photo-1599639668421-eefd062fe657?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8TGVtdXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -549,8 +549,8 @@ with app.app_context():
         sold_date=string_to_date("2023-03-01"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=8000.0,
-        diet='{"type":"Carnivore", "foods":["Meat", "Bone"]}',
-        notes="Has a majestic mane.",
+        diet = "Carnivore",
+        notes = "Has a majestic mane. Eats meat and bones.",
         image_url="https://images.unsplash.com/photo-1552410260-0fd9b577afa6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8TGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -568,8 +568,8 @@ with app.app_context():
         sold_date=string_to_date("2023-02-15"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=7000.0,
-        diet='{"type":"Carnivore", "foods":["Meat", "Bone"]}',
-        notes="Runs at high speeds.",
+        diet = "Carnivore",
+        notes = "Runs at high speeds. Eats meat and bones.",
         image_url="https://images.unsplash.com/photo-1538100951519-36a3de1136c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Q2hlZXRhaHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -587,27 +587,27 @@ with app.app_context():
         sold_date=string_to_date("2023-03-20"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=2000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Nuts"]}',
-        notes="Swings from trees.",
+        diet = "Omnivore",
+        notes = "Swings from trees. Eats fruits and nuts.",
         image_url="https://images.unsplash.com/photo-1641697975041-b5f967d3a4b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3Jhbmd1dGFuZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
         Animal(
         name="Ruby",
         age=2,
-        gender="female",
+        gender="other",
         species="Parrot",
         price=200,
         weight=0.3,
         height=0.2,
         health="critical",
-        color="red",
+        color="blue",
         purchase_date=string_to_date("2023-02-20"),
         sold_date=string_to_date("2023-04-10"),
         supplier="exoticbirds@aviary.com",
         purchase_price=400.0,
-        diet='{"type":"Herbivore", "foods":["Seeds", "Fruits"]}',
-        notes="Has vibrant feathers.",
+        diet = "Herbivore",
+        notes = "Has vibrant feathers. Birth defect caused sex to be unidentifiable. Eats seeds and fruits.",
         image_url="https://images.unsplash.com/photo-1592089416462-2b0cb7da8379?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8UGFycm90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -625,8 +625,8 @@ with app.app_context():
         sold_date=string_to_date("2023-05-01"),
         supplier="wildsafaripark@wildlifeconservation.org",
         purchase_price=12000.0,
-        diet='{"type":"Herbivore", "foods":["Leaves", "Grass"]}',
-        notes="Has long tusks.",
+        diet="Herbivore",
+        notes="Has long tusks. Likes leaves and grass",
         image_url="https://images.unsplash.com/photo-1619111712102-8273abfea0aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGVsZXBoYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -644,8 +644,8 @@ with app.app_context():
         sold_date=string_to_date("2022-12-10"),
         supplier="wildsafaripark@wildlifeconservation.org",
         purchase_price=3000.0,
-        diet='{"type":"Herbivore", "foods":["Grass", "Leaves"]}',
-        notes="Has stripes.",
+        diet = "Herbivore",
+        notes = "Has stripes. Eats grass and leaves",
         image_url="https://images.unsplash.com/photo-1574145967029-52f4cd6b7e76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8WmVicmF8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -663,8 +663,8 @@ with app.app_context():
         sold_date=string_to_date("2023-02-05"),
         supplier="wildsafaripark@wildlifeconservation.org",
         purchase_price=9000.0,
-        diet='{"type":"Herbivore", "foods":["Fruits", "Vegetables"]}',
-        notes="Has a muscular build.",
+        diet = "Herbivore",
+        notes = "Devious. Eats fruits and vegetables",
         image_url="https://images.unsplash.com/photo-1581252789066-5110779bda1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z29yaWxsYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -676,14 +676,14 @@ with app.app_context():
         price=200,
         weight=0.3,
         height=0.1,
-        health="good",
+        health="fine",
         color="brown",
         purchase_date=string_to_date("2023-03-10"),
         sold_date=string_to_date("2023-04-25"),
         supplier="exoticpets@petstore.com",
         purchase_price=150.0,
-        diet='{"type":"Omnivore", "foods":["Insects", "Fruits", "Vegetables"]}',
-        notes="Has prickly spines.",
+        diet = "Omnivore",
+        notes = "Has prickly spines. Eats insects, fruits, and vegetables",
         image_url="https://images.unsplash.com/photo-1605369179814-cfc635981c03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aGVkZ2Vob2d8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -701,8 +701,8 @@ with app.app_context():
         sold_date=string_to_date("2023-01-20"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=4500.0,
-        diet='{"type":"Herbivore", "foods":["Grass", "Leaves"]}',
-        notes="Has a pouch.",
+        diet = "Herbivore",
+        notes = "Has a pouch, like most kangaroos. Eats grass and leaves",
         image_url="https://images.unsplash.com/photo-1626803111824-0ee594987d4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
         ),
 
@@ -714,14 +714,14 @@ with app.app_context():
         price=5000,
         weight=12,
         height=0.6,
-        health="fine",
+        health="poor",
         color="gray and white",
         purchase_date=string_to_date("2022-12-15"),
         sold_date=string_to_date("2023-03-01"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=4000.0,
-        diet='{"type":"Herbivore", "foods":["Eucalyptus Leaves"]}',
-        notes="Sleeps for long hours.",
+        diet = "Herbivore",
+        notes = "Sleeps for long hours. On a strict diet of eucalyptus leaves",
         image_url="https://images.unsplash.com/photo-1579972383667-4894c883d674?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8S29hbGF8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -733,14 +733,14 @@ with app.app_context():
         price=8000,
         weight=60,
         height=0.9,
-        health="good",
+        health="fine",
         color="brown",
         purchase_date=string_to_date("2022-09-10"),
         sold_date=string_to_date("2023-01-01"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=6000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Highly intelligent.",
+        diet = "Omnivore",
+        notes = "Highly intelligent. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1596037332135-309f79d22d16?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1030&q=80"
         ),
 
@@ -758,8 +758,8 @@ with app.app_context():
         sold_date=string_to_date("2023-03-20"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=4000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Leaves"]}',
-        notes="Swings from branches.",
+        diet = "Omnivore",
+        notes = "Swings from branches. Eats fruits and leaves",
         image_url="https://images.unsplash.com/photo-1565899629718-4dae0e9566bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8R2liYm9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -771,14 +771,14 @@ with app.app_context():
         price=9000,
         weight=80,
         height=1.2,
-        health="excellent",
+        health="fine",
         color="red",
         purchase_date=string_to_date("2022-11-15"),
         sold_date=string_to_date("2023-04-01"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=7000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Has long arms.",
+        diet = "Omnivore",
+        notes = "Has long arms. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1583753341245-5175f6acfe38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8T3Jhbmd1dGFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -791,13 +791,13 @@ with app.app_context():
         weight=30,
         height=0.7,
         health="good",
-        color="gray",
+        color="multicolored",
         purchase_date=string_to_date("2023-02-20"),
         sold_date=string_to_date("2023-04-10"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=2000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Distinctive face features.",
+        diet = "Omnivore",
+        notes = "Distinctive face features. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1605583956585-c749b5d92c9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8QmFib29ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -815,8 +815,8 @@ with app.app_context():
         sold_date=string_to_date("2023-03-01"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=8000.0,
-        diet='{"type":"Herbivore", "foods":["Leaves", "Fruits"]}',
-        notes="Large and powerful.",
+        diet = "Herbivore",
+        notes = "Large and powerful. Very bossy. Eats leaves and fruits",
         image_url="https://images.unsplash.com/photo-1541804536-78217d100fb7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8R29yaWxsYXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -834,8 +834,8 @@ with app.app_context():
         sold_date=string_to_date("2023-02-15"),
         supplier="exoticwildlife@zoo.com",
         purchase_price=5000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Known for social behavior.",
+        diet = "Omnivore",
+        notes = "Known for social behavior. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1598723588279-90d2cd2b2808?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Qm9ub2JvfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -853,8 +853,8 @@ with app.app_context():
         sold_date=string_to_date("2023-04-25"),
         supplier="exoticpets@petstore.com",
         purchase_price=1000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Small and agile.",
+        diet = "Omnivore",
+        notes = "Small and agile. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1675870832679-e5f1acee5265?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8TWFybW9zZXR8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -872,8 +872,8 @@ with app.app_context():
         sold_date=string_to_date("2023-01-15"),
         supplier="exoticpets@petstore.com",
         purchase_price=1500.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Has long tail hair.",
+        diet = "Omnivore",
+        notes = "Has long facial hair. Eats fruits and insects",
         image_url="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTACV7Utt2IN_4tiz5ftNPdRFGTQ_UCIH8_Q7g_UlJnCqZtoDc29kTL5XCCWlbuvW-8X8hIFx0eJstEB6Y"
         ),
 
@@ -885,14 +885,14 @@ with app.app_context():
         price=2500,
         weight=0.6,
         height=0.3,
-        health="good",
+        health="fine",
         color="brown",
         purchase_date=string_to_date("2022-10-15"),
         sold_date=string_to_date("2023-02-01"),
         supplier="exoticpets@petstore.com",
         purchase_price=2000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Active and agile.",
+        diet = "Omnivore",
+        notes = "Active and agile. Eats fruits and insects",
         image_url="https://images.unsplash.com/photo-1515444347446-4380c4d8a6ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8U3F1aXJyZWwlMjBNb25rZXl8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -910,8 +910,8 @@ with app.app_context():
         sold_date=string_to_date("2023-03-10"),
         supplier="exoticpets@petstore.com",
         purchase_price=4000.0,
-        diet='{"type":"Omnivore", "foods":["Fruits", "Insects"]}',
-        notes="Long arms and fingers.",
+        diet = "Omnivore",
+        notes = "Long arms and fingers. Eats fruits and insects",
         image_url="https://upload.wikimedia.org/wikipedia/commons/4/40/Capuchin_Costa_Rica.jpg"
         ),
 
@@ -929,8 +929,8 @@ with app.app_context():
         sold_date=string_to_date("2023-01-10"),
         supplier="exoticbirds@birdsanctuary.com",
         purchase_price=4000.0,
-        diet='{"type":"Carnivore", "foods":["Fish", "Frogs"]}',
-        notes="Has a distinctive bill.",
+        diet = "Carnivore",
+        notes = "Has a distinctive bill. Likes fish and frogs",
         image_url="https://images.unsplash.com/photo-1563188619-df4bb332ad8d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1011&q=80"
         ),
 
@@ -948,8 +948,8 @@ with app.app_context():
         sold_date=string_to_date("2023-03-01"),
         supplier="exoticbirds@birdsanctuary.com",
         purchase_price=4500.0,
-        diet='{"type":"Carnivore", "foods":["Fish", "Reptiles"]}',
-        notes="Large and majestic bird.",
+        diet = "Carnivore",
+        notes = "Large and majestic bird. Makes a machine gun-like noise. Likes fish and reptiles",
         image_url="https://images.unsplash.com/photo-1601617637993-f9f976d7b305?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c2hvZWJpbGx8ZW58MHx8MHx8&auto=format&fit=crop&w=1200&q=60"
         ),
 
@@ -962,13 +962,13 @@ with app.app_context():
         weight=6.5,
         height=1.4,
         health="excellent",
-        color="gray",
+        color="multicolored",
         purchase_date=string_to_date("2022-10-10"),
         sold_date=string_to_date("2023-02-01"),
         supplier="exoticbirds@birdsanctuary.com",
-        purchase_price=45000.0,
-        diet='{"type":"Carnivore", "foods":["Fish", "Amphibians"]}',
-        notes="Impressive beak.",
+        purchase_price=45000.0,   
+        diet = "Carnivore",
+        notes = "Impressive beak. No complications during time travel. Likes fish and amphibians",
         image_url="https://i.guim.co.uk/img/media/53d52ce049c9bcfd587495b77a1332d1ac28fb4d/162_0_2398_1440/master/2398.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=c58b0a3db379142d144a0e69cb14df3c"
         )
     ]

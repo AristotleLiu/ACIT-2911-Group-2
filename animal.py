@@ -24,11 +24,11 @@ class Animal(db.Model):
     
     is_in_invoice = db.Column(db.Boolean, default=False)
 
-    def set_diet(self, data):
-        self.diet = json.dumps(data)
+    # def set_diet(self, data):
+    #     self.diet = json.dumps(data)
 
-    def get_diet(self):
-        return json.loads(self.diet)
+    # def get_diet(self):
+    #     return json.loads(self.diet)
     
     def to_dict(self):
         animal_dict = {"id" : self.id,
@@ -46,7 +46,7 @@ class Animal(db.Model):
             "sold_date" : self.sold_date,
             "supplier" : self.supplier,
             "purchase_price" : self.purchase_price,
-            "diet" : self.get_diet(),
+            "diet" : self.diet,
             "notes" : self.notes,
             "image_url" : self.image_url,
             "is_in_invoice" : self.is_in_invoice

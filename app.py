@@ -80,7 +80,7 @@ def add_animal():
                     sold_date=string_to_date(data["sold_date"]),
                     supplier=data["supplier"],
                     purchase_price=data["purchase_price"],
-                    diet=json.dumps(data["diet"]),
+                    diet=data["diet"],
                     notes=data["notes"],
                     image_url=data["image_url"])
     
@@ -205,7 +205,7 @@ def update_animal(animal_id):
     animal.sold_date = string_to_date(data["sold_date"])
     animal.supplier = data["supplier"]
     animal.purchase_price = data["purchase_price"]
-    animal.diet = json.dumps(data["diet"])
+    animal.diet = data["diet"]
     animal.notes = data["notes"]
     animal.image_url = data["image_url"]
 

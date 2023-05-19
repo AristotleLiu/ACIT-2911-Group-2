@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
   <link rel="stylesheet" href="../static/css/stylesheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -146,6 +147,8 @@
 
               <button type type="submit" class="btn btn-success">Submit</button>
 
+              <input type="reset" class="btn btn-outline-danger" value="Clear Form">
+
             </form>
         </div>
       </div>
@@ -178,7 +181,7 @@
               </select>
 
               <label for="date">Date:</label>
-              <input type="date" id="date" name="date" value="ADD YOUR VARIABLE HERE">
+              <input type="date" id="date" name="date">
 
               <label for="customer"><b>Customer Info:</b></label>
               <hr>
@@ -255,22 +258,23 @@
       <div class="modal-body">
 
         <body>
-          <form id="modal-form" method="post">
+          <form method="dialog" id="summaryForm" onsubmit="createSummary()">
 
             <label><b>Select The Period</b></label>
             <br>
             <label for="start_date">Start Date:</label>
-            <input type="date" id="start_date" name="start_date" value="ADD YOUR VARIABLE HERE">
+            <input type="date" id="start_date" name="start_date">
             <br>
             <label for="end_date">End Date:</label>
-            <input type="date" id="end_date" name="end_date" value="ADD YOUR VARIABLE HERE">
+            <input type="date" id="end_date" name="end_date">
             <br>
             <hr>
             <label><b>Monthly/Yearly Sales</b></label>
             <br>
             <select name="quick_select" id="quick_select" name="quick_select">
-              <option value="year">Yearly</option>
-              <option value="month">Monthly</option>
+              <option value="">--Select--</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Monthly">Monthly</option>
             </select>
             <hr>
             <br>
@@ -283,7 +287,7 @@
             <input type="number" id="most_profitable" name="most_profitable" step="1" min="0">
             <br>
 
-            <button type id="submitbutton" type="submit" class="btn btn-success">Submit</button>
+            <button type type="submit" class="btn btn-success">Submit</button>
           </form>
         </body>
       </div>
@@ -457,11 +461,10 @@
     </div>
   </div>
 
-  <!-- creat summary button -->
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-summary-modal"
-  id="create-summary-button">
-  <i class="fas fa-paw"></i>
-  Create Summary
+  <!-- create summary button -->
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-summary-modal" id="create-summary-button">
+    <i class="fas fa-paw"></i>
+    Create Summary
   </button>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

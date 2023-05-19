@@ -1,11 +1,150 @@
-const createSummary = async () => {
+function filterSalesByDate(invoiceData, startDate, endDate) {
+  const filteredSales = invoiceData.filter(data => {
+    const saleDate = new Date(data.date);
+    return saleDate >= new Date(startDate) && saleDate <= new Date(endDate);
+  });
+  return filteredSales
+}
+
+function calcMonthlySales(invoiceData) {
+  const monthlySales = {};
+  invoiceData.forEach(invoice => {
+    const saleDate = new Date(invoice.date);
+    const year = saleDate.getFullYear();
+    const month = saleDate.getMonth() + 1;
+    const key = `${year}-${month.toString().padStart(2, '0')}`;
+
+    if (monthlySales[key]) {
+      monthlySales[key] += invoice.price;
+    } else {
+      monthlySales[key] = invoice.price;
+    }
+  });
+  return monthlySales;
+}
+
+function calcAnnualSales(invoiceData) {
+  const annualSales = {};
+  invoiceData.forEach(invoice => {
+    const saleDate = new Date(invoice.date);
+    const year = saleDate.getFullYear();
+
+    if (annualSales[year]) {
+      annualSales[year] += invoice.price;
+    } else {
+      annualSales[year] = invoice.price;
+    }
+  });
+
+  return annualSales;
+}
+
+function findPopularAnimal(invoiceData) {
+  animalDict = {}
+  for (invoice of invoiceData) {
+    for (animal of invoice.animals) {
+      if (animalDict[animal.animal_species]) {
+        animalDict[animal.animal_species] += 1
+      } else {
+        animalDict[animal.animal_species] = 1
+      }
+    }
+  }
+
+  return animalDict
+}
+
+function mostProfitableAnimals(invoiceData) {
+  profitAnimalsDict = {}
+  for (invoice of invoiceData) {
+    for (animal of invoice.animals) {
+      if (profitAnimalsDict[animal.animal_species]) {
+        profitAnimalsDict[animal.animal_species] += animal.animal_price
+      } else {
+        profitAnimalsDict[animal.animal_species] = animal.animal_price
+      }
+    }
+  }
+  return profitAnimalsDict
+}
+
+function sortDict(dict, num) {
+  const sortedEntries = Object.entries(dict).sort((a, b) => b[1] - a[1]);
+  const sortedList = sortedEntries.map(([key, value]) => ({ key, value }));
+  
+  if (num) {
+    return sortedList.slice(0, num);
+  } else {
+    return sortedList;
+  }
+}
+
+const createSummary = async (event) => {
   try {
     const response = await fetch("/invoice/all")
     if (!response.ok) {
       throw new Error('Failed to fetch invoice data');
     }
     // data is a list of all invoices
-    const data = await response.json
+    const data = await response.json()
+
+    // Retrieve form input values from the modal
+    const formEl = document.forms.summaryForm;
+    const formData = new FormData(formEl);
+    const startDate = formData.get('start_date');
+    const endDate = formData.get('end_date');
+    const quickSelect = formData.get('quick_select');
+    const topSaleAnimals = formData.get('top_sale_animals');
+    const mostProfitable = formData.get('most_profitable');
+
+    // Filter invoice data based on selected date range, only invoices between start and end date are selected
+    const filterSales = filterSalesByDate(data, startDate, endDate);
+    // Calculate monthly or yearly sales
+    var salesData;
+    if (quickSelect === 'Monthly') {
+      salesData = sortDict(calcMonthlySales(filterSales)); 
+    } else {
+      salesData = sortDict(calcAnnualSales(filterSales));
+    }
+    
+    // Find popular animals and most profitable animals
+    const popularAnimals = findPopularAnimal(filterSales);
+    const profitableAnimals = mostProfitableAnimals(filterSales);
+    
+    // Sort animal dictionaries to get top sale animals and most profitable animals
+    const topSaleAnimalsList = sortDict(popularAnimals, topSaleAnimals);
+    const mostProfitableAnimalsList = sortDict(profitableAnimals, mostProfitable);
+
+    const workbook = XLSX.utils.book_new();
+
+    const salesDataWorkSheetData = []
+    for (item of salesData) {
+      if (quickSelect === "Monthly") {
+        salesDataWorkSheetData.push({"Year-Month": item["key"], "Sub Total": item["value"]})
+      } else {
+        salesDataWorkSheetData.push({"Year": item["key"], "Sub Total": item["value"]})
+      }
+    }
+
+    const topSaleAnimalsWorkSheetData = []
+    for (item of topSaleAnimalsList) {
+      topSaleAnimalsWorkSheetData.push({"Animal": item["key"], "Sold": item["value"]})
+    }
+
+    const mostProfitableAnimalsWorkSheetData = []
+    for (item of mostProfitableAnimalsList) {
+      mostProfitableAnimalsWorkSheetData.push({"Animal": item["key"], "Sub Total": item["value"]})
+    }
+
+    const salesDataWorkSheet = XLSX.utils.json_to_sheet(salesDataWorkSheetData);
+    const topSaleAnimalsWorkSheet = XLSX.utils.json_to_sheet(topSaleAnimalsWorkSheetData);
+    const mostProfitableAnimalsWorkSheet = XLSX.utils.json_to_sheet(mostProfitableAnimalsWorkSheetData);
+
+    XLSX.utils.book_append_sheet(workbook, salesDataWorkSheet, 'Sales Data');
+    XLSX.utils.book_append_sheet(workbook, topSaleAnimalsWorkSheet, 'Popular Animals');
+    XLSX.utils.book_append_sheet(workbook, mostProfitableAnimalsWorkSheet, 'Most Profitable Animals');
+
+    XLSX.writeFile(workbook, "summary.xlsx")
   }
   catch (error) {
     console.log(error)
@@ -73,8 +212,8 @@ const renderModal = async (element) => {
 
             var row_id_text = document.createTextNode(animal["animal_id"])
             var row_name_text = document.createTextNode(animal["animal_name"])
-            var row_species_text = document.createTextNode(animal["animal_price"])
-            var row_price_text = document.createTextNode(animal["animal_species"])
+            var row_species_text = document.createTextNode(animal["animal_species"])
+            var row_price_text = document.createTextNode(animal["animal_price"])
 
             row_id.appendChild(row_id_text)
             row_name.appendChild(row_name_text)
@@ -212,6 +351,8 @@ const filterForm = (event) => {
   const filter_province = animalFormData.get('invoice_province');
   const filter_city = animalFormData.get('invoice_city');
   const filter_status = animalFormData.get('status');
+
+  console.log(filter_city)
 
   const invoices = document.querySelector("#invoiceList").children;
   for (invoice of invoices) {
