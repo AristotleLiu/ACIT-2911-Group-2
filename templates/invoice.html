@@ -11,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
   <link rel="stylesheet" href="../static/css/stylesheet.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -257,7 +258,7 @@
       <div class="modal-body">
 
         <body>
-          <form id="summaryForm" onsubmit="console.log(this)">
+          <form method="dialog" id="summaryForm" onsubmit="createSummary()">
 
             <label><b>Select The Period</b></label>
             <br>
@@ -272,8 +273,8 @@
             <br>
             <select name="quick_select" id="quick_select" name="quick_select">
               <option value="">--Select--</option>
-              <option value="year">Yearly</option>
-              <option value="month">Monthly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="Monthly">Monthly</option>
             </select>
             <hr>
             <br>
@@ -286,7 +287,7 @@
             <input type="number" id="most_profitable" name="most_profitable" step="1" min="0">
             <br>
 
-            <button type id="submitbutton" type="submit" class="btn btn-success">Submit</button>
+            <button type type="submit" class="btn btn-success">Submit</button>
           </form>
         </body>
       </div>

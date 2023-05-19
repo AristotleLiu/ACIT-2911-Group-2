@@ -68,10 +68,15 @@ function mostProfitableAnimals(invoiceData) {
   return profitAnimalsDict
 }
 
-function sortAnimalDict(animalDict, numAnimals) {
-  const sortedAnimals = Object.keys(animalDict).sort((a, b) => animalDict[b] - animalDict[a]);
-  const finalSortedAnimals = sortedAnimals.slice(0, numAnimals);
-  return finalSortedAnimals;
+function sortDict(dict, num) {
+  const sortedEntries = Object.entries(dict).sort((a, b) => b[1] - a[1]);
+  const sortedList = sortedEntries.map(([key, value]) => ({ key, value }));
+  
+  if (num) {
+    return sortedList.slice(0, num);
+  } else {
+    return sortedList;
+  }
 }
 
 const createSummary = async (event) => {
@@ -81,7 +86,7 @@ const createSummary = async (event) => {
       throw new Error('Failed to fetch invoice data');
     }
     // data is a list of all invoices
-    const data = await response.json
+    const data = await response.json()
 
     // Retrieve form input values from the modal
     const formEl = document.forms.summaryForm;
@@ -92,14 +97,14 @@ const createSummary = async (event) => {
     const topSaleAnimals = formData.get('top_sale_animals');
     const mostProfitable = formData.get('most_profitable');
 
-    // Filter invoice data based on selected date range
+    // Filter invoice data based on selected date range, only invoices between start and end date are selected
     const filterSales = filterSalesByDate(data, startDate, endDate);
-    // Calculate monthly of yearly sales
-    let salesData;
-    if (quickSelect === 'monthly') {
-      salesData = calcMonthlySales(filterSales); 
+    // Calculate monthly or yearly sales
+    var salesData;
+    if (quickSelect === 'Monthly') {
+      salesData = sortDict(calcMonthlySales(filterSales)); 
     } else {
-      salesData = calcAnnualSales(filterSales);
+      salesData = sortDict(calcAnnualSales(filterSales));
     }
     
     // Find popular animals and most profitable animals
@@ -107,9 +112,39 @@ const createSummary = async (event) => {
     const profitableAnimals = mostProfitableAnimals(filterSales);
     
     // Sort animal dictionaries to get top sale animals and most profitable animals
-    const topSaleAnimalsList = sortAnimalDict(popularAnimals, topSaleAnimals);
-    const mostProfitableAnimalsList = sortAnimalDict(profitableAnimals, mostProfitable);
+    const topSaleAnimalsList = sortDict(popularAnimals, topSaleAnimals);
+    const mostProfitableAnimalsList = sortDict(profitableAnimals, mostProfitable);
 
+    const workbook = XLSX.utils.book_new();
+
+    const salesDataWorkSheetData = []
+    for (item of salesData) {
+      if (quickSelect === "Monthly") {
+        salesDataWorkSheetData.push({"Year-Month": item["key"], "Sub Total": item["value"]})
+      } else {
+        salesDataWorkSheetData.push({"Year": item["key"], "Sub Total": item["value"]})
+      }
+    }
+
+    const topSaleAnimalsWorkSheetData = []
+    for (item of topSaleAnimalsList) {
+      topSaleAnimalsWorkSheetData.push({"Animal": item["key"], "Sold": item["value"]})
+    }
+
+    const mostProfitableAnimalsWorkSheetData = []
+    for (item of mostProfitableAnimalsList) {
+      mostProfitableAnimalsWorkSheetData.push({"Animal": item["key"], "Sub Total": item["value"]})
+    }
+
+    const salesDataWorkSheet = XLSX.utils.json_to_sheet(salesDataWorkSheetData);
+    const topSaleAnimalsWorkSheet = XLSX.utils.json_to_sheet(topSaleAnimalsWorkSheetData);
+    const mostProfitableAnimalsWorkSheet = XLSX.utils.json_to_sheet(mostProfitableAnimalsWorkSheetData);
+
+    XLSX.utils.book_append_sheet(workbook, salesDataWorkSheet, 'Sales Data');
+    XLSX.utils.book_append_sheet(workbook, topSaleAnimalsWorkSheet, 'Popular Animals');
+    XLSX.utils.book_append_sheet(workbook, mostProfitableAnimalsWorkSheet, 'Most Profitable Animals');
+
+    XLSX.writeFile(workbook, "summary.xlsx")
   }
   catch (error) {
     console.log(error)
@@ -316,6 +351,8 @@ const filterForm = (event) => {
   const filter_province = animalFormData.get('invoice_province');
   const filter_city = animalFormData.get('invoice_city');
   const filter_status = animalFormData.get('status');
+
+  console.log(filter_city)
 
   const invoices = document.querySelector("#invoiceList").children;
   for (invoice of invoices) {
