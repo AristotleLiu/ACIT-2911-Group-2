@@ -51,7 +51,6 @@ def add_animal():
                 "health", 
                 "color", 
                 "purchase_date", 
-                "sold_date", 
                 "supplier", 
                 "purchase_price", 
                 "diet", 
@@ -77,7 +76,6 @@ def add_animal():
                     health=data["health"],
                     color=data["color"], 
                     purchase_date=string_to_date(data["purchase_date"]),
-                    sold_date=string_to_date(data["sold_date"]),
                     supplier=data["supplier"],
                     purchase_price=data["purchase_price"],
                     diet=data["diet"],
@@ -182,7 +180,6 @@ def update_animal(animal_id):
                 "health", 
                 "color", 
                 "purchase_date", 
-                "sold_date", 
                 "supplier", 
                 "purchase_price", 
                 "diet", 
@@ -202,7 +199,6 @@ def update_animal(animal_id):
     animal.health = data["health"]
     animal.color = data["color"]
     animal.purchase_date = string_to_date(data["purchase_date"])
-    animal.sold_date = string_to_date(data["sold_date"])
     animal.supplier = data["supplier"]
     animal.purchase_price = data["purchase_price"]
     animal.diet = data["diet"]
