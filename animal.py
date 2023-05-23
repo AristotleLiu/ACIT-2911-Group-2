@@ -14,7 +14,7 @@ class Animal(db.Model):
     health = db.Column(db.String, nullable=False)
     color = db.Column(db.String, nullable=False)
     purchase_date = db.Column(db.Date, nullable=False)
-    sold_date = db.Column(db.Date, nullable=True)
+    sold_date = db.Column(db.Date, nullable=True, default=None)
     supplier = db.Column(db.String, nullable=False)
     purchase_price = db.Column(db.Float, nullable=False)
     diet = db.Column(db.String, nullable=False)

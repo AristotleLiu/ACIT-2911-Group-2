@@ -127,10 +127,19 @@ const filterForm = (event) => {
     const filter_health = animalFormData.get('health');
     const filter_color = animalFormData.get('color');
     const filter_supplier = animalFormData.get('supplier');
+    const filter_is_sold = animalFormData.get('is_sold');
 
     const animals = animalList.children;
     for (animal of animals) {
         animal.classList.remove("hidden2");
+    }
+
+    if (filter_is_sold != '') {
+        for (const animal of animals) {
+            if (!(animal.getAttribute("in_invoice").toLowerCase().includes(filter_is_sold.toLowerCase()))) {
+                animal.classList.add("hidden2");
+            }
+        }
     }
 
     if (filter_age != '') {
