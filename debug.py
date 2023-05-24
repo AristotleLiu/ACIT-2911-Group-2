@@ -1,5 +1,5 @@
 from app import app, db
-from animal import *
+from models import *
 
 # Push the application context to make the necessary application resources available
 app.app_context().push()

@@ -1,7 +1,7 @@
 import random
 from dates import string_to_date
 from app import app, db
-from animal import Animal, Invoice, AnimalInvoice
+from models import Animal, Invoice, AnimalInvoice
 
 with app.app_context():
     # Create a list of invoices

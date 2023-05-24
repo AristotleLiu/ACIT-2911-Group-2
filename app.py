@@ -9,7 +9,7 @@
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
-from animal import Animal, Invoice, AnimalInvoice
+from models import Animal, Invoice, AnimalInvoice
 from dates import string_to_date
 import platform
 

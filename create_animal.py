@@ -1,5 +1,5 @@
 from app import app, db
-from animal import Animal
+from models import Animal
 from dates import string_to_date
 
 with app.app_context():

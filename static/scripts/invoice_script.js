@@ -1,3 +1,15 @@
+const filterInvoice = document.querySelector("#searchInv")
+const itemList = document.querySelector("tbody");
+const animalIDs = document.querySelector("#animals_id");
+
+/**
+ * Filters sales data based on a specified date range.
+ *
+ * @param {Array} invoiceData - An array of invoice data.
+ * @param {string} startDate - The start date of the range to filter by.
+ * @param {string} endDate - The end date of the range to filter by.
+ * @returns {Array} - Filtered sales data within the specified date range.
+ */
 function filterSalesByDate(invoiceData, startDate, endDate) {
   const filteredSales = invoiceData.filter(data => {
     const saleDate = new Date(data.date);
@@ -6,6 +18,12 @@ function filterSalesByDate(invoiceData, startDate, endDate) {
   return filteredSales
 }
 
+/**
+ * Calculates monthly sales based on the invoice data.
+ *
+ * @param {Array} invoiceData - An array of invoice data.
+ * @returns {Object} - Monthly sales data, where keys are in the format 'YYYY-MM' and values represent the total sales for each month.
+ */
 function calcMonthlySales(invoiceData) {
   const monthlySales = {};
   invoiceData.forEach(invoice => {
@@ -23,6 +41,12 @@ function calcMonthlySales(invoiceData) {
   return monthlySales;
 }
 
+/**
+ * Calculates annual sales based on the invoice data.
+ *
+ * @param {Array} invoiceData - An array of invoice data.
+ * @returns {Object} - Annual sales data, where keys are years and values represent the total sales for each year.
+ */
 function calcAnnualSales(invoiceData) {
   const annualSales = {};
   invoiceData.forEach(invoice => {
@@ -39,6 +63,12 @@ function calcAnnualSales(invoiceData) {
   return annualSales;
 }
 
+/**
+ * Finds the popular animal species based on the invoice data.
+ *
+ * @param {Array} invoiceData - An array of invoice data.
+ * @returns {Object} - Animal species dictionary, where keys are animal species and values represent the count of occurrences.
+ */
 function findPopularAnimal(invoiceData) {
   animalDict = {}
   for (invoice of invoiceData) {
@@ -54,6 +84,12 @@ function findPopularAnimal(invoiceData) {
   return animalDict
 }
 
+/**
+ * Calculates the total profit for each animal species based on the invoice data.
+ *
+ * @param {Array} invoiceData - An array of invoice data.
+ * @returns {Object} - Animal species dictionary, where keys are animal species and values represent the total profit.
+ */
 function mostProfitableAnimals(invoiceData) {
   profitAnimalsDict = {}
   for (invoice of invoiceData) {
@@ -68,6 +104,13 @@ function mostProfitableAnimals(invoiceData) {
   return profitAnimalsDict
 }
 
+/**
+ * Sorts a dictionary by value in descending order.
+ *
+ * @param {Object} dict - The dictionary to be sorted.
+ * @param {number} num - Optional. The number of top entries to return.
+ * @returns {Array} - Sorted list of dictionary entries as objects, sorted by value in descending order.
+ */
 function sortDict(dict, num) {
   const sortedEntries = Object.entries(dict).sort((a, b) => b[1] - a[1]);
   const sortedList = sortedEntries.map(([key, value]) => ({ key, value }));
@@ -79,6 +122,11 @@ function sortDict(dict, num) {
   }
 }
 
+/**
+ * Creates an excel summary report based on the invoice data and form input values.
+ *
+ * @param {Event} event - The event object triggered by the create summary action.
+ */
 const createSummary = async (event) => {
   try {
     const response = await fetch("/invoice/all")
@@ -151,6 +199,11 @@ const createSummary = async (event) => {
   }
 } 
 
+/**
+ * Renders the modal and populates its content with invoice data.
+ *
+ * @param {HTMLElement} element - The element that triggered the modal rendering.
+ */
 const renderModal = async (element) => {
   try {
       const modalTarget = element.getAttribute("data-target");
@@ -173,7 +226,7 @@ const renderModal = async (element) => {
           document.querySelector(modalTarget + ' #invoice_postal_code').innerHTML = `${invoiceData["postal_code"]}`;
           document.querySelector(modalTarget + ' #invoice_phone').innerHTML = `${invoiceData["phone"]}`;
           document.querySelector(modalTarget + ' #invoice_status').innerHTML = `${invoiceData["status"]}`; 
-          // hehe... this is the color change for now----------------------------------------------------------------------------------------------
+
           var color_change = document.querySelector(modalTarget + ' #invoice_status');
           if(color_change.textContent.toLowerCase()===("paid")){
             document.getElementById("invoice_status").classList.remove("red-text");
@@ -256,36 +309,11 @@ const renderModal = async (element) => {
   }
 }
 
-const filterInvoice = document.querySelector("#searchInv")
-const itemList = document.querySelector("tbody");
-const animalIDs = document.querySelector("#animals_id");
-
-// To add more Fields to the Invoice Creation page
-// ------------------------------------------------------------------leave for now 
-// var animalCount = 1;
-
-// $(document).ready(function () {
-  //   $('.extra_animal_field').click(function() {
-
-  //     var newAnimal = $('.create_invoice_animal').last().clone();
-
-  //     var newClass = 'create_invoice_animal_' + animalCount;
-  //     newAnimal.removeClass().addClass(newClass);
-
-  //     newAnimal.find('input').val('');
-
-  //     newAnimal.find('.extra_animal_field').remove();
-
-  //     var deleteButton = $('<a class="delete_animal_field" href="#">Delete Animal</a>');
-  //     deleteButton.data('target', '.' + newClass);
-  //     newAnimal.append(deleteButton);
-
-  //     $('.add_invoice_animal').append(newAnimal);
-  //     animalCount++;
-  //   });
-  // ----------------------------------------------------------------------------------------------------
-
-
+/**
+ * Checks if the entered animal IDs are valid and available for inclusion in the invoice.
+ *
+ * @param {Event} event - The event object triggered by the animal ID input.
+ */
 const checkAnimalIDs = async (event) => {
   const animalIdArray = animalIDs.value.split(" ");
   const testIDs = [];
@@ -325,7 +353,11 @@ const checkAnimalIDs = async (event) => {
   console.log(testIDs)
 }
 
-
+/**
+ * Filters the invoice list based on the search input value.
+ *
+ * @param {Event} event - The event object triggered by the search input.
+ */
 const filterTableInvoice = (event) => {
   const invoices = itemList.children;
   console.log(invoices)
@@ -344,6 +376,11 @@ const filterTableInvoice = (event) => {
   }
 }
 
+/**
+ * Filters the invoice list based on the form input values.
+ *
+ * @param {Event} event - The event object triggered by the filter form submission.
+ */
 const filterForm = (event) => {
  
   const formEl = document.forms.filterForm;
