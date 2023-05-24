@@ -11,51 +11,79 @@ from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
 from animal import Animal, Invoice, AnimalInvoice
 from dates import string_to_date
-import json
 import platform
 
-if platform.system() != 'Windows':
+if platform.system() != "Windows":
+    """
+    Check platform compatibility for the 'crypt' module. This module allows non-Windows users to
+    run this program.
+
+    Note: This code is specifically written to handle platforms other than Windows, as the 'crypt' module
+    may not be available or supported on all platforms.
+    """
     try:
         import crypt
     except ImportError:
-        raise ImportError("The crypt module is not available or not supported on this platform")
+        raise ImportError(
+            "The crypt module is not available or not supported on this platform"
+        )
 
-
+# Create an instance of the Flask application
 app = Flask(__name__)
+# Configure the SQLAlchemy database URI
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///store.db"
+# Set the instance path to the current directory using Path
 app.instance_path = Path(".").resolve()
+# Initialize the Flask application with the database
 db.init_app(app)
+
 
 @app.route("/")
 def home():
+    """
+    Renders the home page with a list of all animals.
+
+    Returns:
+        str: Rendered HTML template with animal data.
+    """
     data = Animal.query.all()
     return render_template("index.html", animals=[item.to_dict() for item in data])
 
+
 @app.route("/invoice")
 def invoice_home():
+    """
+    Renders the invoice page with a list of all invoices.
+
+    Returns:
+        str: Rendered HTML template with invoice data.
+    """
     data = Invoice.query.all()
     return render_template("invoice.html", invoices=[item.to_dict() for item in data])
+
 
 @app.route("/", methods=["POST"])
 def add_animal():
     data = request.form
-    
+
     # Test to see the animal has all the required properties
-    for key in ["name", 
-                "age", 
-                "gender", 
-                "species", 
-                "price", 
-                "weight", 
-                "height", 
-                "health", 
-                "color", 
-                "purchase_date", 
-                "supplier", 
-                "purchase_price", 
-                "diet", 
-                "notes",
-                "image_url"]:
+    for key in [
+        "name",
+        "age",
+        "gender",
+        "species",
+        "price",
+        "weight",
+        "height",
+        "health",
+        "color",
+        "purchase_date",
+        "supplier",
+        "purchase_price",
+        "diet",
+        "notes",
+        "image_url",
+    ]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
@@ -65,58 +93,63 @@ def add_animal():
     else:
         new_id = 1
 
-    new_animal = Animal(id=new_id, 
-                    name=data["name"],
-                    age=data["age"], 
-                    gender=data["gender"], 
-                    species=data["species"],
-                    price=data["price"], 
-                    weight=data["weight"], 
-                    height=data["height"], 
-                    health=data["health"],
-                    color=data["color"], 
-                    purchase_date=string_to_date(data["purchase_date"]),
-                    supplier=data["supplier"],
-                    purchase_price=data["purchase_price"],
-                    diet=data["diet"],
-                    notes=data["notes"],
-                    image_url=data["image_url"])
-    
+    new_animal = Animal(
+        id=new_id,
+        name=data["name"],
+        age=data["age"],
+        gender=data["gender"],
+        species=data["species"],
+        price=data["price"],
+        weight=data["weight"],
+        height=data["height"],
+        health=data["health"],
+        color=data["color"],
+        purchase_date=string_to_date(data["purchase_date"]),
+        supplier=data["supplier"],
+        purchase_price=data["purchase_price"],
+        diet=data["diet"],
+        notes=data["notes"],
+        image_url=data["image_url"],
+    )
+
     db.session.add(new_animal)
     db.session.commit()
     return redirect("http://127.0.0.1:5000/")
 
+
 @app.route("/invoice", methods=["POST"])
 def add_invoice():
     data = request.form
-    
+
     # Test to see the animal has all the required properties
-    for key in ["status", 
-                "date", 
-                "name", 
-                "city", 
-                "province", 
-                "street",
-                "postal_code", 
-                "phone", 
-                "animals_id"]:
+    for key in [
+        "status",
+        "date",
+        "name",
+        "city",
+        "province",
+        "street",
+        "postal_code",
+        "phone",
+        "animals_id",
+    ]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
     new_invoice = Invoice(
         status=data["status"],
-        date=string_to_date(data["date"]), 
-        name=data["name"], 
+        date=string_to_date(data["date"]),
+        name=data["name"],
         city=data["city"],
-        province=data["province"], 
-        postal_code=data["postal_code"], 
+        province=data["province"],
+        postal_code=data["postal_code"],
         phone=data["phone"],
-        street=data["street"]
-        )
+        street=data["street"],
+    )
     db.session.add(new_invoice)
     db.session.commit()
 
-    for ani_id in (data["animals_id"].split()):
+    for ani_id in data["animals_id"].split():
         animal = db.session.get(Animal, ani_id)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
         animal.is_in_invoice = True
@@ -125,10 +158,12 @@ def add_invoice():
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
-    
+
+
 @app.route("/summary", methods=["post"])
 def sum():
     return redirect("http://127.0.0.1:5000/summary")
+
 
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):
@@ -144,6 +179,7 @@ def get_animal(animal_id):
     animal = db.session.get(Animal, animal_id)
     return jsonify(animal.to_dict())
 
+
 @app.route("/invoice/<int:invoice_id>", methods=["GET"])
 def get_invoice(invoice_id):
     try:
@@ -158,6 +194,7 @@ def get_invoice(invoice_id):
     invoice = db.session.get(Invoice, invoice_id)
     return jsonify(invoice.to_dict())
 
+
 @app.route("/animal/<int:animal_id>", methods=["DELETE"])
 def delete_animal(animal_id):
     animal = db.session.get(Animal, animal_id)
@@ -165,36 +202,39 @@ def delete_animal(animal_id):
     db.session.commit()
     return "Item deleted from the database"
 
+
 @app.route("/animal/<int:animal_id>", methods=["POST"])
 def update_animal(animal_id):
     data = request.form
-    
+
     # Test to see the animal has all the required properties
-    for key in ["name", 
-                "age", 
-                "gender", 
-                "species", 
-                "price", 
-                "weight", 
-                "height", 
-                "health", 
-                "color", 
-                "purchase_date", 
-                "supplier", 
-                "purchase_price", 
-                "diet", 
-                "notes",
-                "image_url"]:
+    for key in [
+        "name",
+        "age",
+        "gender",
+        "species",
+        "price",
+        "weight",
+        "height",
+        "health",
+        "color",
+        "purchase_date",
+        "supplier",
+        "purchase_price",
+        "diet",
+        "notes",
+        "image_url",
+    ]:
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
-        
+
     animal = db.session.get(Animal, animal_id)
     animal.name = data["name"]
     animal.age = data["age"]
-    animal.gender = data["gender"] 
+    animal.gender = data["gender"]
     animal.species = data["species"]
-    animal.price = data["price"] 
-    animal.weight = data["weight"] 
+    animal.price = data["price"]
+    animal.weight = data["weight"]
     animal.height = data["height"]
     animal.health = data["health"]
     animal.color = data["color"]
@@ -208,24 +248,26 @@ def update_animal(animal_id):
     db.session.commit()
     return redirect("http://127.0.0.1:5000/")
 
+
 @app.route("/invoice/<int:invoice_id>", methods=["POST"])
 def update_invoice(invoice_id):
     data = request.form
-    
+
     if "status" not in data:
-            return "The JSON provided is invalid (missing: 'status')", 400
-            
+        return "The JSON provided is invalid (missing: 'status')", 400
+
     invoice = db.session.get(Invoice, invoice_id)
     invoice.status = data["status"]
 
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
 
+
 @app.route("/invoice/all", methods=["GET"])
 def get_all_invoices():
     invoice_data = Invoice.query.all()
     return [item.to_dict() for item in invoice_data]
-            
+
 
 if __name__ == "__main__":
     app.run(debug=True)

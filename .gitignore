@@ -3,3 +3,4 @@ venv
 store.db
 demo.py
 .pytest_cache
+.vscode
