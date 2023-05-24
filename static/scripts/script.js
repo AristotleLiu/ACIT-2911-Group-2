@@ -1,4 +1,14 @@
-const deleteItem = (id) => {
+const filter = document.querySelector("#animalNameSearch");
+const animalList = document.querySelector("tbody");
+
+/**
+ * Deletes an animal from the list based on the provided ID.
+ * If the animal is in an invoice, a warning alert is shown.
+ * Otherwise, a DELETE request is sent to the server to delete the animal,
+ * and the animal is removed from the list. The page is then reloaded after a delay.
+ * @param {number} id - The ID of the animal to be deleted.
+ */
+const deleteAnimal = (id) => {
     const list = document.querySelectorAll("tr")
     const newList = Array.prototype.slice.call(list, 1)
 
@@ -22,6 +32,11 @@ const addItem = (element) => {
     setTimeout(() => location.reload(), 100)
 }
 
+/**
+ * Converts a date to a string representation in ISO format (YYYY-MM-DD).
+ * @param {Date|null} date - The date object to be converted.
+ * @returns {string|null} The string representation of the date in ISO format, or null if the date is null.
+ */
 const dateToString = (date) => {
     console.log(date)
     if (date != null) {
@@ -32,6 +47,11 @@ const dateToString = (date) => {
     }
 }
 
+/**
+ * Renders the modal and populates the form fields with the animal data.
+ * @param {HTMLElement} element - The HTML element triggering the modal rendering.
+ * @returns {Promise} A Promise that resolves when the modal rendering is completed.
+ */
 const renderModal = async (element) => {
     try {
         const modalTarget = element.getAttribute("data-target");
@@ -86,7 +106,7 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #animal-page-img').src = animalData.image_url;
         }
         else if (modalTarget == "#delete_modal") {
-            document.querySelector(modalTarget + ' #delete_button').attributes.onclick.value = `deleteItem(${animalData.id})`
+            document.querySelector(modalTarget + ' #delete_button').attributes.onclick.value = `deleteAnimal(${animalData.id})`
             document.querySelector(modalTarget + ' #del_modal_message').textContent = `Do you really want to delete [animal id: ${animalData.id}] This process cannot be undone`
         }
     } catch (error) {
@@ -94,10 +114,10 @@ const renderModal = async (element) => {
     }
 }
 
-const filter = document.querySelector("#animalNameSearch");
-const animalList = document.querySelector("tbody");
-
-
+/**
+ * Filters the table based on the input value of the search field.
+ * @param {Event} event - The input event triggered by the search field.
+ */
 const filterTable = (event) => {
     animals = animalList.children;
     if (event.target.value != '') {
@@ -115,6 +135,10 @@ const filterTable = (event) => {
     }
 }
 
+/**
+ * Filters the table based on the values of the filter form fields.
+ * @param {Event} event - The submit event triggered by the filter form.
+ */
 const filterForm = (event) => {
  
     const formEl = document.forms.filterForm;

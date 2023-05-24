@@ -9,7 +9,7 @@
 from database import db
 from pathlib import Path
 from flask import Flask, jsonify, render_template, request, redirect
-from animal import Animal, Invoice, AnimalInvoice
+from models import Animal, Invoice, AnimalInvoice
 from dates import string_to_date
 import platform
 
@@ -64,6 +64,12 @@ def invoice_home():
 
 @app.route("/", methods=["POST"])
 def add_animal():
+    """
+    Adds a new animal to the database using data from a submitted form.
+
+    Returns:
+        Redirect: Redirects to the homepage after successfully adding the animal to the database.
+    """
     data = request.form
 
     # Test to see the animal has all the required properties
@@ -87,12 +93,15 @@ def add_animal():
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
+    # Get the highest ID in the Animal table and increment it to generate a new ID for the new animal
+    # If the database is empty, the new ID will be one
     highest_id = db.session.query(db.func.max(Animal.id)).scalar()
     if highest_id:
         new_id = highest_id + 1
     else:
         new_id = 1
 
+    # Create a new Animal object with the provided data
     new_animal = Animal(
         id=new_id,
         name=data["name"],
@@ -112,16 +121,25 @@ def add_animal():
         image_url=data["image_url"],
     )
 
+    # Add the new animal to the session and commit the changes to the database
     db.session.add(new_animal)
     db.session.commit()
+
+    # Redirect to the homepage after successfully adding the animal
     return redirect("http://127.0.0.1:5000/")
 
 
 @app.route("/invoice", methods=["POST"])
 def add_invoice():
+    """
+    Adds a new invoice to the database using data from a submitted form.
+
+    Returns:
+        Redirect: Redirects to the invoice page after successfully adding the invoice to the database.
+    """
     data = request.form
 
-    # Test to see the animal has all the required properties
+    # Test to see the invoice has all the required properties
     for key in [
         "status",
         "date",
@@ -136,6 +154,7 @@ def add_invoice():
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
+    # Create a new Invoice object with the provided data
     new_invoice = Invoice(
         status=data["status"],
         date=string_to_date(data["date"]),
@@ -146,9 +165,12 @@ def add_invoice():
         phone=data["phone"],
         street=data["street"],
     )
+
+    # Add the new animal to the session and commit the changes to the database
     db.session.add(new_invoice)
     db.session.commit()
 
+    # Creates an association between animals in the invoice and the invoice
     for ani_id in data["animals_id"].split():
         animal = db.session.get(Animal, ani_id)
         association = AnimalInvoice(animal=animal, invoice=new_invoice)
@@ -156,17 +178,34 @@ def add_invoice():
         animal.sold_date = new_invoice.date
         db.session.add(association)
 
+    # Redirect to the invoice page after successfully adding the invoice
     db.session.commit()
     return redirect("http://127.0.0.1:5000/invoice")
 
 
 @app.route("/summary", methods=["post"])
 def sum():
+    """
+    Redirects to the summary page.
+
+    Returns:
+        Redirect: Redirects to the summary page.
+    """
     return redirect("http://127.0.0.1:5000/summary")
 
 
 @app.route("/animal/<int:animal_id>", methods=["GET"])
 def get_animal(animal_id):
+    """
+    Retrieves an animal from the database based on the given animal ID.
+
+    Args:
+        animal_id (int): The ID of the animal.
+
+    Returns:
+        JSON: JSON representation of the animal's data.
+        If the animal ID does not exist, returns an error message with a status code of 404.
+    """
     try:
         if not (db.session.get(Animal, animal_id)):
             raise ValueError(f"Animal id {animal_id} does not exist")
@@ -182,6 +221,16 @@ def get_animal(animal_id):
 
 @app.route("/invoice/<int:invoice_id>", methods=["GET"])
 def get_invoice(invoice_id):
+    """
+    Retrieves an invoice from the database based on the given invoice ID.
+
+    Args:
+        invoice_id (int): The ID of the invoice.
+
+    Returns:
+        JSON: JSON representation of the invoice's data.
+        If the invoice ID does not exist, returns an error message with a status code of 404.
+    """
     try:
         if not (db.session.get(Invoice, invoice_id)):
             raise ValueError(f"Invoice id {invoice_id} does not exist")
@@ -197,6 +246,15 @@ def get_invoice(invoice_id):
 
 @app.route("/animal/<int:animal_id>", methods=["DELETE"])
 def delete_animal(animal_id):
+    """
+    Deletes an animal from the database based on the given animal ID.
+
+    Args:
+        animal_id (int): The ID of the animal.
+
+    Returns:
+        str: Success message indicating the item has been deleted from the database.
+    """
     animal = db.session.get(Animal, animal_id)
     db.session.delete(animal)
     db.session.commit()
@@ -205,9 +263,19 @@ def delete_animal(animal_id):
 
 @app.route("/animal/<int:animal_id>", methods=["POST"])
 def update_animal(animal_id):
+    """
+    Updates an animal in the database with the provided data based on the given animal ID.
+
+    Args:
+        animal_id (int): The ID of the animal.
+
+    Returns:
+        Redirect: Redirects to the homepage after successfully updating the animal.
+        If the provided data is invalid, returns an error message with a status code of 400.
+    """
     data = request.form
 
-    # Test to see the animal has all the required properties
+    # Test to see if the animal has all the required properties
     for key in [
         "name",
         "age",
@@ -228,6 +296,7 @@ def update_animal(animal_id):
         if key not in data:
             return f"The JSON provided is invalid (missing: {key})", 400
 
+    # Update the animal object with the provided data
     animal = db.session.get(Animal, animal_id)
     animal.name = data["name"]
     animal.age = data["age"]
@@ -251,12 +320,24 @@ def update_animal(animal_id):
 
 @app.route("/invoice/<int:invoice_id>", methods=["POST"])
 def update_invoice(invoice_id):
+    """
+    Updates an invoice in the database with the provided data based on the given invoice ID.
+
+    Args:
+        invoice_id (int): The ID of the invoice.
+
+    Returns:
+        Redirect: Redirects to the invoice page after successfully updating the invoice.
+        If the provided data is invalid, returns an error message with a status code of 400.
+    """
     data = request.form
 
     if "status" not in data:
         return "The JSON provided is invalid (missing: 'status')", 400
 
     invoice = db.session.get(Invoice, invoice_id)
+
+    # Update the invoice's status with the provided data
     invoice.status = data["status"]
 
     db.session.commit()
@@ -265,6 +346,12 @@ def update_invoice(invoice_id):
 
 @app.route("/invoice/all", methods=["GET"])
 def get_all_invoices():
+    """
+    Retrieves all invoices from the database.
+
+    Returns:
+        list: List of dictionaries representing each invoice's data.
+    """
     invoice_data = Invoice.query.all()
     return [item.to_dict() for item in invoice_data]
 

@@ -1,7 +1,7 @@
 import unittest
 import dates
 from datetime import datetime
-from animal import Animal
+from models import Animal
 from datetime import date
 from app import app, db
 
