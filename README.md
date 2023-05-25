@@ -8,7 +8,7 @@ Group Members:
 - Dev Uppin
 
 In order to run this application:
-1. run ```python .\create_tables.py```
+1. make sure you have sql alchemy installed with `pip install -U Flask-SQLAlchemy`
 2. run ```python .\create_tables.py```
 3. run ```python .\create_animal.py```
 4. run ```python .\create_invoice.py```
