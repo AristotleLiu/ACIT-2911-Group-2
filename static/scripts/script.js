@@ -42,7 +42,7 @@ const dateToString = (date) => {
         return (new Date(date)).toISOString().split('T')[0]
     }
     else {
-        return null
+        return "None"
     }
 }
 
