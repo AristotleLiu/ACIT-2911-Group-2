@@ -28,10 +28,6 @@ const deleteAnimal = (id) => {
     }
 }
 
-const addItem = (element) => {
-    setTimeout(() => location.reload(), 100)
-}
-
 /**
  * Converts a date to a string representation in ISO format (YYYY-MM-DD).
  * @param {Date|null} date - The date object to be converted.
