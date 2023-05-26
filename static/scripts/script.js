@@ -38,8 +38,7 @@ const addItem = (element) => {
  * @returns {string|null} The string representation of the date in ISO format, or null if the date is null.
  */
 const dateToString = (date) => {
-    console.log(date)
-    if (date != null) {
+    if (date != null && date != "None") {
         return (new Date(date)).toISOString().split('T')[0]
     }
     else {
@@ -76,7 +75,6 @@ const renderModal = async (element) => {
             document.querySelector(modalTarget + ' #price').value = animalData.price;
             document.querySelector(modalTarget + ' #purchase_price').value = animalData.purchase_price;
             document.querySelector(modalTarget + ' #purchase_date').value = dateToString(animalData.purchase_date);
-            document.querySelector(modalTarget + ' #sold_date').value = dateToString(animalData.sold_date);
             document.querySelector(modalTarget + ' #weight').value = animalData.weight;
             document.querySelector(modalTarget + ' #height').value = animalData.height;
             document.querySelector(modalTarget + ' #health').value = animalData.health;
